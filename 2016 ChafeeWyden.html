@@ -11247,7 +11247,14 @@ function getRandomItem(arr) {
 
 function openSurrogates() {
     let questions = document.querySelector(".inner_window_question");
-
+	
+	const ansSet = new Set(e.player_answers || []);
+	const has = (id) => ansSet.has(id) || ansSet.has(String(id));
+	const hasAny = (set) => {
+		for (const id of set) if (has(id)) return true;
+		return false;
+	};
+	
     // Check if the menu already exists
     let popOutMenu = document.getElementById('popOutMenu');
     if (!popOutMenu) {
@@ -11255,7 +11262,7 @@ function openSurrogates() {
         popOutMenu.id = 'popOutMenu';
         popOutMenu.style.position = 'absolute'; // Change to absolute for relative positioning
         popOutMenu.style.width = '359px';
-        popOutMenu.style.height = '359px';
+        popOutMenu.style.height = '582px';
 		popOutMenu.style.top = "-200px";
         popOutMenu.style.backgroundColor = '#fff';
         popOutMenu.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
@@ -11272,8 +11279,18 @@ function openSurrogates() {
 		weirdText = `${WeirdMap[String(weird)]}`;
         overviewtxt += `${fpText}` + "<br>";
         overviewtxt += `${ideoText}` + "<br>";
-		overviewtxt += `${weirdText}` + "<br>";
-
+		overviewtxt += `${weirdText}` + "<br><br><b><span style="color:#0C3A69;">Chafee's Plan for Prosperity:</b></span><br><br>";
+		overviewtxt += "1. ";
+		overviewtxt += "<br>2. ";
+		overviewtxt += "<br>3. ";
+		overviewtxt += "<br>4. ";
+		overviewtxt += "<br>5. ";
+		overviewtxt += "<br>6. ";
+		overviewtxt += "<br>7. ";
+		overviewtxt += "<br>8. ";
+		overviewtxt += "<br>9. ";
+		overviewtxt += "<br>10. ";
+		
         const ovsubtxt = document.createElement('p');
         ovsubtxt.innerHTML = overviewtxt;
         ovsubtxt.style.textAlign = 'left';
@@ -11292,7 +11309,7 @@ function openSurrogates() {
         oppText.style.lineHeight = '1.3';
 		oppText.style.fontFamily = 'Montserrat';
 		oppText.style.fontSize = '16px';
-        oppText.style.top = "160px";  
+        oppText.style.top = "313px";  
         oppText.style.left = "53px"; 
         popOutMenu.appendChild(oppText);
 		
@@ -11303,7 +11320,7 @@ function openSurrogates() {
         oppName.style.lineHeight = '1.3';
 		oppName.style.fontFamily = 'Montserrat';
 		oppName.style.fontSize = '14px';
-        oppName.style.top = "203px";  
+        oppName.style.top = "356px";  
         oppName.style.left = "53px"; 
         popOutMenu.appendChild(oppName);
 		
@@ -11311,7 +11328,7 @@ function openSurrogates() {
 		oppPic.style.width = '100px';
         oppPic.style.height = '100px';
 		oppPic.style.position = "absolute";
-        oppPic.style.top = "238px";  
+        oppPic.style.top = "391px";  
         oppPic.style.left = "53px";
 		if(e.noCounter >= 2){
 			oppPic.src = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/election%20stuff/lilTrump.png";
@@ -11325,7 +11342,7 @@ function openSurrogates() {
 			veepPic.style.width = '100px';
 			veepPic.style.height = '100px';
 			veepPic.style.position = "absolute";
-			veepPic.style.top = "238px";  
+			veepPic.style.top = "391px";  
 			veepPic.style.left = "206px";
 			veepPic.src = trumpVeeps[leadRep];		
 			popOutMenu.appendChild(veepPic);
@@ -11337,7 +11354,7 @@ function openSurrogates() {
 			veepText.style.lineHeight = '1.3';
 			veepText.style.fontFamily = 'Montserrat';
 			veepText.style.fontSize = '16px';
-			veepText.style.top = "160px";  
+			veepText.style.top = "313px";  
 			veepText.style.left = "206px"; 
 			popOutMenu.appendChild(veepText);
 			
@@ -11348,7 +11365,7 @@ function openSurrogates() {
 			veepName.style.lineHeight = '1.3';
 			veepName.style.fontFamily = 'Montserrat';
 			veepName.style.fontSize = '14px';
-			veepName.style.top = "203px";  
+			veepName.style.top = "356px";  
 			veepName.style.left = "206px"; 
 			popOutMenu.appendChild(veepName);
 		}
