@@ -11026,7 +11026,7 @@ cyoAdventure = function(a) {
 	ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length-1];
     e.noCounter += 1
 	
-	if(e.noCounter < 2){
+	if(e.noCounter < 8){
 		updateLeadRep()
 		trumped = leadRep;
 	} else {
@@ -11036,7 +11036,7 @@ cyoAdventure = function(a) {
 	
 	if(newAd) {
 		newAd = false;
-		if(e.noCounter < 2) {
+		if(e.noCounter < 10) {
 			campaignTrail_temp.banner1.src = getRandomItem(primaryAds);
 			campaignTrail_temp.banner1.parentNode.style.visibility = "visible";
 			campaignTrail_temp.banner2.src = getRandomItem(primaryAds);
@@ -11267,7 +11267,7 @@ function openSurrogates() {
         popOutMenu.style.backgroundColor = '#fff';
         popOutMenu.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
         popOutMenu.style.zIndex = '1000';
-        popOutMenu.style.backgroundImage = 'url("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/election%20stuff/varTracker.png")';
+        popOutMenu.style.backgroundImage = 'url("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/election%20stuff/varTrackerNew.png")';
         popOutMenu.style.backgroundSize = 'cover';
         popOutMenu.style.backgroundPosition = 'center';
         popOutMenu.style.alignItems = 'center';    
@@ -11279,7 +11279,7 @@ function openSurrogates() {
 		weirdText = `${WeirdMap[String(weird)]}`;
         overviewtxt += `${fpText}` + "<br>";
         overviewtxt += `${ideoText}` + "<br>";
-		overviewtxt += `${weirdText}` + "<br><br><b><span style="color:#0C3A69;">Chafee's Plan for Prosperity:</b></span><br><br>";
+		overviewtxt += `${weirdText}` + "<br><br><b><span style='color:#0C3A69;'>Chafee's Plan for Prosperity:</b></span><br><br>";
 		overviewtxt += "1. ";
 		overviewtxt += "<br>2. ";
 		overviewtxt += "<br>3. ";
@@ -11309,7 +11309,7 @@ function openSurrogates() {
         oppText.style.lineHeight = '1.3';
 		oppText.style.fontFamily = 'Montserrat';
 		oppText.style.fontSize = '16px';
-        oppText.style.top = "313px";  
+        oppText.style.top = "383px";  
         oppText.style.left = "53px"; 
         popOutMenu.appendChild(oppText);
 		
@@ -11320,7 +11320,7 @@ function openSurrogates() {
         oppName.style.lineHeight = '1.3';
 		oppName.style.fontFamily = 'Montserrat';
 		oppName.style.fontSize = '14px';
-        oppName.style.top = "356px";  
+        oppName.style.top = "426px";  
         oppName.style.left = "53px"; 
         popOutMenu.appendChild(oppName);
 		
@@ -11328,21 +11328,21 @@ function openSurrogates() {
 		oppPic.style.width = '100px';
         oppPic.style.height = '100px';
 		oppPic.style.position = "absolute";
-        oppPic.style.top = "391px";  
+        oppPic.style.top = "461px";  
         oppPic.style.left = "53px";
-		if(e.noCounter >= 2){
+		if(e.noCounter >= 8){
 			oppPic.src = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/election%20stuff/lilTrump.png";
 		} else {
 			oppPic.src = opponents[leadRep];
 		}
 		popOutMenu.appendChild(oppPic);
 		
-		if(e.noCounter >= 2){
+		if(e.noCounter >= 10){
 			const veepPic = document.createElement('img');
 			veepPic.style.width = '100px';
 			veepPic.style.height = '100px';
 			veepPic.style.position = "absolute";
-			veepPic.style.top = "391px";  
+			veepPic.style.top = "461px";  
 			veepPic.style.left = "206px";
 			veepPic.src = trumpVeeps[leadRep];		
 			popOutMenu.appendChild(veepPic);
@@ -11354,7 +11354,7 @@ function openSurrogates() {
 			veepText.style.lineHeight = '1.3';
 			veepText.style.fontFamily = 'Montserrat';
 			veepText.style.fontSize = '16px';
-			veepText.style.top = "313px";  
+			veepText.style.top = "383px";  
 			veepText.style.left = "206px"; 
 			popOutMenu.appendChild(veepText);
 			
@@ -11365,7 +11365,7 @@ function openSurrogates() {
 			veepName.style.lineHeight = '1.3';
 			veepName.style.fontFamily = 'Montserrat';
 			veepName.style.fontSize = '14px';
-			veepName.style.top = "356px";  
+			veepName.style.top = "426px";  
 			veepName.style.left = "206px"; 
 			popOutMenu.appendChild(veepName);
 		}
