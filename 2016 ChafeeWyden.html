@@ -11668,6 +11668,50 @@ const candidateWatcherConfig = { attributes: true, childList: true, subtree: tru
 const candidateObserver = new MutationObserver(onGameWindowChangeCandidates);
 candidateObserver.observe(gameWindowNode, candidateWatcherConfig);
 
+function trumpSwitch() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump"
+	e.candidate_json[id].fields.color_hex = "#FF7F50" 
+}
+		
+function veepSwitch1() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Newt"
+    e.candidate_json[id].fields.last_name = "Gingrich"
+	e.candidate_json[id].fields.color_hex = "#E86288"
+}
+function veepSwitch2() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Ben"
+    e.candidate_json[id].fields.last_name = "Carson"
+	e.candidate_json[id].fields.color_hex = "#EC4D13"
+}
+function veepSwitch3() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Chris"
+    e.candidate_json[id].fields.last_name = "Christie"
+	e.candidate_json[id].fields.color_hex = "#AB274F"
+}
+function veepSwitch4() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Tom"
+    e.candidate_json[id].fields.last_name = "Cotton"
+	e.candidate_json[id].fields.color_hex = "#DC343B"
+}
+function veepSwitch5() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Rand"
+    e.candidate_json[id].fields.last_name = "Paul"
+	e.candidate_json[id].fields.color_hex = "#FADA5E"
+}
+function veepSwitch6() {
+	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
+    e.candidate_json[id].fields.first_name = "Marco"
+    e.candidate_json[id].fields.last_name = "Rubio"
+	e.candidate_json[id].fields.color_hex = "#ED2939"
+}
+		
 function libSwitch1() {
     var id = e.candidate_json.map(p=>p.pk).indexOf(300)
     e.candidate_json[id].fields.first_name = "Austin"
