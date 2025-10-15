@@ -12391,7 +12391,10 @@ function libSwitch1() {
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
 	e.candidate_issue_score_json[id].fields.issue_score = 0.2;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
-	e.candidate_issue_score_json[id].fields.issue_score = 0.7;	
+	e.candidate_issue_score_json[id].fields.issue_score = 0.7;
+
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2626);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.12;
 }
 function libSwitch2() {
     var id = e.candidate_json.map(p=>p.pk).indexOf(300)
@@ -12408,7 +12411,12 @@ function libSwitch2() {
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
 	e.candidate_issue_score_json[id].fields.issue_score = 0.7;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
-	e.candidate_issue_score_json[id].fields.issue_score = 0.7;	
+	e.candidate_issue_score_json[id].fields.issue_score = 0.7;
+
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2606);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.1015;
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2632);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.123;
 }
 function libSwitch3() {
     var id = e.candidate_json.map(p=>p.pk).indexOf(300)
@@ -12426,6 +12434,9 @@ function libSwitch3() {
 	e.candidate_issue_score_json[id].fields.issue_score = 0.1;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
 	e.candidate_issue_score_json[id].fields.issue_score = 0.2;
+
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2645);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.65;
 }
 function libSwitch4() {
     var id = e.candidate_json.map(p=>p.pk).indexOf(300)
@@ -12443,6 +12454,11 @@ function libSwitch4() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.7;
+
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2602);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.0875;
+	var id = campaignTrail_temp.candidate_state_multiplier_json.map(p => p.pk).indexOf(2607);
+    campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.1015;
 }
 function libSwitch5() {
     var id = e.candidate_json.map(p=>p.pk).indexOf(300)
