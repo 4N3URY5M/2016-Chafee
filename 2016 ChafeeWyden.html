@@ -11449,6 +11449,7 @@ var trumped = 0;
 var trumpVP = 0;
 var trumpOut = 0;
 var russia = 0;
+var stolen = 0;
 var songChange = 0;
 var newAd = true;
 
@@ -12502,6 +12503,18 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			jail.addSong(jailSong);
 			changePlaylist(jail);
+		} else if (stolen == 1) {
+			songChange = 1
+			const faithless = new Playlist();
+			const faithlessSong = new Song(
+				"Taking What’s Not Yours",
+				"TV Girl",
+				"Who Really Cares",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/who_really_cares.png",
+				"https://audio.jukehost.co.uk/xGtACOpv8KfUZhLWDVUyvUIZVBX6epJX"
+			);
+			faithless.addSong(faithlessSong);
+			changePlaylist(faithless);
 		} else if (quickstats[0] >= 333) {
 			songChange = 1
 			const landslideWin = new Playlist();
@@ -12526,6 +12539,30 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			landslideLoss.addSong(landslideLossSong);
 			changePlaylist(landslideLoss);
+		} else if (quickstate[0] >= 270 && russia == 1) {
+			songChange = 1
+			const russiaWin = new Playlist();
+			const russiaWinSong = new Song(
+				"Sold My Mind to the Kremlin",
+				"They Might Be Giants",
+				"Phone Power",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/phone_power.png",
+				"https://audio.jukehost.co.uk/tfxdeph1fOvMFMiYxX4o26JMJN9Kpmfz"
+			);
+			russiaWin.addSong(russiaWinSong);
+			changePlaylist(russiaWin);
+		}  else if (quickstate[0] >= 270 && weird < 0 && ideology <= -2 && foreignPolicy <= -2) {
+			songChange = 1
+			const joeWin = new Playlist();
+			const joeWinSong = new Song(
+				"Go Joe Song",
+				"Cody S. Harris",
+				"Joe '08 Soundtrack",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/joe%2008.png",
+				"https://audio.jukehost.co.uk/dAs3QIXMoHZAkWy8XnBY65A26UtxQo1M"
+			);
+			joeWin.addSong(joeWinSong);
+			changePlaylist(joeWin);
 		} else if (quickstats[0] == 269) {
 			songChange = 1
 			const deadlock = new Playlist();
