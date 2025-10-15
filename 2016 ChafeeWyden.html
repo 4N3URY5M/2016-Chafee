@@ -5599,7 +5599,7 @@ campaignTrail_temp.candidate_state_multiplier_json = [
         "fields": {
             "candidate": 100,
             "state": 1037,
-            "state_multiplier": 0.974
+            "state_multiplier": 0.964
         }
     },
     {
@@ -11524,6 +11524,81 @@ cyoAdventure = function(a) {
 
 	if(e.noCounter == 10) {
 		trumpSwitch();
+		vpTable["Donald Trump"] = veepNames[leadRep];
+		if(leadRep == 0) {
+			updateHistoricalData(newVpTableHistorical1, newHistHexcolour1, newHistName1, newHistEV1, newHistPV1, newHistPVP1);
+			
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.35;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.25;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+		} else if(leadRep == 1) {
+			updateHistoricalData(newVpTableHistorical2, newHistHexcolour2, newHistName2, newHistEV2, newHistPV2, newHistPVP2);
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.35;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.4;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+		} else if(leadRep == 2) {
+			updateHistoricalData(newVpTableHistorical3, newHistHexcolour3, newHistName3, newHistEV3, newHistPV3, newHistPVP3);
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.35;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.25;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.25;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.3;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+		} else if(leadRep == 3) {
+			updateHistoricalData(newVpTableHistorical4, newHistHexcolour4, newHistName4, newHistEV4, newHistPV4, newHistPVP4);
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.35;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.1;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.7;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+		} else if(leadRep == 4) {
+			updateHistoricalData(newVpTableHistorical5, newHistHexcolour5, newHistName5, newHistEV5, newHistPV5, newHistPVP5);
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.1;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.4;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+		} else if(leadRep == 5) {
+			updateHistoricalData(newVpTableHistorical6, newHistHexcolour6, newHistName6, newHistEV6, newHistPV6, newHistPVP6);
+			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
+	        e.candidate_issue_score_json[id].fields.issue_score = 0.25;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1002)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
+	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+		}
 		if(weird >= 0) {
 			if(ideology <= -2) {
 				greenSwitch1();
@@ -12036,7 +12111,6 @@ vpTable = {
 	"Tom Tancredo" : "Darrell Castle",
 	"Rocky De La Fuente" : "Darcy Richardson",
 	"Brock Pierce" : "Akon",
-	"Donald Trump" : "<i>Various</i>",
 	"<i>Various</i>" : "<i>Various</i>",
 }
 
