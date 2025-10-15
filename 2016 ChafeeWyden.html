@@ -11523,6 +11523,7 @@ cyoAdventure = function(a) {
     e.noCounter += 1
 
 	if(e.noCounter == 10) {
+		trumpSwitch();
 		if(weird >= 0) {
 			if(ideology <= -2) {
 				greenSwitch1();
@@ -11531,6 +11532,30 @@ cyoAdventure = function(a) {
 			} else {
 				greenSwitch2();
 			}
+			if(foreignPolicy <= -2) {
+				libSwitch1();
+			} else if(foreignPolicy >= 2) {
+				libSwitch3();
+			} else {
+				libSwitch2();
+			}
+		} else {
+			if(ideology <= -2) {
+				greenSwitch4();
+			} else if(ideology >= 2) {
+				greenSwitch6();
+			} else {
+				greenSwitch5();
+			}
+			if(foreignPolicy <= -2) {
+				libSwitch4();
+			} else if(foreignPolicy >= 2) {
+				libSwitch6();
+			} else {
+				libSwitch5();
+			}
+		}
+	}
 			
 	if(e.noCounter < 8) {
 		updateLeadRep()
