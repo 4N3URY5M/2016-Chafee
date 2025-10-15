@@ -12731,6 +12731,7 @@ cyoAdventure = function(a) {
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 		} else if(leadRep == 1) {
 			updateHistoricalData(newVpTableHistorical2, newHistHexcolour2, newHistName2, newHistEV2, newHistPV2, newHistPVP2);
+			
 			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -12743,6 +12744,7 @@ cyoAdventure = function(a) {
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 		} else if(leadRep == 2) {
 			updateHistoricalData(newVpTableHistorical3, newHistHexcolour3, newHistName3, newHistEV3, newHistPV3, newHistPVP3);
+			
 			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.35;
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -12755,6 +12757,7 @@ cyoAdventure = function(a) {
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 		} else if(leadRep == 3) {
 			updateHistoricalData(newVpTableHistorical4, newHistHexcolour4, newHistName4, newHistEV4, newHistPV4, newHistPVP4);
+			
 			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -12767,6 +12770,7 @@ cyoAdventure = function(a) {
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 		} else if(leadRep == 4) {
 			updateHistoricalData(newVpTableHistorical5, newHistHexcolour5, newHistName5, newHistEV5, newHistPV5, newHistPVP5);
+			
 			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -12779,6 +12783,7 @@ cyoAdventure = function(a) {
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 		} else if(leadRep == 5) {
 			updateHistoricalData(newVpTableHistorical6, newHistHexcolour6, newHistName6, newHistEV6, newHistPV6, newHistPVP6);
+			
 			var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -14041,7 +14046,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			deadlock.addSong(deadlockSong);
 			changePlaylist(deadlock);
-		} else if (quickstats[0] >= 270 && trumpVP == "Newt Gingrich") {
+		} else if (quickstats[0] >= 270 && leadRep == 0) {
 			songChange = 1
 			const ginrichWin = new Playlist();
 			const ginrichWinSong = new Song(
@@ -14053,7 +14058,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			ginrichWin.addSong(ginrichWinSong);
 			changePlaylist(ginrichWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Newt Gingrich") {
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 0) {
 			songChange = 1
 			const ginrichLoss = new Playlist();
 			const ginrichLossSong = new Song(
@@ -14065,7 +14070,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			ginrichLoss.addSong(ginrichLossSong);
 			changePlaylist(ginrichLoss);
-		} else if (quickstats[0] >= 270 && trumpVP == "Ben Carson") {
+		} else if (quickstats[0] >= 270 && leadRep == 1) {
 			songChange = 1
 			const carsonWin = new Playlist();
 			const carsonWinSong = new Song(
@@ -14075,9 +14080,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/black_ben_carson.png",
 				"https://audio.jukehost.co.uk/VdzZtj9Nq6zLGQe0mPKI6ksf4sMYFgvn"
 			);
-			ginrichWin.addSong(carsonWinSong);
+			carsonWin.addSong(carsonWinSong);
 			changePlaylist(carsonWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Ben Carson") {
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 1) {
 			songChange = 1
 			const carsonLoss = new Playlist();
 			const carsonLossSong = new Song(
@@ -14089,31 +14094,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			carsonLoss.addSong(carsonLossSong);
 			changePlaylist(carsonLoss);
-		} else if (quickstats[0] >= 270 && trumpVP == "Tom Cotton") {
-			songChange = 1
-			const cottonWin = new Playlist();
-			const cottonWinSong = new Song(
-				"father Stretch My Hands Pt. 1",
-				"Kanye West",
-				"The Life Of Pablo",
-				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/the_life_of_pablo.png",
-				"https://audio.jukehost.co.uk/lyLfJ4ykbcXGfiVArBZubEcShUBpKrDi"
-			);
-			cottonWin.addSong(cottonWinSong);
-			changePlaylist(cottonWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Tom Cotton") {
-			songChange = 1
-			const cottonLoss = new Playlist();
-			const cottonLossSong = new Song(
-				"Ultralight Beam",
-				"Kanye West",
-				"The Life Of Pablo",
-				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/the_life_of_pablo.png",
-				"https://audio.jukehost.co.uk/DSJjcxig8fQt0NegjvaHiGIEQ0Ocu3Pf"
-			);
-			cottonLoss.addSong(cottonLossSong);
-			changePlaylist(cottonLoss);
-		} else if (quickstats[0] >= 270 && trumpVP == "Chris Christie") {
+		} else if (quickstats[0] >= 270 && leadRep == 2) {
 			songChange = 1
 			const christieWin = new Playlist();
 			const christieWinSong = new Song(
@@ -14125,7 +14106,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			christieWin.addSong(christieWinSong);
 			changePlaylist(christieWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Chris Christie") {
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 2) {
 			songChange = 1
 			const christieLoss = new Playlist();
 			const christieLossSong = new Song(
@@ -14137,7 +14118,31 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			christieLoss.addSong(christieLossSong);
 			changePlaylist(christieLoss);
-		} else if (quickstats[0] >= 270 && trumpVP == "Rand Paul") {
+		} else if (quickstats[0] >= 270 && leadRep == 3) {
+			songChange = 1
+			const cottonWin = new Playlist();
+			const cottonWinSong = new Song(
+				"Father Stretch My Hands Pt. 1",
+				"Kanye West",
+				"The Life Of Pablo",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/the_life_of_pablo.png",
+				"https://audio.jukehost.co.uk/lyLfJ4ykbcXGfiVArBZubEcShUBpKrDi"
+			);
+			cottonWin.addSong(cottonWinSong);
+			changePlaylist(cottonWin);
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 3) {
+			songChange = 1
+			const cottonLoss = new Playlist();
+			const cottonLossSong = new Song(
+				"Ultralight Beam",
+				"Kanye West",
+				"The Life Of Pablo",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/the_life_of_pablo.png",
+				"https://audio.jukehost.co.uk/DSJjcxig8fQt0NegjvaHiGIEQ0Ocu3Pf"
+			);
+			cottonLoss.addSong(cottonLossSong);
+			changePlaylist(cottonLoss);
+		} else if (quickstats[0] >= 270 && leadRep == 4) {
 			songChange = 1
 			const paulWin = new Playlist();
 			const paulWinSong = new Song(
@@ -14149,7 +14154,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			paulWin.addSong(paulWinSong);
 			changePlaylist(paulWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Rand Paul") {
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 4) {
 			songChange = 1
 			const paulLoss = new Playlist();
 			const paulLossSong = new Song(
@@ -14161,7 +14166,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			paulLoss.addSong(paulLossSong);
 			changePlaylist(paulLoss);
-		} else if (quickstats[0] >= 270 && trumpVP == "Marco Rubio") {
+		} else if (quickstats[0] >= 270 && leadRep == 5) {
 			songChange = 1
 			const rubioWin = new Playlist();
 			const rubioWinSong = new Song(
@@ -14173,7 +14178,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			rubioWin.addSong(rubioWinSong);
 			changePlaylist(rubioWin);
-		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpVP == "Marco Rubio") {
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && leadRep == 5) {
 			songChange = 1
 			const rubioLoss = new Playlist();
 			const rubioLossSong = new Song(
