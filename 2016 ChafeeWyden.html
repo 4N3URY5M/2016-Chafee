@@ -14005,7 +14005,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			landslideLoss.addSong(landslideLossSong);
 			changePlaylist(landslideLoss);
-		} else if (quickstate[0] >= 270 && russia == 1) {
+		} else if (quickstats[0] >= 270 && russia == 1) {
 			songChange = 1
 			const russiaWin = new Playlist();
 			const russiaWinSong = new Song(
@@ -14196,6 +14196,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/trump.png'})])
 	} else {
 		e.pages.push(`<h3>oops</h3>`);
+		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	}
 	
 	return construct(0);
