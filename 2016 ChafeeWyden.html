@@ -4,7 +4,7 @@ campaignTrail_temp.questions_json = [
         "pk": 1042,
         "fields": {
             "priority": 1,
-            "description": "Let's step back a couple years. In the run-up to the 2016 election, you have the luxury of being your party's presumptive nominee, along with a significant amount of time to prepare for the campaign. How will you take advantage of this time?",
+            "description": "After finishing your morning coffee, you turn to the TV. Clinton, Sanders, Biden, all respectable candidates. You like Biden, he was affable to work with to the limited capacity you have, and Sanders is a fellow New-Englander! You’re not wanting to yuck their yum, but today is the day you’ve decided to set out on a little adventure, one to stop a war-mongering Hillary Clinton from forcing you to compromise your values. Today, you are heading down to Arlington to announce you’ve decided to run for President.",
             "likelihood": 1
         }
     },
@@ -12790,7 +12790,7 @@ cyoAdventure = function(a) {
 	        var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	        e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 		}
-		if(weird >= 0) {
+		if(weird <= 0) {
 			if(ideology <= -2) {
 				greenSwitch1();
 			} else if(ideology >= 2) {
@@ -13109,14 +13109,14 @@ function openSurrogates() {
 		oppPic.style.position = "absolute";
         oppPic.style.top = "241px";  
         oppPic.style.left = "53px";
-		if(e.noCounter >= 8 && trumpOut == 0){
+		if(e.noCounter >= 8) {
 			oppPic.src = opponents[trumped];
 		} else {
 			oppPic.src = opponents[leadRep];
 		}
 		popOutMenu.appendChild(oppPic);
 		
-		if(e.noCounter >= 10){
+		if(e.noCounter >= 10) {
 			const veepPic = document.createElement('img');
 			veepPic.style.width = '100px';
 			veepPic.style.height = '100px';
@@ -14017,7 +14017,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			russiaWin.addSong(russiaWinSong);
 			changePlaylist(russiaWin);
-		}  else if (quickstate[0] >= 270 && weird < 0 && ideology <= -2 && foreignPolicy <= -2) {
+		}  else if (quickstats[0] >= 270 && weird > 0 && ideology <= -2 && foreignPolicy <= -2) {
 			songChange = 1
 			const joeWin = new Playlist();
 			const joeWinSong = new Song(
