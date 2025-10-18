@@ -13320,6 +13320,7 @@ vpTable = {
 	"Tom Tancredo" : "Darrell Castle",
 	"Rocky De La Fuente" : "Darcy Richardson",
 	"Brock Pierce" : "Akon",
+	"Donald Trump (write-in)" : "",
 	"<i>Various</i>" : "<i>Various</i>",
 }
 
@@ -13488,6 +13489,11 @@ function veepSwitch1() {
     e.candidate_json[id].fields.last_name = "Gingrich"
 	e.candidate_json[id].fields.color_hex = "#E86288"
 
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
+
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1001)
@@ -13498,12 +13504,28 @@ function veepSwitch1() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.4;	
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 function veepSwitch2() {
 	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
     e.candidate_json[id].fields.first_name = "Ben"
     e.candidate_json[id].fields.last_name = "Carson"
 	e.candidate_json[id].fields.color_hex = "#EC4D13"
+
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
 
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
@@ -13515,12 +13537,28 @@ function veepSwitch2() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 function veepSwitch3() {
 	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
     e.candidate_json[id].fields.first_name = "Chris"
     e.candidate_json[id].fields.last_name = "Christie"
 	e.candidate_json[id].fields.color_hex = "#AB274F"
+
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
 
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.3;
@@ -13532,12 +13570,28 @@ function veepSwitch3() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.3;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.3;	
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 function veepSwitch4() {
 	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
     e.candidate_json[id].fields.first_name = "Tom"
     e.candidate_json[id].fields.last_name = "Cotton"
 	e.candidate_json[id].fields.color_hex = "#DC343B"
+
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
 
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
@@ -13549,12 +13603,28 @@ function veepSwitch4() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.7;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.4;	
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 function veepSwitch5() {
 	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
     e.candidate_json[id].fields.first_name = "Rand"
     e.candidate_json[id].fields.last_name = "Paul"
 	e.candidate_json[id].fields.color_hex = "#FADA5E"
+
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
 
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
@@ -13566,12 +13636,28 @@ function veepSwitch5() {
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.25;	
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 function veepSwitch6() {
 	var id = e.candidate_json.map(p=>p.pk).indexOf(200)
     e.candidate_json[id].fields.first_name = "Marco"
     e.candidate_json[id].fields.last_name = "Rubio"
 	e.candidate_json[id].fields.color_hex = "#ED2939"
+
+	var id = e.candidate_json.map(p=>p.pk).indexOf(300)
+    e.candidate_json[id].fields.first_name = "Donald"
+    e.candidate_json[id].fields.last_name = "Trump (write-in)"
+	e.candidate_json[id].fields.color_hex = "#FF7F50"
 
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1000)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.5;
@@ -13582,7 +13668,18 @@ function veepSwitch6() {
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1003)
 	e.candidate_issue_score_json[id].fields.issue_score = -0.45;
 	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1004)
-	e.candidate_issue_score_json[id].fields.issue_score = -0.35;	
+	e.candidate_issue_score_json[id].fields.issue_score = -0.35;
+
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1010)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1011)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1012)
+	e.candidate_issue_score_json[id].fields.issue_score = 0.4;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1013)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.6;
+	var id = e.candidate_issue_score_json.map(p=>p.pk).indexOf(1014)
+	e.candidate_issue_score_json[id].fields.issue_score = -0.8;
 }
 		
 function libSwitch1() {
@@ -13867,6 +13964,299 @@ function greenSwitch6() {
     campaignTrail_temp.candidate_state_multiplier_json[id].fields.state_multiplier = 0.096;
 }
 
+class ChartEnhancer {
+	constructor() {
+		this.isProcessing = false;
+		this.initializeStyles();
+		this.initializeReplacements();
+		this.init();
+	}
+
+	initializeStyles() {
+		if (document.getElementById('ce-tooltip-styles')) return;
+    
+		const style = document.createElement('style');
+		style.id = 'ce-tooltip-styles';
+    
+		style.textContent = `
+			.ce-tooltip-container {
+        		position: relative;
+        		cursor: help;
+        		display: inline-block;
+        		opacity: 1;
+        		transition-delay: 0.5s;
+        		border-bottom: 1px dotted blue;
+      		}
+	  
+	 		.ce-tooltip {
+				visibility: hidden;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease, visibility 0s 0.3s;
+		
+				position: absolute;
+				top: 50%;
+				right: 100%;
+				transform: translateY(-50%);
+				margin-right: 10px;
+				z-index: 1;
+
+				background-color: #333;
+				color: #fff;
+				font-family: Segoe UI, sans-serif !important;
+				padding: 10px;
+				border-radius: 6px;
+				box-sizing: border-box;
+
+				width: 200px;
+				text-align: center;
+		
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 8px;
+			}
+
+  			.ce-tooltip-container:hover .ce-tooltip {
+        		/* Make visible on hover */
+        		visibility: visible;
+        		opacity: 1;
+
+        		/* Hover-specific styles */
+        		pointer-events: auto;
+        		transition-delay: 0s;
+        		background-color: #201F1A;
+        		background-image: url("https://file.garden/aNtAfG887DiA_7lO/Obamanation/XaihWSv.png");
+        		background-size: cover;
+        		font-family: Segoe UI, sans-serif !important;
+        		font-style: normal !important;
+        		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      		}
+	  
+	  		.ce-tooltip img {
+				display: block;
+				max-width: 85%;
+				height: auto;
+				margin: 0;
+			}
+    	  
+    	`;
+    	document.head.appendChild(style);
+  	}
+
+	createTooltip(text, { img, title, name, desc }) {
+    	const imgHtml = img ? `<img src="${img}" alt="${name || text}">` : '';
+    	const titleHtml = title ? `${title}<br>` : '';
+    	const nameHtml = name ? `<b>${name}</b><br>` : '';
+    	const descHtml = desc ? `${desc}` : '';
+    
+    	return `<span class="ce-tooltip-container">${text}<span class="ce-tooltip">` +
+           	`${imgHtml}` +
+           	`${titleHtml}${nameHtml}${descHtml}` +
+           	`</span></span>`;
+  	}
+
+  	initializeReplacements() {
+		this.replacements = new Map([
+			["Chafee", this.createTooltip("Chafee", {
+				img: "",
+				title: "Former Governor",
+				name: "Lincoln Chafee",
+				desc: "Look, it's you!"
+			})],
+			["Republicans", this.createTooltip("Republicans", {
+				img: "",
+				title: "Opposition",
+				name: "Republican Party",
+				desc: "You didn't leave them, they left you."
+			})],
+			["Dissident Left", this.createTooltip("Dissident Left", {
+				img: "",
+				title: "Speed Bump",
+				name: "Disorganized Leftists",
+				desc: "Yuck."
+			})],
+			["Dissident Right", this.createTooltip("Dissident Right", {
+				img: "",
+				title: "Speed Bump",
+				name: "Disorganized Right-Wingers",
+				desc: "Not even you're desperate enough to associate with them. Right?"
+			})],
+			["Trump (write-in)", this.createTooltip("Trump (write-in)", {
+				img: "",
+				title: "Former Candidate",
+				name: "Donald Trump",
+				desc: "His supporters are so loyal, they'd vote for him even if he isn't on the ballot."
+			})],
+			["Trump", this.createTooltip("Trump", {
+				img: "",
+				title: "Businessman",
+				name: "Donald Trump",
+				desc: "The face of everything you hate about the so-called 'party of Lincoln'."
+			})],
+			["Gingrich", this.createTooltip("Gingrich", {
+				img: "",
+				title: "Former Speaker",
+				name: "Newt Gingrich",
+				desc: "Architect of the 'Republican Revolution'. Dad never liked him."
+			})],
+			["Carson", this.createTooltip("Carson", {
+				img: "",
+				title: "Former Doctor",
+				name: "Ben Carson",
+				desc: "The doctor is in. Bring any apples?"
+			})],
+			["Chafee", this.createTooltip("Christie", {
+				img: "",
+				title: "Governor",
+				name: "Chris Christie",
+				desc: "Had his presidential ambitions killed by a bridge and resurrected by a bus."
+			})],
+			["Cotton", this.createTooltip("Cotton", {
+				img: "",
+				title: "Senator",
+				name: "Tom Cotton",
+				desc: "Jesus freak. Apalled by your religious tolerance."
+			})],
+			["Paul", this.createTooltip("Paul", {
+				img: "",
+				title: "Senator",
+				name: "Rand Paul",
+				desc: "Just like his dad, Rand has no shot at the presidency."
+			})],
+			["Rubio", this.createTooltip("Rubio", {
+				img: "",
+				title: "Senator",
+				name: "Marco Rubio",
+				desc: "Infuriated by your idea of FEWER wars abroad."
+			})],
+			["Turner", this.createTooltip("Turner", {
+				img: "",
+				title: "Former State Senator",
+				name: "Nina Turner",
+				desc: "One of Sanders's lackeys. Too arrogant to support you."
+			})],
+			["Anderson", this.createTooltip("Anderson", {
+				img: "",
+				title: "Former Mayor",
+				name: "Rocky Anderson",
+				desc: "One of the only liberals in the entire state of Utah."
+			})],
+			["Lessig", this.createTooltip("Lessig", {
+				img: "",
+				title: "Professor",
+				name: "Lawrence Lessig",
+				desc: "One of your rivals in the primary. Somehow more forgettable than you."
+			})],
+			["Kucinich", this.createTooltip("Kucinich", {
+				img: "",
+				title: "Former Representative",
+				name: "Dennis Kucinich",
+				desc: "A strange little man. Joe Lieberman is not a fan of him."
+			})],
+			["Cherney", this.createTooltip("Cherney", {
+				img: "",
+				title: "Activist",
+				name: "Darryl Cherney",
+				desc: "Alleged eco-terrorist with a chip on his shoulder."
+			})],
+			["Flame", this.createTooltip("Flame", {
+				img: "",
+				title: "Rapper",
+				name: "Waka Flocka Flame",
+				desc: "Running solely on the promise of legal marijuana. Staffers have told you he 'goes hard in da paint'."
+			})],
+			["Petersen", this.createTooltip("Petersen", {
+				img: "",
+				title: "Writer",
+				name: "Austin Petersen",
+				desc: "A self-described 'minarchist', whatever the hell that means."
+			})],
+			["Gray", this.createTooltip("Gray", {
+				img: "",
+				title: "Former Judge",
+				name: "Jim Gray",
+				desc: "Rose to national prominence as Johnson's running mate four years ago. Probably only running to help you out."
+			})],
+			["McMullin", this.createTooltip("McMullin", {
+				img: "",
+				title: "Former CIA Agent",
+				name: "Evan McMullin",
+				desc: "Polling high with moderate Republicans, much to the Trump campaign's chagrin. You'd be happy if those weren't your voters, too."
+			})],
+			["Tancredo", this.createTooltip("Tancredo", {
+				img: "",
+				title: "Former Representative",
+				name: "Tom Tancredo",
+				desc: "One of the few candidates more racist than Trump. Joe Lieberman has a bone to pick with him."
+			})],
+			["De La Fuente", this.createTooltip("De La Fuente", {
+				img: "",
+				title: "Businessman",
+				name: "Rocky De La Fuente",
+				desc: "Attempting to cash in on Ross Perot's campaign 16 years too late."
+			})],
+			["Pierce", this.createTooltip("Pierce", {
+				img: "",
+				title: "Businessman",
+				name: "Brock Pierce",
+				desc: "A child star who made it big with Bitcoin. Now trying to scam America into voting for him."
+			})]
+		]);
+	}
+
+	processChart() {
+    	if (this.isProcessing) return;
+    
+    	const element = document.getElementById("overall_result");
+    	if (!element) return;
+    
+    	const content = element.innerHTML;
+    
+    	if (content.includes('class="ce-tooltip"')) {
+      		return;
+    	}
+    
+    	this.isProcessing = true;
+    
+    	let newContent = content;
+    	let hasChanges = false;
+    
+    	for (const [searchText, replacement] of this.replacements) {
+      		if (newContent.includes(searchText)) {
+        		newContent = newContent.replace(new RegExp(searchText, 'g'), replacement);
+        		hasChanges = true;
+      		}
+    	}
+    
+    	if (hasChanges) {
+      		element.innerHTML = newContent;
+    	}
+    
+    	setTimeout(() => {
+      		this.isProcessing = false;
+    	}, 100);
+  	}
+
+  	init() {
+    	const checkAndProcess = () => {
+      		this.processChart();
+    	};
+    
+    	this.intervalId = setInterval(() => {
+      		requestAnimationFrame(checkAndProcess);
+    	}, 200);
+  	}
+
+  	destroy() {
+    	if (this.intervalId) {
+      		clearInterval(this.intervalId);
+    	}
+  	}
+}
+
+const chartEnhancer = new ChartEnhancer();
+		
 // constructs endings based on header and pages
 construct = (a = 1) => {
 	e.page = e.page + a < e.pages.length ? e.page + a : 0
