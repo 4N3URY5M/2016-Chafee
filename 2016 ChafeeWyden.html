@@ -12678,7 +12678,7 @@ cyoAdventure = function(a) {
 		ideology += 1;
 	}
 			
-	if(e.noCounter == 10) {
+	if(e.noCounter == 12) {
 		trumpSwitch();
 		vpTable["Donald Trump"] = veepNames[leadRep];
 		if(leadRep == 0) {
@@ -12796,8 +12796,10 @@ cyoAdventure = function(a) {
 	if(e.noCounter < 8) {
 		updateLeadRep()
 		trumped = leadRep;
+	} else if(e.noCounter < 12) { 
+		updateLeadRep()
+		trumped = 6;	
 	} else if(trumpOut == 0) {
-		trumped = 6;
 		trumpVP = veepNames[leadRep];
 	} else {
 		trumped = leadRep + 7;
@@ -12806,7 +12808,7 @@ cyoAdventure = function(a) {
 	
 	if(newAd) {
 		newAd = false;
-		if(e.noCounter < 10) {
+		if(e.noCounter < 12) {
 			campaignTrail_temp.banner1.src = getRandomItem(primaryAds);
 			campaignTrail_temp.banner1.parentNode.style.visibility = "visible";
 			campaignTrail_temp.banner2.src = getRandomItem(primaryAds);
@@ -13134,7 +13136,7 @@ function openSurrogates() {
 		}
 		popOutMenu.appendChild(oppPic);
 		
-		if(e.noCounter >= 10) {
+		if(e.noCounter >= 12) {
 			const veepPic = document.createElement('img');
 			veepPic.style.width = '100px';
 			veepPic.style.height = '100px';
@@ -14058,145 +14060,145 @@ class ChartEnhancer {
   	initializeReplacements() {
 		this.replacements = new Map([
 			["Chafee", this.createTooltip("Chafee", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/chafee.png",
 				title: "Former Governor",
 				name: "Lincoln Chafee",
 				desc: "Look, it's you!"
 			})],
 			["Republicans", this.createTooltip("Republicans", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/rnc.png",
 				title: "Opposition",
 				name: "Republican Party",
 				desc: "You didn't leave them, they left you."
 			})],
 			["Dissident Left", this.createTooltip("Dissident Left", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/greens.png",
 				title: "Speed Bump",
 				name: "Disorganized Leftists",
 				desc: "Yuck."
 			})],
 			["Dissident Right", this.createTooltip("Dissident Right", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/libertarians.png",
 				title: "Speed Bump",
 				name: "Disorganized Right-Wingers",
 				desc: "Not even you're desperate enough to associate with them. Right?"
 			})],
 			["Trump (write-in)", this.createTooltip("Trump (write-in)", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/punishedTrump.png",
 				title: "Former Candidate",
 				name: "Donald Trump",
 				desc: "His supporters are so loyal, they'd vote for him even if he isn't on the ballot."
 			})],
 			["Trump", this.createTooltip("Trump", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/trump.png",
 				title: "Businessman",
 				name: "Donald Trump",
 				desc: "The face of everything you hate about the so-called 'party of Lincoln'."
 			})],
 			["Gingrich", this.createTooltip("Gingrich", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/newt.png",
 				title: "Former Speaker",
 				name: "Newt Gingrich",
 				desc: "Architect of the 'Republican Revolution'. Dad never liked him."
 			})],
 			["Carson", this.createTooltip("Carson", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/carson.png",
 				title: "Former Doctor",
 				name: "Ben Carson",
 				desc: "The doctor is in. Bring any apples?"
 			})],
 			["Christie", this.createTooltip("Christie", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/christie.png",
 				title: "Governor",
 				name: "Chris Christie",
 				desc: "Had his presidential ambitions killed by a bridge and resurrected by a bus."
 			})],
 			["Cotton", this.createTooltip("Cotton", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/cotton.png",
 				title: "Senator",
 				name: "Tom Cotton",
 				desc: "Jesus freak. Appalled by your religious tolerance."
 			})],
 			["Paul", this.createTooltip("Paul", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/rand.png",
 				title: "Senator",
 				name: "Rand Paul",
 				desc: "Just like his dad, Rand has no shot at the presidency."
 			})],
 			["Rubio", this.createTooltip("Rubio", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/rubio.png",
 				title: "Senator",
 				name: "Marco Rubio",
 				desc: "Infuriated by your idea of FEWER wars abroad."
 			})],
 			["Turner", this.createTooltip("Turner", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/turner.png",
 				title: "Former State Senator",
 				name: "Nina Turner",
 				desc: "One of Sanders's lackeys. Too arrogant to support you."
 			})],
 			["Anderson", this.createTooltip("Anderson", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/anderson.png",
 				title: "Former Mayor",
 				name: "Rocky Anderson",
 				desc: "One of the only liberals in the entire state of Utah."
 			})],
 			["Lessig", this.createTooltip("Lessig", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/lessig.png",
 				title: "Professor",
 				name: "Lawrence Lessig",
 				desc: "One of your rivals in the primary. Somehow even more forgettable than you."
 			})],
 			["Kucinich", this.createTooltip("Kucinich", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/kucinich.png",
 				title: "Former Representative",
 				name: "Dennis Kucinich",
 				desc: "A strange little man. Joe Lieberman is not a fan of his."
 			})],
 			["Cherney", this.createTooltip("Cherney", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/cherney.png",
 				title: "Activist",
 				name: "Darryl Cherney",
 				desc: "Alleged eco-terrorist with a chip on his shoulder."
 			})],
 			["Flame", this.createTooltip("Flame", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/flame.png",
 				title: "Rapper",
 				name: "Waka Flocka Flame",
 				desc: "Running solely on the promise of legal marijuana. Staffers have told you he 'goes hard in da paint'."
 			})],
 			["Petersen", this.createTooltip("Petersen", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/petersen.png",
 				title: "Writer",
 				name: "Austin Petersen",
 				desc: "A self-described 'minarchist', whatever the hell that means."
 			})],
 			["Gray", this.createTooltip("Gray", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/gray.png",
 				title: "Former Judge",
 				name: "Jim Gray",
 				desc: "Rose to national prominence as Johnson's running mate four years ago. Probably only running to help you out."
 			})],
 			["McMullin", this.createTooltip("McMullin", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/mcmullin.png",
 				title: "Former CIA Agent",
 				name: "Evan McMullin",
 				desc: "Polling high with moderate Republicans, much to the Trump campaign's chagrin. You'd be happy if those weren't your voters, too."
 			})],
 			["Tancredo", this.createTooltip("Tancredo", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/tancredo.png",
 				title: "Former Representative",
 				name: "Tom Tancredo",
 				desc: "One of the few candidates more racist than Trump. Joe Lieberman has a bone to pick with him."
 			})],
 			["De La Fuente", this.createTooltip("De La Fuente", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/de%20la%20fuente.png",
 				title: "Businessman",
 				name: "Rocky De La Fuente",
 				desc: "Attempting to cash in on Ross Perot's campaign 16 years too late."
 			})],
 			["Pierce", this.createTooltip("Pierce", {
-				img: "",
+				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/pierce.png",
 				title: "Businessman",
 				name: "Brock Pierce",
 				desc: "A child star who made it big with Bitcoin. Now trying to scam America into voting for him."
@@ -14424,7 +14426,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			russiaWin.addSong(russiaWinSong);
 			changePlaylist(russiaWin);
-		}  else if (quickstats[0] >= 270 && weird > 0 && ideology <= -2 && foreignPolicy <= -2) {
+		}  else if (quickstats[0] >= 270 && weird > 0 && ideology <= -2 && foreignPolicy <= -2 && trumpOut == 0) {
 			songChange = 1
 			const joeWin = new Playlist();
 			const joeWinSong = new Song(
