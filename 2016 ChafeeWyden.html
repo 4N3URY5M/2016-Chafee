@@ -12548,6 +12548,7 @@ campaignTrail_temp.jet_data = [{}
 
 e = campaignTrail_temp
 campaignTrail_temp.cyoa = true
+let polling = e.current_results;
 
 var foreign = 0;
 var ideology = 0;
@@ -12630,6 +12631,9 @@ function updateLeadRep(){
 
 cyoAdventure = function(a) {
 	ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length-1];
+	let pop_vote = e.current_results[0];
+	let playerPolling = (pop_vote.find(p => p.pk === 100)).pvp;
+	let trumpPolling = (pop_vote.find(p => p.pk === 200)).pvp;
     e.noCounter += 1
 
 	//q2
@@ -12720,7 +12724,8 @@ cyoAdventure = function(a) {
 	} else if(ans == 20912) {
 		foreign == 1;
 	}
-			
+
+	//q12
 	if(e.noCounter == 12) {
 		trumpSwitch();
 		vpTable["Donald Trump"] = veepNames[leadRep];
@@ -12834,6 +12839,61 @@ cyoAdventure = function(a) {
 				libSwitch5();
 			}
 		}
+	}
+
+	//q19
+	if(e.noCounter == 19 && weird < 0) {
+		campaignTrail_temp.questions_json[19] = tunnel(1069);
+	} else {
+		campaignTrail_temp.questions_json[19] = tunnel(20924);
+	}
+
+	//q22
+	if(e.noCounter == 22 && leadRep == 0) {
+		campaignTrail_temp.questions_json[22] = tunnel(20942);
+	} else if(e.noCounter == 22 && leadRep == 1) {
+		campaignTrail_temp.questions_json[22] = tunnel(20984);
+	} else if(e.noCounter == 22 && leadRep == 2) {
+		campaignTrail_temp.questions_json[22] = tunnel(20991);
+	} else if(e.noCounter == 22 && leadRep == 3) {
+		campaignTrail_temp.questions_json[22] = tunnel(20998);
+	} else if(e.noCounter == 22 && leadRep == 4) {
+		campaignTrail_temp.questions_json[22] = tunnel(21005);
+	} else if(e.noCounter == 22 && leadRep == 5) {
+		campaignTrail_temp.questions_json[22] = tunnel(21012);
+	}
+
+	//q26
+	if(e.noCounter == 26 && playerPolling < (trumpPolling + 0.05)) {
+		campaignTrail_temp.questions_json[26] = tunnel(1078);
+	} else if(e.noCounter == 26) {
+		campaignTrail_temp.questions_json[26] = tunnel(21030);
+	}
+	if(ans == 21043) {
+		trumpOut = 1;
+		if(leadRep == 0) {
+			veepSwitch1();
+			campaignTrail_temp.questions_json[27] = tunnel(21112);
+		} else if(leadRep == 1) {
+			veepSwitch2();
+			campaignTrail_temp.questions_json[27] = tunnel(21093);
+		} else if(leadRep == 2) {
+			veepSwitch3();
+			campaignTrail_temp.questions_json[27] = tunnel(21129);
+		} else if(leadRep == 3) {
+			veepSwitch4();
+			campaignTrail_temp.questions_json[27] = tunnel(21146);
+		} else if(leadRep == 4) {
+			veepSwitch5();
+			campaignTrail_temp.questions_json[27] = tunnel(21163);
+		} else if(leadRep == 5) {
+			veepSwitch6();
+			campaignTrail_temp.questions_json[27] = tunnel(21190);
+		}
+	} else if(ans == 20732 || ans == 20750 || ans == 21031)
+		campaignTrail_temp.questions_json[27] = tunnel(1079);
+	} else if(ans == 20737 || ans == 20742 || ans == 21036 || ans == 21040) {
+		campaignTrail_temp.questions_json[26] = tunnel(21075);
 	}
 			
 	if(e.noCounter < 8) {
