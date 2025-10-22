@@ -14199,9 +14199,9 @@ cyoAdventure = function(a) {
 	}
 	if(e.noCounter == 3 && debate == 0) {
 		if(weird > 1) {
-			campaignTrail_temp.questions_json[3] = tunnel(1045);
-		} else {
 			campaignTrail_temp.questions_json[3] = tunnel(20864);
+		} else {
+			campaignTrail_temp.questions_json[3] = tunnel(1045);
 		}
 	} else if(e.noCounter == 3 && debate == 1) {
 		if(weird > 1) {
@@ -14268,7 +14268,7 @@ cyoAdventure = function(a) {
 	} else if(ans == 20908) {
 		foreign -= 1;
 	} else if(ans == 20912) {
-		foreign == 1;
+		foreign += 1;
 	}
 
 	//q12
@@ -14417,6 +14417,7 @@ cyoAdventure = function(a) {
 	}
 	if(ans == 21043) {
 		trumpOut = 1;
+		vpTable["Donald Trump"] = "N/A";
 		if(leadRep == 0) {
 			veepSwitch1();
 		} else if(leadRep == 1) {
@@ -14443,7 +14444,7 @@ cyoAdventure = function(a) {
 		} else if(leadRep == 4) {
 			campaignTrail_temp.questions_json[26] = tunnel(21163);
 		} else if(leadRep == 5) {
-			campaignTrail_temp.questions_json[26] = tunnel(21190);
+			campaignTrail_temp.questions_json[26] = tunnel(21180);
 		}
 	} else if(e.noCounter == 26 && (ans == 20732 || ans == 20750 || ans == 21031)) {
 		campaignTrail_temp.questions_json[26] = tunnel(1079);
@@ -14766,7 +14767,7 @@ function openSurrogates() {
         oppText.style.lineHeight = '1.3';
 		oppText.style.fontFamily = 'Montserrat';
 		oppText.style.fontSize = '16px';
-        oppText.style.top = "163px";  
+        oppText.style.top = "173px";  
         oppText.style.left = "53px"; 
         popOutMenu.appendChild(oppText);
 		
@@ -14777,7 +14778,7 @@ function openSurrogates() {
         oppName.style.lineHeight = '1.3';
 		oppName.style.fontFamily = 'Montserrat';
 		oppName.style.fontSize = '14px';
-        oppName.style.top = "206px";  
+        oppName.style.top = "216px";  
         oppName.style.left = "53px"; 
         popOutMenu.appendChild(oppName);
 		
@@ -14785,7 +14786,7 @@ function openSurrogates() {
 		oppPic.style.width = '100px';
         oppPic.style.height = '100px';
 		oppPic.style.position = "absolute";
-        oppPic.style.top = "241px";  
+        oppPic.style.top = "251px";  
         oppPic.style.left = "53px";
 		if(e.noCounter >= 8) {
 			oppPic.src = opponents[trumped];
@@ -14799,7 +14800,7 @@ function openSurrogates() {
 			veepPic.style.width = '100px';
 			veepPic.style.height = '100px';
 			veepPic.style.position = "absolute";
-			veepPic.style.top = "241px";  
+			veepPic.style.top = "251px";  
 			veepPic.style.left = "206px";
 			if(trumpOut == 0) {
 				veepPic.src = trumpVeeps[leadRep];
@@ -14815,7 +14816,7 @@ function openSurrogates() {
 			veepText.style.lineHeight = '1.3';
 			veepText.style.fontFamily = 'Montserrat';
 			veepText.style.fontSize = '16px';
-			veepText.style.top = "163px";  
+			veepText.style.top = "173px";  
 			veepText.style.left = "206px"; 
 			popOutMenu.appendChild(veepText);
 			
@@ -14826,7 +14827,7 @@ function openSurrogates() {
 			veepName.style.lineHeight = '1.3';
 			veepName.style.fontFamily = 'Montserrat';
 			veepName.style.fontSize = '14px';
-			veepName.style.top = "206px";  
+			veepName.style.top = "216px";  
 			veepName.style.left = "206px"; 
 			popOutMenu.appendChild(veepName);
 		}
@@ -15740,12 +15741,6 @@ class ChartEnhancer {
 				title: "Speed Bump",
 				name: "Disorganized Right-Wingers",
 				desc: "Not even you're desperate enough to associate with them. Right?"
-			})],
-			["Trump (write-in)", this.createTooltip("Trump (write-in)", {
-				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/punishedTrump.png",
-				title: "Former Candidate",
-				name: "Donald Trump",
-				desc: "His supporters are so loyal, they'd vote for him even if he isn't on the ballot."
 			})],
 			["Trump", this.createTooltip("Trump", {
 				img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/tooltips/trump.png",
