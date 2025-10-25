@@ -15381,9 +15381,9 @@ cyoAdventure = function(a) {
 	}
 	if(e.noCounter == 3 && debate == 0) {
 		if(weird > 1) {
-			campaignTrail_temp.questions_json[3] = tunnel(20864);
-		} else {
 			campaignTrail_temp.questions_json[3] = tunnel(1045);
+		} else {
+			campaignTrail_temp.questions_json[3] = tunnel(20864);
 		}
 	} else if(e.noCounter == 3 && debate == 1) {
 		if(weird > 1) {
@@ -15456,22 +15456,24 @@ cyoAdventure = function(a) {
 		weird -= 1;
 		campaignTrail_temp.election_json[0].fields.advisor_url = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/election%20stuff/advisorsPostBiden.png"
 	}
-	if(e.nocounter == 9 && foreign >= 0 && ideology <= 0 && weird <= 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(1065);
-	} else if(e.nocounter == 9 && foreign < 0 && ideology <= 0 && weird <= 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21220);
-	} else if(e.nocounter == 9 && foreign < 0 && ideology > 0 && weird <= 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21237);
-	} else if(e.nocounter == 9 && foreign < 0 && ideology <= 0 && weird > 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21254);
-	} else if(e.nocounter == 9 && foreign < 0 && ideology > 0 && weird > 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21271);
-	} else if(e.nocounter == 9 && foreign >= 0 && ideology > 0 && weird <= 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21288);
-	} else if(e.nocounter == 9 && foreign >= 0 && ideology > 0 && weird > 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21305);
-	} else if(e.nocounter == 9 && foreign >= 0 && ideology <= 0 && weird > 0) {
-		campaignTrail_temp.questions_json[9] = tunnel(21322);
+	if(e.noCounter == 9) {
+		if(foreign >= 0 && ideology <= 0 && weird <= 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(1065);
+		} else if(foreign < 0 && ideology <= 0 && weird <= 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21220);
+		} else if(foreign < 0 && ideology > 0 && weird <= 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21237);
+		} else if(foreign < 0 && ideology <= 0 && weird > 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21254);
+		} else if(foreign < 0 && ideology > 0 && weird > 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21271);
+		} else if(foreign >= 0 && ideology > 0 && weird <= 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21288);
+		} else if(foreign >= 0 && ideology > 0 && weird > 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21305);
+		} else if(foreign >= 0 && ideology <= 0 && weird > 0) {
+			campaignTrail_temp.questions_json[9] = tunnel(21322);
+		}
 	}
 
 	//q10
