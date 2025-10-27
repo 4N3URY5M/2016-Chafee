@@ -511,6 +511,15 @@ campaignTrail_temp.questions_json = [
             "description": "Despite your platform’s calls for “Prosperity Through Peace”, you have taken a more hawkish turn as of late, which contradicts a good bit of your platform. How will you explain these discrepancies?",
             "likelihood": 1
         }
+    },
+    {
+        "model": "campaign_trail.question",
+        "pk": 21403,
+        "fields": {
+            "priority": -1,
+            "description": "Hey, Lincoln, something weird’s going on. This past week, social media posts mentioning you have skyrocketed, Trump has stopped attacking you altogether, and- Oh, hey there’s someone at the door. Sounds foreign. Says he wants to talk with you.",
+            "likelihood": 1
+        }
     }
 ]
 
@@ -2057,6 +2066,22 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": 21379,
             "description": "Oh… I dunno if I wanna be seen as too much of a hawk, or anything. I oughta change my image on foreign issues a little bit, since I’m still a pacifist at heart."
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 21404,
+        "fields": {
+            "question": 21403,
+            "description": "You, uh, you’re right, something’s fishy about all this. Politely turn him away, won’t you?"
+        }
+    },
+    {
+        "model": "campaign_trail.answer",
+        "pk": 21405,
+        "fields": {
+            "question": 21403,
+            "description": "…Let him in."
         }
     }
 ]
@@ -10263,6 +10288,66 @@ campaignTrail_temp.answer_score_global_json = [
             "affected_candidate": 400,
             "global_multiplier": -0.01
         }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21407,
+        "fields": {
+            "answer": 21404,
+            "candidate": 100,
+            "affected_candidate": 200,
+            "global_multiplier": 0.05
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21408,
+        "fields": {
+            "answer": 21404,
+            "candidate": 100,
+            "affected_candidate": 300,
+            "global_multiplier": 0.2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21409,
+        "fields": {
+            "answer": 21404,
+            "candidate": 100,
+            "affected_candidate": 400,
+            "global_multiplier": 0.2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21411,
+        "fields": {
+            "answer": 21405,
+            "candidate": 100,
+            "affected_candidate": 100,
+            "global_multiplier": 0.05
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21412,
+        "fields": {
+            "answer": 21405,
+            "candidate": 100,
+            "affected_candidate": 300,
+            "global_multiplier": 0.2
+        }
+    },
+    {
+        "model": "campaign_trail.answer_score_global",
+        "pk": 21413,
+        "fields": {
+            "answer": 21405,
+            "candidate": 100,
+            "affected_candidate": 400,
+            "global_multiplier": 0.2
+        }
     }
 ]
 
@@ -15676,6 +15761,24 @@ campaignTrail_temp.answer_feedback_json = [
             "candidate": 100,
             "answer_feedback": "This comes off as a massive flip-flop, despite your previously held pacifist positions. Like it or not, you’ve become the more hawkish candidate in this race, and you better start acting like it."
         }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 21406,
+        "fields": {
+            "answer": 21404,
+            "candidate": 100,
+            "answer_feedback": "Soon after, Trump goes back on the attack, and the internet is flooded with pro-Trump messaging. Weird. Hopefully this doesn’t hurt us too much."
+        }
+    },
+    {
+        "model": "campaign_trail.answer_feedback",
+        "pk": 21410,
+        "fields": {
+            "answer": 21405,
+            "candidate": 100,
+            "answer_feedback": "“Privyet, Mr. Chafee. You have proven yourself quite… useful to our cause. Though you were not our intended agent, you seem to be a much more willing participant than Mr. Trump. Your participation will be vital in securing our interests. It will be good working with you in the coming four years.”"
+        }
     }
 ]
 
@@ -15697,6 +15800,7 @@ var trumped = 0;
 var trumpVP = 0;
 var trumpOut = 0;
 var russia = 0;
+var spectre = 0;
 var outrage = 0;
 var green = 0;
 var libertarian = 0;
@@ -16123,7 +16227,15 @@ cyoAdventure = function(a) {
 	if(ans == 21069 || ans == 21088) {
 		outrage += 1;
 	}
-			
+
+	//q30
+	if(e.noCounter == 29 && russia == 1) {
+		campaignTrail_temp.questions_json[29] = tunnel(21403);
+	}
+	if(ans == 21410) {
+		spectre += 1;
+	}
+		
 	if(e.noCounter < 8) {
 		updateLeadRep()
 		trumped = leadRep;
@@ -16144,7 +16256,7 @@ cyoAdventure = function(a) {
 			campaignTrail_temp.banner1.parentNode.style.visibility = "visible";
 			campaignTrail_temp.banner2.src = getRandomItem(primaryAds);
 			campaignTrail_temp.banner2.parentNode.style.visibility = "visible";
-		} else if(russia == 0) {
+		} else if(russia < 1) {
 			campaignTrail_temp.banner1.src = getRandomItem(generalAds);
 			campaignTrail_temp.banner1.parentNode.style.visibility = "visible";
 			campaignTrail_temp.banner2.src = getRandomItem(generalAds);
@@ -17739,10 +17851,22 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			landslideLoss.addSong(landslideLossSong);
 			changePlaylist(landslideLoss);
-		} else if (quickstats[0] >= 270 && russia == 1) {
+		} else if (quickstats[0] >= 270 && spectre == 1) {
 			songChange = 1
 			const russiaWin = new Playlist();
 			const russiaWinSong = new Song(
+				"Spectre",
+				"Radiohead",
+				"Spectre",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/spectre.png",
+				"https://audio.jukehost.co.uk/5oimOycMOoRfFiEor8riraIByvLshG05"
+			);
+			russiaWin.addSong(russiaWinSong);
+			changePlaylist(russiaWin);
+		} else if (quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && russia == 2 && spectre == 0 && trumpOut == 0) {
+			songChange = 1
+			const russiaSabotage = new Playlist();
+			const russiaSabotageSong = new Song(
 				"Sold My Mind to the Kremlin",
 				"They Might Be Giants",
 				"Phone Power",
@@ -17751,7 +17875,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			russiaWin.addSong(russiaWinSong);
 			changePlaylist(russiaWin);
-		}  else if (quickstats[0] >= 270 && green == 4 && libertarian == 4 && trumpOut == 0) {
+		} else if (quickstats[0] >= 270 && green == 4 && libertarian == 4 && trumpOut == 0) {
 			songChange = 1
 			const joeWin = new Playlist();
 			const joeWinSong = new Song(
@@ -17763,7 +17887,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			joeWin.addSong(joeWinSong);
 			changePlaylist(joeWin);
-		} else if (quickstats[0] == 269) {
+		} else if (aa[0].electoral_votes < 270) {
 			songChange = 1
 			const deadlock = new Playlist();
 			const deadlockSong = new Song(
