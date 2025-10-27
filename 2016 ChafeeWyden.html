@@ -16031,12 +16031,20 @@ cyoAdventure = function(a) {
 	} else if(e.noCounter == 16 && weird > 0) {
 		campaignTrail_temp.questions_json[16] = tunnel(21353);
 	}
+	if(ans == 5214 || ans == 21360) {
+		outrage += 1;
+	}
 
 	//q18
 	if(e.noCounter == 17 && foreign >= 0) {
 		campaignTrail_temp.questions_json[17] = tunnel(1066);
 	} else if(e.noCounter == 17 && foreign < 0) {
 		campaignTrail_temp.questions_json[17] = tunnel(21379);
+	}
+	if(ans == 5226 || ans == 21392) {
+		outrage += 1;
+	} else if(ans == 21369) {
+		russia += 1;
 	}
 				
 	//q19
@@ -16088,6 +16096,8 @@ cyoAdventure = function(a) {
 		} else if(leadRep == 5) {
 			veepSwitch6();
 		}
+	} else if(ans == 20737 || ans == 21036) {
+		outrage += 1;
 	}
 	if(e.noCounter == 26 && ans == 21043) {
 		if(leadRep == 0) {
@@ -16107,6 +16117,11 @@ cyoAdventure = function(a) {
 		campaignTrail_temp.questions_json[26] = tunnel(1079);
 	} else if(e.noCounter == 26 && (ans == 20737 || ans == 20742 || ans == 21036 || ans == 21040)) {
 		campaignTrail_temp.questions_json[26] = tunnel(21075);
+	}
+
+	//q27
+	if(ans == 21069 || ans == 21088) {
+		outrage += 1;
 	}
 			
 	if(e.noCounter < 8) {
