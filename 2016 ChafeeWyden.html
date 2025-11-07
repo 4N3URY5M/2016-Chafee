@@ -15614,6 +15614,15 @@ cyoAdventure = function(a) {
 	} else if(ans == 21263 || ans == 21280 || ans == 21314 || ans == 21331) {
 		weird += 1;
 	}
+	if(e.noCounter == 10 && weird <= 0 && foreign < 0) {
+		campaignTrail_temp.questions_json[10] = tunnel(1069);
+	} else if(e.noCounter == 10 && weird > 0 && foreign < 0) {
+		campaignTrail_temp.questions_json[10] = tunnel(21479);
+	} else if(e.noCounter == 10 && weird <= 0 && foreign >= 0) {
+		campaignTrail_temp.questions_json[10] = tunnel(21487);
+	} else if(e.noCounter == 10 && weird > 0 && foreign >= 0) {
+		campaignTrail_temp.questions_json[10] = tunnel(21495);
+	}
 
 	//q11
 	if(ans == 5196 || ans == 21480 || ans == 21488 || ans == 21496) {
