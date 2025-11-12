@@ -20412,6 +20412,7 @@ var russia = 0;
 var outrage = 0;
 var revolt = 0;
 var vpFlop = 0;
+var faithless = 0;
 var green = 0;
 var libertarian = 0;
 var songChange = 0;
@@ -20830,10 +20831,10 @@ cyoAdventure = function(a) {
 	}
 
 	//q25
-	if(e.noCounter == 26 && weird > 0) {
-		campaignTrail_temp.questions_json[26] = tunnel(1076);
-	} else if(e.noCounter == 26) {
-		campaignTrail_temp.questions_json[26] = tunnel(21529);
+	if(e.noCounter == 24 && weird > 0) {
+		campaignTrail_temp.questions_json[24] = tunnel(1076);
+	} else if(e.noCounter == 24) {
+		campaignTrail_temp.questions_json[24] = tunnel(21529);
 	}
 		
 	//q26
@@ -20866,6 +20867,8 @@ cyoAdventure = function(a) {
 	} else if(ans == 20737 || ans == 21036) {
 		outrage += 1;
 	}
+
+	//q27
 	if(e.noCounter == 26 && ans == 21043) {
 		if(leadRep == 0) {
 			campaignTrail_temp.questions_json[26] = tunnel(21112);
@@ -20885,8 +20888,6 @@ cyoAdventure = function(a) {
 	} else if(e.noCounter == 26 && (ans == 20737 || ans == 20742 || ans == 21036 || ans == 21040)) {
 		campaignTrail_temp.questions_json[26] = tunnel(21075);
 	}
-
-	//q27
 	if(ans == 21069 || ans == 21088) {
 		outrage += 1;
 	} else if(ans == 21106 || ans == 21124 || ans == 21141 || ans == 21158 || ans == 21175 || ans == 21192) {
@@ -20983,9 +20984,11 @@ cyoAdventure = function(a) {
 		}
 	}
 	if(ans == 22092) {
+		faithless += 1;
+				
 		var id = e.candidate_json.map(p=>p.pk).indexOf(300)
 	    e.candidate_json[id].fields.first_name = ""
-	    e.candidate_json[id].fields.last_name = "<i>Various</i>"
+	    e.candidate_json[id].fields.last_name = "Various"
 		e.candidate_json[id].fields.color_hex = "#0081A7"
 	}
 		
@@ -21531,7 +21534,7 @@ vpTable = {
 	"Rocky De La Fuente" : "Darcy Richardson",
 	"Brock Pierce" : "Akon",
 	"Donald Trump (write in)" : " ",
-	"<i>Various</i>" : "<i>Various</i>",
+	"Various" : "Various",
 
 	"The Republicans" : "Sphere of Rage",
 	"The Dissident Left" : "Peace and Love",
@@ -22591,7 +22594,7 @@ function ctsAchievement(achievement, difficultyChecker = true){
 endingPicker = (out, totv, aa, quickstats) => {    
     if (!e.initDC) {
 	    e.initDC = true
-	    if (outrage == 4) {
+	    if (faithless == 1) {
 	    	changeState(1003, 300, 1)
 			changeState(1008, 300, 6)
 			changeState(1009, 300, 3)
@@ -22653,7 +22656,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			);
 			jail.addSong(jailSong);
 			changePlaylist(jail);
-		} else if (outrage == 4) {
+		} else if (faithless == 1) {
 			songChange = 1
 			const faithless = new Playlist();
 			const faithlessSong = new Song(
