@@ -23250,7 +23250,198 @@ endingPicker = (out, totv, aa, quickstats) => {
 			changePlaylist(rubioLoss);
 		}
 	}
+
+	if (!document.getElementById("ending-slide-style")) {
+        const style = document.createElement("style");
+        style.id = "ending-slide-style";
+        style.innerHTML = `
+			.ending-slide {
+                background-color: #e6ecf5;
+                padding: 24px;
+                border: 4px double #122f5f;
+                font-family: 'Georgia', serif;
+                color: #0e1a33;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                margin: 1rem auto;
+                max-width: 610px;
+                line-height: 1.6;
+            }
+
+            .ending-slide h3 {
+                text-align: center;
+                font-size: 24px;
+                text-decoration: underline;
+                color: #122f5f;
+                margin-bottom: 1rem;
+            }
+
+            .ending-slide p {
+                margin-top: 1rem;
+            }
+
+            .ending-slide em {
+                font-style: italic;
+                color: #1a2d4a;
+            }
+
+            .ending-slide strong {
+                text-transform: uppercase;
+            }
+
+			.ending-slide.wikipedia-style {
+                font-family: 'Linux Libertine', 'Georgia', serif;
+                background-color: #fff;
+                color: #202122;
+                padding: 16px;
+                max-width: 800px;
+                margin: 0 auto;
+                border: 1px solid #a2a9b1;
+                box-shadow: none;
+                line-height: 1.6;
+                font-size: 16px;
+            }
+
+            .ending-slide.wikipedia-style h1 {
+                font-size: 28px;
+                font-weight: normal;
+                border-bottom: 1px solid #a2a9b1;
+                padding-bottom: 8px;
+                margin-bottom: 12px;
+            }
+
+            .ending-slide.wikipedia-style p i {
+                color: #54595d;
+            }
+
+            .ending-slide.wikipedia-style a,
+            .ending-slide.wikipedia-style span[style*="color:#0645AD"] {
+                color: #0645AD;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            .ending-slide.wikipedia-style sup {
+                font-size: smaller;
+                vertical-align: super;
+                line-height: 0;
+            }
+
+            .ending-slide.wikipedia-style ul {
+                margin-left: 2em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .ending-slide.wikipedia-style .wiki-header-bar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: #555;
+                margin-bottom: 8px;
+            }
+
+            .ending-slide.wikipedia-style .wiki-header-bar span {
+                margin-right: 8px;
+            }
+
+            .ending-slide.wikipedia-style .wiki-header-bar-right span {
+                white-space: nowrap;
+            }
+		`;
+		document.head.appendChild(style);
+    }
+			
+			
+	function generatePresidentRow(number, name, image, term, party, partyColor) {
+		const partyBarColor =
+		    party === "Democratic" ? "#3333cc" :
+		    party === "Republican" ? "#b22222" :
+		    party === "Independent" ? "#dcdcdc" :
+		    party === "Green" ? "#17aa5c" :
+		    party === "Libertarian" ? "#fed105" :
+		    party === "Constitution" ? "#a356de" :
+			party === "Reform" ? "#80080" :
+		    "#808080";
+	  
+	  
+	    return `
+	        <tr>
+	          	<td style="padding: 8px; border: 1px solid #a2a9b1;">${number}</td>
+	          	<td style="padding: 8px; border: 1px solid #a2a9b1;">
+	            	<img src="${image}" alt="${name}" style="width:60px;">
+	          	</td>
+	          	<td style="padding: 8px; border: 1px solid #a2a9b1;">
+	            	<b><a href="#" style="color:#0645AD;">${name}</a></b>
+	          	</td>
+	          	<td style="padding: 8px; border: 1px solid #a2a9b1;">${term}</td>
+	          	<td style="width: 8px; padding: 2px; border: 1px solid #a2a9b1; text-align: left; background-color:${partyBarColor};"></td>
+	          	<td style="padding: 8px; border: 1px solid #a2a9b1; text-align: left;">
+	            	<span style="display:inline-block; width:5px; height:100%; background-color:${partyBarColor}; margin-right:4px;"></span>
+	            	<span style="color:black;">${party}</span>
+	          	</td>
+	        </tr>`;
+	}
+			
+	let presidentRows = `
+		<tr>
+			<td style="padding: 8px; border: 1px solid #a2a9b1;">44</td>
+			<td style="padding: 8px; border: 1px solid #a2a9b1;">
+				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/obama.png" alt="Obamna" style="width:60px;">
+			</td>
+			<td style="padding: 8px; border: 1px solid #a2a9b1;">
+				<b><a href="#" style="color:#0645AD; text-decoration: none;">Barack Obama</a></b>
+			</td>
+			<td style="padding: 8px; border: 1px solid #a2a9b1;">January 20, 2009 –<br>January 20, 2017</td>
+			<td style="width: 8px; padding: 2px; border: 1px solid #a2a9b1; text-align: left; background-color:#3333CC;"></td>
+			<td style="padding: 8px; border: 1px solid #a2a9b1; text-align: left;">
+			    <span style="display:inline-block; width:5px; height:100%; background-color:#3333cc; margin-right:4px;"></span>
+			    <span style="color:black;">Democratic</span>
+			</td>
+		</tr>
+	`;
+
+	// Define your inauguration date and show flags as before
+	let innaugDate = "January 20, 2017";
+	let lastTermEndDate = "January 20, 2017"; // Default start date
 	
+	let Year = null;
+	let Party = null;
+			
+	let showChafee2Term, showSliwa2Term = true;
+			
+	const presidents = [
+		{ show: showChafee2Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showSliwa2Term, num: 46, name: "Curtis Sliwa", term: "January 20, 2025 –<br>January 20, 2033", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/sliwa.png" },
+	];
+
+	let autoNum = 45;
+			
+	presidents.forEach(p => {
+	    if (p.show) {
+		    let number;
+		    if (p.num !== undefined) {
+		       	number = p.num;
+		    } else {
+		       	number = ++autoNum;
+		    }
+		  
+		    // Replace the hardcoded start date with the current lastTermEndDate
+		    let termParts = p.term.split("–<br>");
+		    let termStart = lastTermEndDate;
+		    let termEnd = termParts[1].trim();
+		  
+		    // Generate updated term string
+		    let newTerm = `${termStart} –<br>${termEnd}`;
+		  
+		    // Update for next president
+		    lastTermEndDate = termEnd;
+		  
+		    // Now render this row
+		    presidentRows += generatePresidentRow(number, p.name, p.img, newTerm, p.party);
+	    }
+  });
+			
 	if (quickstats[0] == 538) {
 		e.pages.push(`<p>chafe kills the whole world with his brilliance!</p>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
@@ -23261,6 +23452,47 @@ endingPicker = (out, totv, aa, quickstats) => {
 		e.pages.push(`<h3>oops</h3>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	}
+
+	e.pages.push(`
+		<div class="ending-slide wikipedia-style" style="background-color: #fff; color: #202122; padding: 16px; max-width: 960px; margin: 0 auto; border: 1px solid #a2a9b1;">
+	    	<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: 'Linux Libertine', Georgia, serif;">
+	    		<div style="display: flex; align-items: center;">
+	    			<img src="https://pngimg.com/uploads/wikipedia/wikipedia_PNG40.png" alt="Wikipedia logo" style="height: 40px; margin-right: 12px;">
+	    			<div style="font-size: 12px; color: #555;">
+	    				<span style="margin-right: 8px;"><strong>Read</strong></span>
+	    				<span style="margin-right: 8px;">Edit</span>
+	    				<span style="margin-right: 8px;">View history</span>
+	    				<span style="margin-right: 8px;">Tools</span>
+	    			</div>
+	    		</div>
+				<div style="font-size: 12px; color: #555;">
+	    			<span style="margin-right: 8px;">Add languages</span>
+	    			<span style="margin-right: 8px;">Create account</span>
+	    			<span>Log in</span>
+	        	</div>
+	        </div>
+			
+	        <h1 style="font-family: 'Linux Libertine', Georgia, serif; font-size: 30px; font-weight: normal; border-bottom: 1px solid #a2a9b1; padding-bottom: 8px; margin-top: 0;">List of presidents of the United States</h1>
+	        
+	        <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 88%; text-align: center; border: 1px solid #a2a9b1;">
+	        	<thead style="background-color: #f8f9fa;">
+	            	<tr>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">No.</th>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">Portrait</th>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">Name</th>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">Term</th>
+	                	<td style="padding: 2px; border: 1px solid #a2a9b1; border-right: none;"></td>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1; border-left: none;">Party  </th>                
+	              	</tr>
+	            </thead>
+	            <tbody>
+	            	${presidentRows}
+	            </tbody>
+	        </table>
+	    </div>
+	`);
+	        
+	e.executable.push([2, () => { e.image = 'https://i.imgur.com/XxTkd54.gif'; }]);
 	
 	return construct(0);
 }
