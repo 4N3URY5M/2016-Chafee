@@ -23407,13 +23407,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 	let Year = null;
 	let Party = null;
 			
-	let showChafee1Term = true;
-	let showChafee2Term = true;
-	let showChafee2TermIndy = true;
-	let showChafee2TermLib = true;
-	let showChafee5Term = true;
-	let showSliwa2Term = true;
-	let showGallego2032 = true;
+	let showChafee1Term, showChafee2Term, showChafee2TermIndy, showChafee2TermLib, showChafee5Term, showTrump1Term, showTrump2Term, 
+		showTrumpImpeached, showGingrich1Term, showGingrichHalfTerm, showCarson1Term, showCarsonHalfTerm, showChristie2Term, showChristieHalfTerm, 
+		showCotton1Term, showCottonHalfTerm, showPaul1Term, showPaulHalfTerm, showPaul2Term, showPaul2HalfTerm, showRubio2Term, showRubioHalfTerm, 
+		showWydenHalfTerm, showHickenlooperHalfTerm, showGabbardHalfTerm, showBakerHalfTerm, showSliwa2Term, showGallego2032;
+	showChafee2Term = showSliwa2Term = showGallego2032 = true;
 			
 	const presidents = [
 		{ show: showChafee1Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2021", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
