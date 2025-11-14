@@ -23402,17 +23402,48 @@ endingPicker = (out, totv, aa, quickstats) => {
 	`;
 
 	// Define your inauguration date and show flags as before
-	let innaugDate = "January 20, 2017";
 	let lastTermEndDate = "January 20, 2017"; // Default start date
 	
 	let Year = null;
 	let Party = null;
 			
-	let showChafee2Term, showSliwa2Term = true;
+	let showChafee1Term = true;
+	let showChafee2Term = true;
+	let showChafee2TermIndy = true;
+	let showChafee2TermLib = true;
+	let showChafee5Term = true;
+	let showSliwa2Term = true;
+	let showGallego2032 = true;
 			
 	const presidents = [
+		{ show: showChafee1Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2021", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafee2TermIndy, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic → Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafee2TermLib, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic → Libertarian", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafee5Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br><i>Incumbent</i>", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showTrump1Term, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
+		{ show: showTrump2Term, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
+		{ show: showTrumpImpeached, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>February 5, 2020", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
+		{ show: showGingrich1Term, num: 45, name: "Newt Gingrich", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/gingrich.png" },
+		{ show: showGingrichHalfTerm, num: 46, name: "Newt Gingrich", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/gingrich.png" },
+		{ show: showCarson1Term, num: 45, name: "Ben Carson", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/carson.png" },
+		{ show: showCarsonHalfTerm, num: 46, name: "Ben Carson", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/carson.png" },
+		{ show: showChristie2Term, num: 45, name: "Chris Christie", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/christie.png" },
+		{ show: showChristieHalfTerm, num: 46, name: "Chris Christie", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/christie.png" },
+		{ show: showCotton1Term, num: 45, name: "Tom Cotton", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/cotton.png" },
+		{ show: showCottonHalfTerm, num: 46, name: "Tom Cotton", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/cotton.png" },
+		{ show: showPaul1Term, num: 45, name: "Rand Paul", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
+		{ show: showPaulHalfTerm, num: 46, name: "Rand Paul", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
+		{ show: showPaul2Term, num: 45, name: "Rand Paul", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
+		{ show: showPaul2HalfTerm, num: 46, name: "Rand Paul", term: "February 5, 2020 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
+		{ show: showRubio2Term, num: 45, name: "Marco Rubio", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/rubio.png" },
+		{ show: showRubioHalfTerm, num: 46, name: "Marco Rubio", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/rubio.png" },
+		{ show: showWydenHalfTerm, num: 46, name: "Ron Wyden", term: "February 5, 2020 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showHickenlooperHalfTerm, num: 46, name: "John Hickenlooper", term: "February 5, 2020 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showGabbardHalfTerm, num: 46, name: "Tulsi Gabbard", term: "February 5, 2020 –<br>January 20, 2021", party: "Independent", img: "null" },
+		{ show: showBakerHalfTerm, num: 46, name: "Charlie Baker", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "null" },
 		{ show: showSliwa2Term, num: 46, name: "Curtis Sliwa", term: "January 20, 2025 –<br>January 20, 2033", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/sliwa.png" },
+		{ show: showGallego2032, num: 47, name: "Ruben Gallego", term: "January 20, 2033 –<br><i>Incumbent</i>", party: "Democratic", img: "null" },
 	];
 
 	let autoNum = 45;
