@@ -22915,6 +22915,46 @@ endingConstructor = (a = 1) => {
 	$("#final_results_description")[0].innerHTML = construct(a);
 }
 
+function calculateCandidateElectoralVotes(finalResults) {
+    // Variables to hold electoral vote counts for each candidate
+    let ChafeeEV = 0;
+    let TrumpEV = 0;
+	let LibertarianEV = 0;
+    let GreenEV = 0;
+  
+    // Loop through each state result to sum up electoral votes by candidate
+    finalResults.forEach(stateResult => {
+        stateResult.result.forEach(candidateResult => {
+            const candidateId = candidateResult.candidate; // Candidate's unique identifier
+            const electoralVotes = candidateResult.electoral_votes; // Electoral votes for this candidate in this state
+    
+            // Assign electoral votes to the appropriate candidate's total
+            switch (candidateId) {
+                case 100:
+                    ChafeeEV += electoralVotes;
+                    break;
+                case 200:
+                    TrumpEV += electoralVotes;
+                        break;
+				case 300:
+                    LibertarianEV += electoralVotes;
+                    break;
+                case 400:
+                    GreenEV += electoralVotes;
+                        break;
+                }
+            });
+        });
+    
+        // Return an object containing the results for each candidate
+        return {
+            ChafeeEV,   
+            TrumpEV,
+			LibertarianEV,   
+            GreenEV,
+        };
+    }
+		
 // ENDINGS -- this is slightly more reliable than the ending code method
 
 e.multiple_endings = true;
@@ -23351,7 +23391,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 		`;
 		document.head.appendChild(style);
     }
-			
+
+	const { ChafeeEV, TrumpEV, LibertarianEV, GreenEV } = calculateCandidateElectoralVotes(e.final_state_results);
 			
 	function generatePresidentRow(number, name, image, term, party, partyColor) {
 		const partyBarColor =
@@ -23407,18 +23448,34 @@ endingPicker = (out, totv, aa, quickstats) => {
 	let Year = null;
 	let Party = null;
 			
-	let showChafee1Term, showChafee2Term, showChafee2TermIndy, showChafee2TermLib, showChafee5Term, showTrump1Term, showTrump2Term, 
-		showTrumpImpeached, showGingrich1Term, showGingrichHalfTerm, showCarson1Term, showCarsonHalfTerm, showChristie2Term, showChristieHalfTerm, 
-		showCotton1Term, showCottonHalfTerm, showPaul1Term, showPaulHalfTerm, showPaul2Term, showPaul2HalfTerm, showRubio2Term, showRubioHalfTerm, 
-		showWydenHalfTerm, showHickenlooperHalfTerm, showGabbardHalfTerm, showBakerHalfTerm, showSliwa2Term, showGallego2032;
-	showChafee2Term = showSliwa2Term = showGallego2032 = true;
+	let showTurner2Term, showAnderson2Term, showKucinich2Term, showCherney2Term, showChafee1Term, showLessig2Term, showFlame2Term, showMcMullin2Term, 
+		showPierce2Term, showTrumpWriteIn, showPetersen2Term, showGray2Term, showTancredo2Term, showDeLaFuente2Term, showChafee2Term, showChafee2TermIndy, 
+		showChafee2TermLib, showChafeeIncumbent, showTrump1Term, showTrump2Term, showTrumpImpeached, showGingrich1Term, showGingrichHalfTerm, showCarson1Term, 
+		showCarsonHalfTerm, showChristie2Term, showChristieHalfTerm, showCotton1Term, showCottonHalfTerm, showPaul1Term, showPaulHalfTerm, showPaul2Term, 
+		showRubio2Term, showRubioHalfTerm, showWydenHalfTerm, showBloomberg1Term, showWarren1Term, showPaul2020Term, showAbbott1Term, showRubio2020Term, 
+		showPence1Term, showWalker1Term, showCruz1Term, showCuban1Term, showFiorina1Term, showHaley1Term, showHarris1Term, showYang1Term, showBullock1Term, 
+		showWilliamson1Term, showRyan1Term, showSliwa2Term, showGallegoIncumbent, showLiebermanIncumbent;
 			
 	const presidents = [
+		{ show: showTurner2Term, num: 45, name: "Nina Turner", term: "January 20, 2017 –<br>January 20, 2025", party: "Green", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/turner.png" },
+		{ show: showAnderson2Term, num: 45, name: "Rocky Anderson", term: "January 20, 2017 –<br>January 20, 2025", party: "Green", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/anderson.png" },
+		{ show: showKucinich2Term, num: 45, name: "Dennis Kucinich", term: "January 20, 2017 –<br>January 20, 2025", party: "Green", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/kucinich.png" },
+		{ show: showCherney2Term, num: 45, name: "Darryl Cherney", term: "January 20, 2017 –<br>January 20, 2025", party: "Green", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/cherney.png" },
+		{ show: showLessig2Term, num: 45, name: "Lawrence Lessig", term: "January 20, 2017 –<br>January 20, 2025", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/lessig.png" },
+		{ show: showFlame2Term, num: 45, name: Waka Flocka Flame", term: "January 20, 2017 –<br>January 20, 2025", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/flame.png" },
+		{ show: showMcMullin2Term, num: 45, name: "Evan McMullin", term: "January 20, 2017 –<br>January 20, 2025", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/mcmullin.png" },
+		{ show: showPierce2Term, num: 45, name: "Brock Pierce", term: "January 20, 2017 –<br>January 20, 2025", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/pierce.png" },
+		{ show: showTrumpWriteIn, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>January 20, 2025", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpWriteIn.png" },
+		{ show: showPetersen2Term, num: 45, name: "Austin Petersen", term: "January 20, 2017 –<br>January 20, 2025", party: "Libertarian", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/petersen.png" },
+		{ show: showGray2Term, num: 45, name: "Jim Gray", term: "January 20, 2017 –<br>January 20, 2025", party: "Libertarian", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/gray.png" },
+		{ show: showTancredo2Term, num: 45, name: "Tom Tancredo", term: "January 20, 2017 –<br>January 20, 2025", party: "Constitution", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/tancredo.png" },
+		{ show: showDeLaFuente2Term, num: 45, name: "Rocky De La Fuente", term: "January 20, 2017 –<br>January 20, 2025", party: "Reform", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/de%20la%20fuente.png" },
+		{ show: showLiebermanIncumbent, num: 46, name: "Neo-Joe Lieberman", term: "January 20, 2025 –<br><i>Incumbent</i>", party: "Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/neoLieberman.png" },
 		{ show: showChafee1Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2021", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2TermIndy, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic → Independent", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2TermLib, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br>January 20, 2025", party: "Democratic → Libertarian", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
-		{ show: showChafee5Term, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br><i>Incumbent</i>", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafeeIncumbent, num: 45, name: "Lincoln Chafee", term: "January 20, 2017 –<br><i>Incumbent</i>", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showTrump1Term, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
 		{ show: showTrump2Term, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
 		{ show: showTrumpImpeached, num: 45, name: "Donald Trump", term: "January 20, 2017 –<br>February 5, 2020", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
@@ -23433,17 +23490,227 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showPaul1Term, num: 45, name: "Rand Paul", term: "January 20, 2017 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
 		{ show: showPaulHalfTerm, num: 46, name: "Rand Paul", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
 		{ show: showPaul2Term, num: 45, name: "Rand Paul", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
-		{ show: showPaul2HalfTerm, num: 46, name: "Rand Paul", term: "February 5, 2020 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
 		{ show: showRubio2Term, num: 45, name: "Marco Rubio", term: "January 20, 2017 –<br>January 20, 2025", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/rubio.png" },
 		{ show: showRubioHalfTerm, num: 46, name: "Marco Rubio", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/rubio.png" },
 		{ show: showWydenHalfTerm, num: 46, name: "Ron Wyden", term: "February 5, 2020 –<br>January 20, 2025", party: "Democratic", img: "null" },
-		{ show: showHickenlooperHalfTerm, num: 46, name: "John Hickenlooper", term: "February 5, 2020 –<br>January 20, 2025", party: "Democratic", img: "null" },
-		{ show: showGabbardHalfTerm, num: 46, name: "Tulsi Gabbard", term: "February 5, 2020 –<br>January 20, 2021", party: "Independent", img: "null" },
-		{ show: showBakerHalfTerm, num: 46, name: "Charlie Baker", term: "February 5, 2020 –<br>January 20, 2021", party: "Republican", img: "null" },
+		{ show: showBloomberg1Term, num: 46, name: "Michael Bloomberg", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showWarren1Term, num: 46, name: "Elizabeth Warren", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showPaul2020Term, num: 46, name: "Rand Paul", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showAbbott1Term, num: 46, name: "Greg Abbott", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showRubio2020Term, num: 46, name: "Marco Rubio", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showPence1Term, num: 46, name: "Mike Pence", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showWalker1Term, num: 46, name: "Scott Walker", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showCruz1Term, num: 46, name: "Ted Cruz", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showCuban1Term, num: 46, name: "Mark Cuban", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showFiorina1Term, num: 46, name: "Carly Fiorina", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showHaley1Term, num: 46, name: "Nikki Haley", term: "January 20, 2021 –<br>January 20, 2025", party: "Republican", img: "null" },
+		{ show: showHarris1Term, num: 47, name: "Kamala Harris", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showYang1Term, num: 46, name: "Andrew Yang", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showBullock1Term, num: 46, name: "Steve Bullock", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showWilliamson1Term, num: 46, name: "Marianne Williamson", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
+		{ show: showRyan1Term, num: 46, name: "Tim Ryan", term: "January 20, 2021 –<br>January 20, 2025", party: "Democratic", img: "null" },
 		{ show: showSliwa2Term, num: 46, name: "Curtis Sliwa", term: "January 20, 2025 –<br>January 20, 2033", party: "Republican", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/sliwa.png" },
-		{ show: showGallego2032, num: 47, name: "Ruben Gallego", term: "January 20, 2033 –<br><i>Incumbent</i>", party: "Democratic", img: "null" },
+		{ show: showGallegoIncumbent, num: 47, name: "Ruben Gallego", term: "January 20, 2033 –<br><i>Incumbent</i>", party: "Democratic", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/gallego.png" },
 	];
 
+	if(LibertarianEV >= 270) {
+		if(trumpOut == 1) {
+			showTrumpWriteIn = true;
+		} else if(libertarian == 1) {
+			showPetersen2Term = true;
+		} else if(libertarian == 2) {
+			showGray2Term = true;
+		} else if(libertarian == 3) {
+			showMcMullin2Term = true;
+		} else if(libertarian == 4) {
+			showTancredo2Term = true;
+		} else if(libertarian == 5) {
+			showDeLaFuente2Term = true;
+		} else if(libertarian == 6) {
+			showPierce2Term = true;
+		}
+		showLiebermanIncumbent = true;
+		party = "I";
+		year = "2036";
+	} else if(GreenEV >= 270) {
+		if(green == 1) {
+			showTurner2Term = true;
+		} else if(green == 2) {
+			showAnderson2Term = true;
+		} else if(green == 3) {
+			showLessig2Term = true;
+		} else if(green == 4) {
+			showKucinich2Term = true;
+		} else if(green == 5) {
+			showCherney2Term = true;
+		} else if(green == 6) {
+			showFlame2Term = true;
+		}
+		showLiebermanIncumbent = true;
+		party = "I";
+		year = "2036";
+	} else if(ChafeeEV >= 270 || faithless == 1 || (TrumpEV < 270 && weird > -2 && ideology > -3 && ideology < 3)) { //chafee victory
+		if(e.player_answers.includes(21405)) {
+			showChafeeIncumbent = true;
+			party = "D";
+			year = "2036";
+		} else if(ChafeeEV < 300 || (ChafeeEV < 350 && (weird <= -2 || ideology <= -3 || ideology >= 3))) {
+			showChafee1Term = true;
+			if(ChafeeEV < 300 && weird < -2 && ideology > 2) {
+				showBloomberg1Term = true;
+				party = "D";
+				year = "2024";
+			} else if(ChafeeEV < 300 && foreign < -2 && ideology < -2) {
+				showWarren1Term = true;
+				party = "D";
+				year = "2024";
+			} else if(weird < -2) {
+				if(foreign < -2) {
+					showPaul2020Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign >= -2 && foreign <= 2) {
+					showAbbott1Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign > 2) {
+					showRubio2020Term = true;
+					party = "R";
+					year = "2024";
+				}
+			} else if(weird >= -2 && weird <= 2) {
+				if(foreign < -2) {
+					showPence1Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign >= -2 && foreign <= 2) {
+					showWalker1Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign > 2) {
+					showCruz1Term = true;
+					party = "R";
+					year = "2024";
+				}
+			} else if(weird > 2) {
+				if(foreign < -2) {
+					showCuban1Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign >= -2 && foreign <= 2) {
+					showFiorina1Term = true;
+					party = "R";
+					year = "2024";
+				} else if(foreign > 2) {
+					showHaley1Term = true;
+					party = "R";
+					year = "2024";
+				}
+			}
+		} else if(ChafeeEV >= 350 && weird <= -2 && ideology >= 3) {
+			showChafee2TermIndy = true;
+			party = "I";
+			year = "2024";
+		} else if(ChafeeEV >= 350 && weird <= -2 && ideology <= 3) {
+			showChafee2TermLib = true;
+			party = "L";
+			year = "2024";
+		} else {
+			showChafee2Term = true;
+			party = "D";
+			year = "2024";
+		}
+	} else { //trump win
+		if(trumpOut == 0) {
+			if(TrumpEV < 300 && outrage >= 3) {
+				showTrumpImpeached = true;
+				if(TrumpEV < 270) {
+					showWydenHalfTerm = true;
+					party = "D";
+					year = "2024";
+				} else if(leadRep == 0) {
+					showGingrichHalfTerm = true;
+					showHarris1Term = true;
+					party = "D";
+					year = "2024";
+				} else if(leadRep == 1) {
+					showCarsonHalfTerm = true;
+					showHarris1Term = true;
+					party = "D";
+					year = "2024";
+				} else if(leadRep == 2) {
+					showChristieHalfTerm = true;
+					party = "R";
+					year = "2024";
+				} else if(leadRep == 3) {
+					showCottonHalfTerm = true;
+					showHarris1Term = true;
+					party = "D";
+					year = "2024";
+				} else if(leadRep == 4) {
+					showPaulHalfTerm = true;
+					showHarris1Term = true;
+					party = "D";
+					year = "2024";
+				} else if(leadRep == 5) {
+					showRubioHalfTerm = true;
+					party = "R";
+					year = "2024";
+				}
+			} else if(TrumpEV >= 350) {
+				showTrump2Term = true;
+				party = "R";
+				year = "2024";
+			} else {
+				showTrump1Term = true;
+				showBloomberg1Term;
+				//2020 dem tree goes here
+				party = "D";
+				year = "2024";
+			}
+		} else {
+			if(leadRep == 0) {
+				showGingrich1Term = true;
+				if(TrumpEV >= 350) {
+					showAbbott1Term = true;
+					party = "R";
+					year = "2024";
+				} else {
+					showYang1Term = true;
+					party = "D";
+					year = "2024";
+				}
+			} else if(leadRep == 1) {
+				showCarson1Term = true;
+				showBullock1Term = true;
+				party = "D";
+				year = "2024";
+			} else if(leadRep == 2) {
+				showChristie2Term = true;
+				party = "R";
+				year = "2024";
+			} else if(leadRep == 3) {
+				showCotton1Term = true;
+				showWilliamson1Term = true;
+				party = "D";
+				year = "2024";
+			} else if(leadRep == 4) {
+				if(TrumpEV >= 350) {
+					showPaul2Term = true;
+					party = "R";
+					year = "2024";
+				} else {
+					showPaul1Term = true;
+					showRyan1Term = true;
+					party = "D";
+					year = "2024";
+				}
+			} else if(leadRep == 5) {
+				showRubio2Term = true;
+				party = "R";
+				year = "2024";
+			}
+			
 	let autoNum = 45;
 			
 	presidents.forEach(p => {
