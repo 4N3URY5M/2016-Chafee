@@ -23347,6 +23347,7 @@ endingPicker = (out, totv, aa, quickstats) => {
                 border-bottom: 1px solid #a2a9b1;
                 padding-bottom: 8px;
                 margin-bottom: 12px;
+				text-align: left;
             }
 
             .ending-slide.wikipedia-style p i {
@@ -23531,12 +23532,13 @@ endingPicker = (out, totv, aa, quickstats) => {
 	
 	let Year = null;
 	let IncParty = null;
+	let ButlerAssassin = false;
 			
 	let showTurner2Term, showAnderson2Term, showKucinich2Term, showCherney2Term, showChafee1Term, showLessig2Term, showFlame2Term, showMcMullin2Term, 
 		showPierce2Term, showTrumpWriteIn, showPetersen2Term, showGray2Term, showTancredo2Term, showDeLaFuente2Term, showChafee2Term, showChafee2TermIndy, 
 		showChafee2TermLib, showChafeeIncumbent, showTrump1Term, showTrump2Term, showTrumpImpeached, showGingrich1Term, showCarson1Term, showChristie2Term, 
-		showCotton1Term, showPaul1Term, showPaul2Term, showRubio2Term, showWydenHalfTerm, showPrimaryBloomberg1Term, showPrimaryWarren1Term, show20Paul1Term, 
-		showAbbott1Term, show20Rubio1Term, showPence1Term, showWalker1Term, showCruz1Term, showCuban1Term, showFiorina1Term, showHaley1Term, showHarris1Term, 
+		showCotton1Term, showPaul1Term, showPaul2Term, showRubio2Term, showWyden1Term, showPrimaryBloomberg1Term, showPrimaryWarren1Term, show20Paul2Term, 
+		showAbbott1Term, show20Rubio1Term, showPence1Term, showWalker2Term, showCruz1Term, showCuban1Term, showFiorina2Term, showHaley1Term, showHarris1Term, 
 		show20Chafee2Term, show20Wyden2Term, showKlobuchar1Term, showButtigieg1Term, showBennet1Term, showSanders2Term, showWarren1Term, showSestak1Term, 
 		showBloomberg1Term, showGravel1Term, showOjedaHalfTerm, showKerry1Term, showGates2Term, showYang1Term, showBullock2Term, showWilliamson1Term, 
 		showRyan1Term, show24Trump1Term, showStefanikHalfTerm, show24Wyden1Term, showSliwa2Term, showDeSantis1Term, showPritzkerIncumbent, showGallegoIncumbent, 
@@ -23595,9 +23597,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 				Year = 2024;
 			} else if(weird < -2) {
 				if(foreign < -2) {
-					show20Paul1Term = true;
+					show20Paul2Term = true;
 					IncParty = "R";
-					Year = 2024;
+					Year = 2028;
 				} else if(foreign >= -2 && foreign <= 2) {
 					showAbbott1Term = true;
 					IncParty = "R";
@@ -23613,9 +23615,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 					IncParty = "R";
 					Year = 2024;
 				} else if(foreign >= -2 && foreign <= 2) {
-					showWalker1Term = true;
+					showWalker2Term = true;
 					IncParty = "R";
-					Year = 2024;
+					Year = 2028;
 				} else if(foreign > 2) {
 					showCruz1Term = true;
 					IncParty = "R";
@@ -23627,9 +23629,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 					IncParty = "R";
 					Year = 2024;
 				} else if(foreign >= -2 && foreign <= 2) {
-					showFiorina1Term = true;
+					showFiorina2Term = true;
 					IncParty = "R";
-					Year = 2024;
+					Year = 2028;
 				} else if(foreign > 2) {
 					showHaley1Term = true;
 					IncParty = "R";
@@ -23654,7 +23656,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 			if(TrumpEV < 300 && outrage >= 3) {
 				showTrumpImpeached = true;
 				if(TrumpEV < 270) {
-					showWydenHalfTerm = true;
+					showWyden1Term = true;
 					IncParty = "D";
 					Year = 2024;
 				} else if(leadRep == 0) {
@@ -23668,7 +23670,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					IncParty = "D";
 					Year = 2024;
 				} else if(leadRep == 2) {
-					showChristie1Term = true;
+					showChristie2Term = true;
 					IncParty = "R";
 					Year = 2024;
 				} else if(leadRep == 3) {
@@ -23682,7 +23684,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					IncParty = "D";
 					Year = 2024;
 				} else if(leadRep == 5) {
-					showRubio1Term = true;
+					showRubio2Term = true;
 					IncParty = "R";
 					Year = 2024;
 				}
@@ -23754,6 +23756,10 @@ endingPicker = (out, totv, aa, quickstats) => {
 						}
 					}
 				}
+				let AssassinChance = Math.random() * 8
+				if(Year == 2024 && AssassinChance <= outrage) {
+					ButlerAssassin = true;
+				}
 			}
 		} else {
 			if(leadRep == 0) {
@@ -23801,11 +23807,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 	}
 
 	if(Year == 2024) {
-		if(TrumpEV >= 270 && !showTrumpImpeached) {
+		if(showTrump1Term && !ButlerAssassin) {
 			show24Trump1Term = true;
 			showStefanikHalfTerm = true;
 			IncParty = "R";
-			Year = 2032;
+			Year = 2028;
 		} else if(showChafee2Term && weird < -1 && ideology > -3 && ideology < 3) {
 			show24Wyden1Term = true;
 			IncParty = "D";
@@ -23863,20 +23869,20 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showPaul1Term, name: "Rand Paul", termEnd: "January 20, 2021", party: "Republican", veep: "Mitt Romney", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
 		{ show: showPaul2Term, name: "Rand Paul", termEnd: "January 20, 2025", party: "Republican → Libertarian", veep: "Mitt Romney", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/paul.png" },
 		{ show: showRubio2Term, name: "Marco Rubio", termEnd: "January 20, 2025", party: "Republican", veep: "Mitt Romney", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/rubio.png" },
-		{ show: showWydenHalfTerm, name: "Ron Wyden", termEnd: "January 20, 2025", party: "Democratic", veep: "Cheri Bustos", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/wyden.png" },
+		{ show: showWyden1Term, name: "Ron Wyden", termEnd: "January 20, 2025", party: "Democratic", veep: "Cheri Bustos", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/wyden.png" },
 		{ show: showPrimaryBloomberg1Term, name: "Michael Bloomberg", termEnd: "January 20, 2025", party: "Democratic", veep: "Hillary Clinton", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/bloomberg.png" },
 		{ show: showPrimaryWarren1Term, name: "Elizabeth Warren", termEnd: "January 20, 2025", party: "Democratic", veep: "Ro Khanna", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/warren.png" },
-		{ show: show20Paul1Term, name: "Rand Paul", termEnd: "January 20, 2025", party: "Republican", veep: "Chris Sununu", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/paul.png" },
+		{ show: show20Paul2Term, name: "Rand Paul", termEnd: "January 20, 2029", party: "Republican", veep: "Chris Sununu", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/paul.png" },
 		{ show: showAbbott1Term, name: "Greg Abbott", termEnd: "January 20, 2025", party: "Republican", veep: "Joni Ernst", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/abbott.png" },
 		{ show: show20Rubio1Term, name: "Marco Rubio", termEnd: "January 20, 2025", party: "Republican", veep: "Kelly Ayotte", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/rubio.png" },
 		{ show: showPence1Term, name: "Mike Pence", termEnd: "January 20, 2025", party: "Republican", veep: "Tim Scott", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/pence.png" },
-		{ show: showWalker1Term, name: "Scott Walker", termEnd: "January 20, 2025", party: "Republican", veep: "Asa Hutchinson", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/walker.png" },
+		{ show: showWalker2Term, name: "Scott Walker", termEnd: "January 20, 2029", party: "Republican", veep: "Asa Hutchinson", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/walker.png" },
 		{ show: showCruz1Term, name: "Ted Cruz", termEnd: "January 20, 2025", party: "Republican", veep: "Ron DeSantis", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/cruz.png" },
 		{ show: showCuban1Term, name: "Mark Cuban", termEnd: "January 20, 2025", party: "Republican", veep: "Rob Portman", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/cuban.png" },
-		{ show: showFiorina1Term, name: "Carly Fiorina", termEnd: "January 20, 2025", party: "Republican", veep: "John Kasich", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/fiorina.png" },
+		{ show: showFiorina2Term, name: "Carly Fiorina", termEnd: "January 20, 2029", party: "Republican", veep: "John Kasich", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/fiorina.png" },
 		{ show: showHaley1Term, name: "Nikki Haley", termEnd: "January 20, 2025", party: "Republican", veep: "John Thune", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/haley.png" },
 		{ show: showHarris1Term, name: "Kamala Harris", termEnd: "January 20, 2025", party: "Democratic", veep: "Andrew Cuomo", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/harris.png" },
-		{ show: show20Chafee2Term, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Forward", veep: "Andrew Yang", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/chafee.png" },
+		{ show: show20Chafee2Term, name: "Lincoln Chafee", termEnd: "January 20, 2029", party: "Democratic, Forward", veep: "Andrew Yang", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/chafee.png" },
 		{ show: show20Wyden2Term, name: "Ron Wyden", termEnd: "January 20, 2029", party: "Democratic", veep: "Tammy Duckworth", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/wyden.png" },
 		{ show: showKlobuchar1Term, name: "Amy Klobuchar", termEnd: "January 20, 2025", party: "Democratic", veep: "Martin Heinrich", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/klobuchar.png" },
 		{ show: showButtigieg1Term, name: "Pete Buttigieg", termEnd: "January 20, 2025", party: "Democratic", veep: "Deval Patrick", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/buttigieg.png" },
@@ -23918,7 +23924,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 		    presidentRows += generatePresidentRow(autoNum, p.name, p.img, newTerm, p.party, p.veep);
 	    }
   });
-			
+
+	//slide 1		
 	if (quickstats[0] == 538) {
 		e.pages.push(`<p>chafe kills the whole world with his brilliance!</p>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
@@ -23930,26 +23937,22 @@ endingPicker = (out, totv, aa, quickstats) => {
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	}
 
+	//slide 2
+	if (quickstats[0] == 538) {
+		e.pages.push(`<p>chafe kills the whole world with his brilliance!</p>`);
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
+	} else if (quickstats[0] == 0) {
+		e.pages.push(`<p>lincoln chafee publically executed in the town square</p>`);
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/trump.png'})])
+	} else {
+		e.pages.push(`<h3>oops</h3>`);
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
+	}
+			
+	//slide 3		
 	e.pages.push(`
 		<div class="ending-slide wikipedia-style" style="background-color: #fff; color: #202122; padding: 16px; max-width: 960px; margin: 0 auto; border: 1px solid #a2a9b1;">
-	    	<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: 'Linux Libertine', Georgia, serif;">
-	    		<div style="display: flex; align-items: center;">
-	    			<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/wikipedia_PNG40.png" alt="Wikipedia logo" style="height: 40px; margin-right: 12px;">
-	    			<div style="font-size: 12px; color: #555;">
-	    				<span style="margin-right: 8px;"><strong>Read</strong></span>
-	    				<span style="margin-right: 8px;">Edit</span>
-	    				<span style="margin-right: 8px;">View history</span>
-	    				<span style="margin-right: 8px;">Tools</span>
-	    			</div>
-	    		</div>
-				<div style="font-size: 12px; color: #555;">
-	    			<span style="margin-right: 8px;">Add languages</span>
-	    			<span style="margin-right: 8px;">Create account</span>
-	    			<span>Log in</span>
-	        	</div>
-	        </div>
-			
-	        <h1 style="font-family: 'Linux Libertine', Georgia, serif; font-size: 30px; font-weight: normal; border-bottom: 1px solid #a2a9b1; padding-bottom: 8px; margin-top: 0;">List of presidents of the United States</h1>
+	    	<h1 style="font-family: 'Linux Libertine', Georgia, serif; font-size: 30px; font-weight: normal; border-bottom: 1px solid #a2a9b1; padding-bottom: 8px; margin-top: 0;">List of presidents of the United States</h1>
 	        
 	        <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 88%; text-align: center; border: 1px solid #a2a9b1;">
 	        	<thead style="background-color: #f8f9fa;">
@@ -23959,7 +23962,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">Name</th>
 	                	<th style="padding: 8px; border: 1px solid #a2a9b1;">Term</th>
 	                	<td style="padding: 2px; border: 1px solid #a2a9b1; border-right: none;"></td>
-	                	<th style="padding: 8px; border: 1px solid #a2a9b1; border-left: none;">Party  </th>
+	                	<th style="padding: 8px; border: 1px solid #a2a9b1; border-left: none;">Party</th>
 						<th style="padding: 8px; border: 1px solid #a2a9b1; border-left: none;">Vice President</th>
 	              	</tr>
 	            </thead>
@@ -23970,7 +23973,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 	    </div>
 	`);
 	        
-	e.executable.push([2, () => { e.image = 'https://i.imgur.com/XxTkd54.gif'; }]);
+	e.executable.push([2, () => { e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%203/wikipedia.png'; }]);
 	
 	return construct(0);
 }
