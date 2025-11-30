@@ -23542,8 +23542,12 @@ endingPicker = (out, totv, aa, quickstats) => {
 		showAbbott1Term, show20Rubio1Term, showPence1Term, showWalker2Term, showCruz1Term, showCuban1Term, showFiorina2Term, showHaley1Term, showHarris1Term, 
 		show20Chafee2Term, show20Wyden2Term, showKlobuchar1Term, showButtigieg1Term, showBennet1Term, showSanders2Term, showWarren1Term, showSestak1Term, 
 		showBloomberg1Term, showGravel1Term, showOjedaHalfTerm, showKerry1Term, showGates2Term, showYang1Term, showBullock2Term, showWilliamson1Term, 
-		showRyan1Term, show24Trump1Term, showStefanikLaxalt1Term, show24Wyden1Term, showSliwa2Term, showDeSantis1Term, showPritzkerIncumbent, showGallegoIncumbent, 
-		showLiebermanIncumbent;
+		showRyan1Term, show24Trump1Term, showTrumpJr2Term, showRepRFKGabbard1Term, showRepRFKLee1Term, showReynolds1Term, showReynolds2Term, show24Rubio1Term,
+		showDonaldsTrump1Term, showDonaldsNoem1Term, showMace1Term, showHawley1Term, show24CarsonTuberville1Term, show24CarsonPompeo1Term, showTimScott1Term,
+		showBurgum1Term, showBurgum2Term, showStefanikLaxalt1Term, showStefanikWaltz1Term, showRamaswamyMasters2Term, showRamaswamySanders1Term, showNoem1Term,
+		showKemp1Term, show24Wyden1Term, showVance2Term, showCarlson2Term, showDeSantis1Term, showSliwa2Term, show24Haley1Term, showPhilScott1Term, 
+		showAdams1Term, showCooper1Term, showPolis2Term, showWhitmer1Term, showDemRFK2Term, showBooker2Term, showStewart1Term, showNewsom1Term, 
+		showPritzkerIncumbent, showGallegoIncumbent, showLiebermanIncumbent;
 			
 	if(LibertarianEV >= 270) {
 		if(trumpOut == 1) {
@@ -23641,11 +23645,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 			}
 		} else if(ChafeeEV >= 350 && weird <= -2 && ideology >= 3) {
 			showChafee2TermIndy = true;
-			IncParty = "I";
+			IncParty = "D";
 			Year = 2024;
 		} else if(ChafeeEV >= 350 && weird <= -2 && ideology < 3) {
 			showChafee2TermLib = true;
-			IncParty = "I";
+			IncParty = "D";
 			Year = 2024;
 		} else {
 			showChafee2Term = true;
@@ -23699,7 +23703,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					if(outrage == 0) {
 						if(ideology < -2) {
 							show20Chafee2Term = true;
-							IncParty = "I";
+							IncParty = "D";
 							Year = 2028;
 						} else if(ideology > 2) {
 							showKlobuchar1Term = true;
@@ -23757,10 +23761,6 @@ endingPicker = (out, totv, aa, quickstats) => {
 						}
 					}
 				}
-				let AssassinChance = Math.random() * 8
-				if(Year == 2024 && AssassinChance <= outrage) {
-					ButlerAssassin = true;
-				}
 			}
 		} else {
 			if(leadRep == 0) {
@@ -23809,21 +23809,188 @@ endingPicker = (out, totv, aa, quickstats) => {
 
 	if(Year == 2024) {
 		if(showTrump1Term) {
-			if(ButlerAssassination) {
+			IncParty = "R";
+			let AssassinChance = Math.random() * 6
+			if(Year == 2024 && AssassinChance <= outrage) {
+				ButlerAssassin = true;
+			}
+			if(ButlerAssassin) {
+				if(TrumpEV >= 320) {
+					if(ideology < -2 || ideology > 2) {
+						showTrumpJr2Term = true;
+						Year = 2032;
+					} else if(weird > 0) {
+						showRepRFKGabbard1Term = true;
+						Year = 2028;
+					} else {
+						showRepRFKLee1Term = true;
+						Year = 2028;
+					}
+				} else if(ideology <= 0) {
+					if(weird <= -1) {
+						if(foreign < 0) {
+							showReynolds2Term = true;
+							Year = 2032;
+						} else if(leadRep != 5) {
+							show24Rubio1Term = true;
+							Year = 2028;
+						} else {
+							showDonaldsTrump1Term = true;
+							Year = 2028;
+						}
+					} else {
+						if(foreign < 0) {
+							showHawley1Term = true;
+							Year = 2028;
+						} else if(leadRep != 1) {
+							show24CarsonTuberville1Term = true;
+							Year = 2028;
+						} else {
+							showTimScott1Term = true;
+							Year = 2028;
+						}
+					}
+				} else {
+					if(weird <= 0) {
+						if(foreign < 2) {
+							showBurgum2Term = true;
+							Year = 2032;
+						} else {
+							showStefanikLaxalt1Term = true;
+							Year = 2028;
+						}
+					} else {
+						if(foreign < -1) {
+							showRamaswamyMasters2Term = true;
+							Year = 2032;
+						} else {
+							showKemp1Term = true;
+							Year = 2028;
+						}
+					}
+				}
 			} else {
+				if(ideology <= 0) {
+					if(weird <= -1) {
+						if(foreign < 0) {
+							showReynolds1Term = true;
+							Trump24VP = "Kim Reynolds";
+							Year = 2028;
+						} else if(leadRep != 5) {
+							show24Rubio1Term = true;
+							Trump24VP = "Marco Rubio";
+							Year = 2028;
+						} else {
+							showDonaldsNoem1Term = true;
+							Trump24VP = "Byron Donalds";
+							Year = 2028;
+						}
+					} else {
+						if(foreign < 0) {
+							showMace1Term = true;
+							Trump24VP = "Nancy Mace";
+							Year = 2028;
+						} else if(leadRep != 1) {
+							show24CarsonPompeo1Term = true;
+							Trump24VP = "Ben Carson";
+							Year = 2028;
+						} else {
+							showTimScott1Term = true;
+							Trump24VP = "Tim Scott";
+							Year = 2028;
+						}
+					}
+				} else {
+					if(weird <= 0) {
+						if(foreign < 2) {
+							showBurgum1Term = true;
+							Trump24VP = "Doug Burgum";
+							Year = 2028;
+						} else {
+							showStefanikWaltz1Term = true;
+							Trump24VP = "Elise Stefanik";
+							Year = 2028;
+						}
+					} else {
+						if(foreign < -1) {
+							showRamaswamySanders1Term = true;
+							Trump24VP = "Vivek Ramaswamy";
+							Year = 2028;
+						} else {
+							showNoem1Term = true;
+							Trump24VP = "Kristi Noem";
+							Year = 2028;
+						}
+					}
+				}
+				show24Trump1Term = true;
 			}
 		} else if(showChafee2Term && weird < -1 && ideology > -3 && ideology < 3) {
 			show24Wyden1Term = true;
 			IncParty = "D";
 			Year = 2028;
-		} else if(IncParty == "D") {
-			showDeSantis1Term = true;
+		} else if(IncParty == "D" || showChafee2TermIndy || showChafee2TermLib) {
 			IncParty = "R";
-			Year = 2028;
+			if(foreign < -2) {
+				if(weird <= -1) {
+					showVance2Term = true;
+					Year = 2032;
+				} else {
+					showCarlson2Term = true;
+					Year = 2032;
+				}
+			} else if(foreign > 2){
+				if(weird <= 1) {
+					show24Haley1Term = true;
+					Year = 2028;
+				} else {
+					showPhilScott1Term = true;
+					Year = 2028;
+				}
+			} else {
+				if(weird <= 0) {
+					showDeSantis1Term = true;
+					Year = 2028;
+				} else {
+					showSliwa2Term = true;
+					Year = 2032;
+				}
+			}
 		} else {
-			showSliwa2Term = true;
-			IncParty = "R";
-			Year = 2032;
+			IncParty = "D";
+			if(outrage == 0) {
+				if(weird > -1) {
+					showAdams1Term = true;
+					Year = 2028;
+				} else {
+					showCooper1Term = true;
+					Year = 2028;
+				}
+			} else if(outrage == 1) {
+				if(weird > 0) {
+					showPolis2Term = true;
+					Year = 2032;
+				} else {
+					showWhitmer1Term = true;
+					Year = 2028;
+				}
+			} else if(outrage == 2) {
+				if(weird > 1) {
+					showDemRFK2Term = true;
+					Year = 2032;
+				} else {
+					showBooker2Term = true;
+					Year = 2032;
+				}
+			} else {
+				if(weird > 2) {
+					showStewart1Term = true;
+					Year = 2028;
+				} else {
+					showNewsom1Term = true;
+					Year = 2028;
+				}
+			}
 		}
 	}
 
@@ -23901,41 +24068,41 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showRyan1Term, name: "Tim Ryan", termEnd: "January 20, 2025", party: "Democratic", veep: "Laura Kelly", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2020/ryan.png" },
 		{ show: show24Wyden1Term, name: "Ron Wyden", termEnd: "January 20, 2029", party: "Democratic", veep: "Tim Walz", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/wyden.png" },
 		{ show: show24Trump1Term, name: "Donald Trump", termEnd: "December 14, 2026", party: "Republican", veep: Trump24VP, img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/trump2ndTerm.png" },
-		{ show: showTrumpJr2Term, name: "Donald Trump Jr.", termEnd: "January 20, 2033", party: "Republican", veep: "JD Vance", img: "null" },
-		{ show: showRepRFKGabbard1Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2029", party: "Republican", veep: "Tulsi Gabbard", img: "null" },
-		{ show: showRepRFKLee1Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2029", party: "Republican", veep: "Mike Lee", img: "null" },
-		{ show: showReynolds1Term, name: "Kim Reynolds", termEnd: "January 20, 2029", party: "Republican", veep: "Jeff Van Drew", img: "null" },
-		{ show: showReynolds2Term, name: "Kim Reynolds", termEnd: "January 20, 2033", party: "Republican", veep: "Jeff Van Drew", img: "null" },
-		{ show: show24Rubio1Term, name: "Marco Rubio", termEnd: "January 20, 2029", party: "Republican", veep: "Glenn Youngkin", img: "null" },
-		{ show: showDonaldsTrump1Term, name: "Byron Donalds", termEnd: "January 20, 2029", party: "Republican", veep: "Eric Trump", img: "null" },
-		{ show: showDonaldsNoem1Term, name: "Byron Donalds", termEnd: "January 20, 2029", party: "Republican", veep: "Kristi Noem", img: "null" },
-		{ show: showMace1Term, name: "Nancy Mace", termEnd: "January 20, 2029", party: "Republican", veep: "Lee Zeldin", img: "null" },
-		{ show: showHawley1Term, name: "Josh Hawley", termEnd: "January 20, 2029", party: "Republican", veep: "Marsha Blackburn", img: "null" },
-		{ show: show24CarsonTuberville1Term, name: "Ben Carson", termEnd: "January 20, 2029", party: "Republican", veep: "Tommy Tuberville", img: "null" },
-		{ show: show24CarsonPompeo1Term, name: "Ben Carson", termEnd: "January 20, 2029", party: "Republican", veep: "Mike Pompeo", img: "null" },
-		{ show: showScott1Term, name: "Tim Scott", termEnd: "January 20, 2029", party: "Republican", veep: "Derek Schmidt", img: "null" },
-		{ show: showBurgum1Term, name: "Doug Burgum", termEnd: "January 20, 2029", party: "Republican", veep: "Bill Hagerty", img: "null" },
-		{ show: showBurgum2Term, name: "Doug Burgum", termEnd: "January 20, 2033", party: "Republican", veep: "Bill Hagerty", img: "null" },
+		{ show: showTrumpJr2Term, name: "Donald Trump Jr.", termEnd: "January 20, 2033", party: "Republican", veep: "JD Vance", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/trumpJr.png" },
+		{ show: showRepRFKGabbard1Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2029", party: "Republican", veep: "Tulsi Gabbard", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/repRFK.png" },
+		{ show: showRepRFKLee1Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2029", party: "Republican", veep: "Mike Lee", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/repRFK.png" },
+		{ show: showReynolds1Term, name: "Kim Reynolds", termEnd: "January 20, 2029", party: "Republican", veep: "Jeff Van Drew", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/reynolds.png" },
+		{ show: showReynolds2Term, name: "Kim Reynolds", termEnd: "January 20, 2033", party: "Republican", veep: "Jeff Van Drew", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/reynolds.png" },
+		{ show: show24Rubio1Term, name: "Marco Rubio", termEnd: "January 20, 2029", party: "Republican", veep: "Glenn Youngkin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/rubio.png" },
+		{ show: showDonaldsTrump1Term, name: "Byron Donalds", termEnd: "January 20, 2029", party: "Republican", veep: "Eric Trump", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/donalds.png" },
+		{ show: showDonaldsNoem1Term, name: "Byron Donalds", termEnd: "January 20, 2029", party: "Republican", veep: "Kristi Noem", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/donalds.png" },
+		{ show: showMace1Term, name: "Nancy Mace", termEnd: "January 20, 2029", party: "Republican", veep: "Lee Zeldin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/mace.png" },
+		{ show: showHawley1Term, name: "Josh Hawley", termEnd: "January 20, 2029", party: "Republican", veep: "Marsha Blackburn", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/hawley.png" },
+		{ show: show24CarsonTuberville1Term, name: "Ben Carson", termEnd: "January 20, 2029", party: "Republican", veep: "Tommy Tuberville", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/carson.png" },
+		{ show: show24CarsonPompeo1Term, name: "Ben Carson", termEnd: "January 20, 2029", party: "Republican", veep: "Mike Pompeo", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/carson.png" },
+		{ show: showTimScott1Term, name: "Tim Scott", termEnd: "January 20, 2029", party: "Republican", veep: "Derek Schmidt", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/timScott.png" },
+		{ show: showBurgum1Term, name: "Doug Burgum", termEnd: "January 20, 2029", party: "Republican", veep: "Bill Hagerty", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/burgum.png" },
+		{ show: showBurgum2Term, name: "Doug Burgum", termEnd: "January 20, 2033", party: "Republican", veep: "Bill Hagerty", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/burgum.png" },
 		{ show: showStefanikLaxalt1Term, name: "Elise Stefanik", termEnd: "January 20, 2029", party: "Republican", veep: "Adam Laxalt", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/stefanik.png" },
 		{ show: showStefanikWaltz1Term, name: "Elise Stefanik", termEnd: "January 20, 2029", party: "Republican", veep: "Michael Waltz", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/stefanik.png" },
-		{ show: showRamaswamyMasters2Term, name: "Vivek Ramaswamy", termEnd: "January 20, 2033", party: "Republican", veep: "Adam Laxalt", img: "null" },
-		{ show: showRamaswamySanders1Term, name: "Vivek Ramaswamy", termEnd: "January 20, 2029", party: "Republican", veep: "Sarah HUckabee Sanders", img: "null" },
-		{ show: showNoem1Term, name: "Kristi Noem", termEnd: "January 20, 2029", party: "Republican", veep: "Henry McMaster", img: "null" },
-		{ show: showKemp1Term, name: "Brian Kemp", termEnd: "January 20, 2029", party: "Republican", veep: "Mehmet Oz", img: "null" },
-		{ show: showVance2Term, name: "JD Vance", termEnd: "January 20, 2033", party: "Republican", veep: "Kari Lake", img: "null" },
-		{ show: showCarlson2Term, name: "Tucker Carlson", termEnd: "January 20, 2033", party: "Republican", veep: "Marjorie Taylor Greene", img: "null" },
+		{ show: showRamaswamyMasters2Term, name: "Vivek Ramaswamy", termEnd: "January 20, 2033", party: "Republican", veep: "Blake Masters", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/ramaswamy.png" },
+		{ show: showRamaswamySanders1Term, name: "Vivek Ramaswamy", termEnd: "January 20, 2029", party: "Republican", veep: "Sarah Huckabee Sanders", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/ramaswamy.png" },
+		{ show: showNoem1Term, name: "Kristi Noem", termEnd: "January 20, 2029", party: "Republican", veep: "Henry McMaster", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/noem.png" },
+		{ show: showKemp1Term, name: "Brian Kemp", termEnd: "January 20, 2029", party: "Republican", veep: "Mehmet Oz", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/kemp.png" },
+		{ show: showVance2Term, name: "JD Vance", termEnd: "January 20, 2033", party: "Republican", veep: "Kari Lake", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/vance.png" },
+		{ show: showCarlson2Term, name: "Tucker Carlson", termEnd: "January 20, 2033", party: "Republican", veep: "Marjorie Taylor Greene", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/carlson.png" },
 		{ show: showDeSantis1Term, name: "Ron DeSantis", termEnd: "January 20, 2029", party: "Republican", veep: "Doug Burgum", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/desantis.png" },
 		{ show: showSliwa2Term, name: "Curtis Sliwa", termEnd: "January 20, 2033", party: "Republican", veep: "Adam Kinzinger", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/sliwa.png" },
-		{ show: showHaley1Term, name: "Nikki Haley", termEnd: "January 20, 2029", party: "Republican", veep: "Rick Scott", img: "null" },
-		{ show: showScott1Term, name: "Phil Scott", termEnd: "January 20, 2029", party: "Republican", veep: "Joe Walsh", img: "null" },
-		{ show: showAdams1Term, name: "Eric Adams", termEnd: "January 20, 2029", party: "Democratic", veep: "Josh Shapiro", img: "null" },
-		{ show: showCooper1Term, name: "Roy Cooper", termEnd: "January 20, 2029", party: "Democratic", veep: "Michelle Lujan Grisham", img: "null" },
-		{ show: showPolis1Term, name: "Jared Polis", termEnd: "January 20, 2033", party: "Democratic", veep: "Andy Beshear", img: "null" },
-		{ show: showWhitmer1Term, name: "Gretchen Whitmer", termEnd: "January 20, 2029", party: "Democratic", veep: "Mark Kelly", img: "null" },
-		{ show: showDemRFK2Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2033", party: "Democratic, Independent", veep: "Jesse Ventura", img: "null" },
-		{ show: showBooker2Term, name: "Cory Booker", termEnd: "January 20, 2033", party: "Democratic", veep: "Steve Sisolak", img: "null" },
-		{ show: showStewart1Term, name: "Jon Stewart", termEnd: "January 20, 2029", party: "Democratic", veep: "JB Pritzker", img: "null" },
-		{ show: showNewsom1Term, name: "Gavin Newsom", termEnd: "January 20, 2029", party: "Democratic", veep: "Stacey Abrams", img: "null" },
+		{ show: show24Haley1Term, name: "Nikki Haley", termEnd: "January 20, 2029", party: "Republican", veep: "Rick Scott", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/haley.png" },
+		{ show: showPhilScott1Term, name: "Phil Scott", termEnd: "January 20, 2029", party: "Republican", veep: "Joe Walsh", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/philScott.png" },
+		{ show: showAdams1Term, name: "Eric Adams", termEnd: "January 20, 2029", party: "Democratic", veep: "Josh Shapiro", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/adams.png" },
+		{ show: showCooper1Term, name: "Roy Cooper", termEnd: "January 20, 2029", party: "Democratic", veep: "Michelle Lujan Grisham", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/cooper.png" },
+		{ show: showPolis2Term, name: "Jared Polis", termEnd: "January 20, 2033", party: "Democratic", veep: "Andy Beshear", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/polis.png" },
+		{ show: showWhitmer1Term, name: "Gretchen Whitmer", termEnd: "January 20, 2029", party: "Democratic", veep: "Mark Kelly", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/whitmer.png" },
+		{ show: showDemRFK2Term, name: "Robert F. Kennedy Jr.", termEnd: "January 20, 2033", party: "Democratic, Independent", veep: "Eric Adams", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/demRFK.png" },
+		{ show: showBooker2Term, name: "Cory Booker", termEnd: "January 20, 2033", party: "Democratic", veep: "Steve Sisolak", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/booker.png" },
+		{ show: showStewart1Term, name: "Jon Stewart", termEnd: "January 20, 2029", party: "Democratic", veep: "JB Pritzker", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/stewart.png" },
+		{ show: showNewsom1Term, name: "Gavin Newsom", termEnd: "January 20, 2029", party: "Democratic", veep: "Stacey Abrams", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/newsom.png" },
 		{ show: showPritzkerIncumbent, name: "JB Pritzker", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Adelita Grijalva", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/pritzker.png" },
 		{ show: showGallegoIncumbent, name: "Ruben Gallego", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Chris Van Hollen", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/gallego.png" },
 	];
