@@ -20507,6 +20507,7 @@ campaignTrail_temp.jet_data = [{
 e = campaignTrail_temp
 campaignTrail_temp.cyoa = true
 let polling = e.current_results;
+let AssassinChance = Math.random() * 6
 
 var foreign = 0;
 var ideology = 0;
@@ -23591,7 +23592,6 @@ endingPicker = (out, totv, aa, quickstats) => {
 	if(Year == 2024) {
 		if(showTrump1Term) {
 			IncParty = "R";
-			let AssassinChance = Math.random() * 6
 			if(Year == 2024 && AssassinChance <= outrage) {
 				ButlerAssassin = true;
 			}
@@ -23786,8 +23786,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 	}
 
 	if(Year == 2028) {
-		if(e.player_answers.includes(5227) || e.player_answers.includes(20925)) {
-			if(e.player_answers.includes(22113)) {
+		if(e.player_answers.includes(22113)) {
+			if(e.player_answers.includes(5227) || e.player_answers.includes(20925)) {
 				showMatPat1Term = true;
 				IncParty = "I";
 				Year = 2032;
@@ -23823,7 +23823,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 						Year = 2032;
 					}
 				}
-			} else if(ChafeeEv >= 330) {
+			} else if(ChafeeEV >= 330) {
 				if(foreign >= 0) {
 					if(IncParty == "R" || showAdams1Term || TermLimit28) {
 						showOssoffIncumbent = true;
@@ -23869,7 +23869,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 				}
 			}
 		} else {
-			if(TrumpEv < 330) {
+			if(TrumpEV < 330) {
 				if(ideology <= 0) {
 					if(IncParty == "D" || TermLimit28) {
 						showThune1Term = true;
@@ -24059,8 +24059,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showGraham1Term, name: "Lindsey Graham", termEnd: "January 20, 2033", party: "Republican", veep: "John Curtis", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/graham.png" },
 		{ show: showSpanberger1Term, name: "Abigail Spanberger", termEnd: "January 20, 2033", party: "Democratic", veep: "Ben Ray Luján", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/spanberger.png" },
 		{ show: show28MaceIncumbent, name: "Nancy Mace", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Steve Daines", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/mace.png" },
-		{ show: showThune1Term, name: "John Thune", termEnd: "January 20, 2033", party: "Democratic", veep: "Joe Lombardo", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/thune.png" },
-		{ show: showShapiro1Term, name: "Josh Shapiro", termEnd: "January 20, 2033", party: "Republican", veep: "Elissa Slotkin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/shapiro.png" },
+		{ show: showThune1Term, name: "John Thune", termEnd: "January 20, 2033", party: "Republican", veep: "Joe Lombardo", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/thune.png" },
+		{ show: showShapiro1Term, name: "Josh Shapiro", termEnd: "January 20, 2033", party: "Democratic", veep: "Elissa Slotkin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/shapiro.png" },
 		{ show: show28BurgumIncumbent, name: "Doug Burgum", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Kelly Loeffler", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/burgum.png" },
 		{ show: showWalzIncumbent, name: "Tim Walz", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Jasmine Crockett", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/walz.png" },
 		{ show: showEarleSearsIncumbent, name: "Winsome Earle-Sears", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Markwayne Mullin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/earle-sears.png" },
