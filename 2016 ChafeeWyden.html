@@ -23300,6 +23300,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 	
 	let Year = null;
 	let IncParty = null;
+	let TermLimit28 = false;
+	let TermLimit32 = false;
 	let ButlerAssassin = false;
 	let Trump24VP = "Elise Stefanik";
 			
@@ -23315,7 +23317,10 @@ endingPicker = (out, totv, aa, quickstats) => {
 		showBurgum1Term, showBurgum2Term, showStefanikLaxalt1Term, showStefanikWaltz1Term, showRamaswamyMasters2Term, showRamaswamySanders1Term, showNoem1Term,
 		showKemp1Term, show24Wyden1Term, showVance2Term, showCarlson2Term, showDeSantis1Term, showSliwa2Term, show24Haley1Term, showPhilScott1Term, 
 		showAdams1Term, showCooper1Term, showPolis2Term, showWhitmer1Term, showDemRFK2Term, showBooker2Term, showStewart1Term, showNewsom1Term, showMatPat1Term,
-		showPritzkerIncumbent, showGallegoIncumbent, showLiebermanIncumbent;
+		showRock1Term, showKanye1Term, showPritzkerIncumbent, showBaconIncumbent, showKelly1Term, showMassie1Term, showOssoffIncumbent, showLindellIncumbent,
+		showGreenIncumbent, showQuayle1Term, showBeshearIncumbent, showGraham1Term, showSpanberger1Term, show28MaceIncumbent, showThune1Term, showShapiro1Term,
+		show28BurgumIncumbent, showWalzIncumbent, showEarleSearsIncumbent, showKhanna1Term, showFlynnIncumbent, show28NewsomIncumbent, showLee1Term, 
+		showSmithIncumbent, showRamaswamyIncumbent, show28Cuban1Term, showGallegoIncumbent, showLiebermanIncumbent;
 			
 	if(LibertarianEV >= 270) {
 		if(trumpOut == 1) {
@@ -23373,6 +23378,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					show20Paul2Term = true;
 					IncParty = "R";
 					Year = 2028;
+					TermLimit28 = true;
 				} else if(foreign >= -2 && foreign <= 2) {
 					showAbbott1Term = true;
 					IncParty = "R";
@@ -23391,6 +23397,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					showWalker2Term = true;
 					IncParty = "R";
 					Year = 2028;
+					TermLimit28 = true;
 				} else if(foreign > 2) {
 					showCruz1Term = true;
 					IncParty = "R";
@@ -23405,6 +23412,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					showFiorina2Term = true;
 					IncParty = "R";
 					Year = 2028;
+					TermLimit28 = true;
 				} else if(foreign > 2) {
 					showHaley1Term = true;
 					IncParty = "R";
@@ -23473,6 +23481,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 							show20Chafee2Term = true;
 							IncParty = "D";
 							Year = 2028;
+							TermLimit28 = true;
 						} else if(ideology > 2) {
 							showKlobuchar1Term = true;
 							IncParty = "D";
@@ -23481,6 +23490,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 							show20Wyden2Term = true;
 							IncParty = "D";
 							Year = 2028;
+							TermLimit28 = true;
 						}
 					} else {
 						if(ideology < -2) {
@@ -23491,6 +23501,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 							showSanders2Term = true;
 							IncParty = "D";
 							Year = 2028;
+							TermLimit28 = true;
 						} else{
 							showBennet1Term = true;
 							IncParty = "D";
@@ -23522,6 +23533,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 							showGates2Term = true;
 							IncParty = "D";
 							Year = 2028;
+							TermLimit28 = true;
 						} else{
 							showKerry1Term = true;
 							IncParty = "D";
@@ -23547,6 +23559,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 				showBullock2Term = true;
 				IncParty = "D";
 				Year = 2028;
+				TermLimit28 = true;
 			} else if(leadRep == 2) {
 				showChristie2Term = true;
 				IncParty = "R";
@@ -23587,6 +23600,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 					if(ideology < -2 || ideology > 2) {
 						showTrumpJr2Term = true;
 						Year = 2032;
+						TermLimit32 = true;
 					} else if(weird > 0) {
 						showRepRFKGabbard1Term = true;
 						Year = 2028;
@@ -23599,6 +23613,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 						if(foreign < 0) {
 							showReynolds2Term = true;
 							Year = 2032;
+							TermLimit32 = true;
 						} else if(leadRep != 5) {
 							show24Rubio1Term = true;
 							Year = 2028;
@@ -23623,6 +23638,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 						if(foreign < 2) {
 							showBurgum2Term = true;
 							Year = 2032;
+							TermLimit32 = true;
 						} else {
 							showStefanikLaxalt1Term = true;
 							Year = 2028;
@@ -23631,6 +23647,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 						if(foreign < -1) {
 							showRamaswamyMasters2Term = true;
 							Year = 2032;
+							TermLimit32 = true;
 						} else {
 							showKemp1Term = true;
 							Year = 2028;
@@ -23703,9 +23720,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 				if(weird <= -1) {
 					showVance2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				} else {
 					showCarlson2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				}
 			} else if(foreign > 2){
 				if(weird <= 1) {
@@ -23722,6 +23741,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 				} else {
 					showSliwa2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				}
 			}
 		} else {
@@ -23738,6 +23758,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 				if(weird > 0) {
 					showPolis2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				} else {
 					showWhitmer1Term = true;
 					Year = 2028;
@@ -23746,9 +23767,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 				if(weird > 1) {
 					showDemRFK2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				} else {
 					showBooker2Term = true;
 					Year = 2032;
+					TermLimit32 = true;
 				}
 			} else {
 				if(weird > 2) {
@@ -23763,14 +23786,158 @@ endingPicker = (out, totv, aa, quickstats) => {
 	}
 
 	if(Year == 2028) {
-		if(e.player_answers.includes(22113) && (e.player_answers.includes(5227) || e.player_answers.includes(20925))) {
-			showMatPat1Term = true;
-			IncParty = "I";
-			Year = 2032;
+		if(e.player_answers.includes(5227) || e.player_answers.includes(20925)) {
+			if(e.player_answers.includes(22113)) {
+				showMatPat1Term = true;
+				IncParty = "I";
+				Year = 2032;
+			} else if(ChafeeEV >= 270 || faithless == 1 || (TrumpEV < 270 && weird > -2 && ideology > -3 && ideology < 3)) {
+				showRock1Term = true;
+				IncParty = "I";
+				Year = 2032;
+			} else {
+				showKanye1Term = true;
+				IncParty = "I";
+				Year = 2032;
+			}
+		} else if(ChafeeEV >= 270 || faithless == 1 || (TrumpEV < 270 && weird > -2 && ideology > -3 && ideology < 3)) {
+			if(weird > 0) {
+				if(foreign >= 0) {
+					if(IncParty == "R" || showAdams1Term || TermLimit28) {
+						showPritzkerIncumbent = true;
+						IncParty = "D";
+						Year = 2036;
+					} else {
+						showBaconIncumbent = true;
+						IncParty = "R";
+						Year = 2036;
+					}
+				} else {
+					if(IncParty == "R" || TermLimit28) {
+						showKelly1Term = true;
+						IncParty = "D";
+						Year = 2032;
+					} else {
+						showMassie1Term = true;
+						IncParty = "R";
+						Year = 2032;
+					}
+				}
+			} else if(ChafeeEv >= 330) {
+				if(foreign >= 0) {
+					if(IncParty == "R" || showAdams1Term || TermLimit28) {
+						showOssoffIncumbent = true;
+						IncParty = "D";
+						Year = 2036;
+					} else {
+						showLindellIncumbent = true;
+						IncParty = "R";
+						Year = 2036;
+					}
+				} else {
+					if(IncParty == "R" || TermLimit28) {
+						showGreenIncumbent = true;
+						IncParty = "D";
+						Year = 2036;
+					} else {
+						showQuayle1Term = true;
+						IncParty = "R";
+						Year = 2032;
+					}
+				}
+			} else {
+				if(foreign >= 0) {
+					if(IncParty == "R" || showAdams1Term || TermLimit28) {
+						showBeshearIncumbent = true;
+						IncParty = "D";
+						Year = 2036;
+					} else {
+						showGraham1Term = true;
+						IncParty = "R";
+						Year = 2032;
+					}
+				} else {
+					if(IncParty == "R" || TermLimit28) {
+						showSpanberger1Term = true;
+						IncParty = "D";
+						Year = 2032;
+					} else {
+						show28MaceIncumbent = true;
+						IncParty = "R";
+						Year = 2036;
+					}
+				}
+			}
 		} else {
-			showPritzkerIncumbent = true;
-			IncParty = "D";
-			Year = 2036;
+			if(TrumpEv < 330) {
+				if(ideology <= 0) {
+					if(IncParty == "D" || TermLimit28) {
+						showThune1Term = true;
+						IncParty = "R";
+						Year = 2032;
+					} else {
+						showShapiro1Term = true;
+						IncParty = "D";
+						Year = 2032;
+					}
+				} else {
+					if(outrage < 2) {
+						if(IncParty == "D" || TermLimit28) {
+							show28BurgumIncumbent = true;
+							IncParty = "R";
+							Year = 2036;
+						} else {
+							showWalzIncumbent = true;
+							IncParty = "D";
+							Year = 2036;
+						}
+					} else {
+						if(IncParty == "D" || TermLimit28) {
+							showEarleSearsIncumbent = true;
+							IncParty = "R";
+							Year = 2036;
+						} else {
+							showKhanna1Term = true;
+							IncParty = "D";
+							Year = 2032;
+						}
+					}
+				}
+			} else {
+				if(ideology <= 0) {
+					if(IncParty == "D" || TermLimit28) {
+						showFlynnIncumbent = true;
+						IncParty = "R";
+						Year = 2036;
+					} else {
+						show28NewsomIncumbent = true;
+						IncParty = "D";
+						Year = 2036;
+					}
+				} else {
+					if(outrage < 2) {
+						if(IncParty == "D" || TermLimit28) {
+							showLee1Term = true;
+							IncParty = "R";
+							Year = 2032;
+						} else {
+							showSmithIncumbent = true;
+							IncParty = "D";
+							Year = 2036;
+						}
+					} else {
+						if(IncParty == "D" || TermLimit28) {
+							showRamaswamyIncumbent = true;
+							IncParty = "R";
+							Year = 2036;
+						} else {
+							show28Cuban1Term = true;
+							IncParty = "D";
+							Year = 2032;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -23879,7 +24046,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showNewsom1Term, name: "Gavin Newsom", termEnd: "January 20, 2029", party: "Democratic", veep: "Stacey Abrams", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/newsom.png" },
 		{ show: showMatPat1Term, name: "Matthew Patrick", termEnd: "January 20, 2033", party: "Independent", veep: "Jason Palmer", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/matpat.png" },
 		{ show: showRock1Term, name: "Dwayne Johnson", termEnd: "January 20, 2033", party: "Independent", veep: "Larry Hogan", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/rock.png" },
-		{ show: showKanye1Term, name: "Dwayne Johnson", termEnd: "January 20, 2033", party: "Reform", veep: "Laura Loomer", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/kanye.png" },
+		{ show: showKanye1Term, name: "Kanye West", termEnd: "January 20, 2033", party: "Reform", veep: "Laura Loomer", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/kanye.png" },
 		{ show: showPritzkerIncumbent, name: "JB Pritzker", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Adelita Grijalva", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/pritzker.png" },
 		{ show: showBaconIncumbent, name: "Don Bacon", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Spencer Cox", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/bacon.png" },
 		{ show: showKelly1Term, name: "Mark Kelly", termEnd: "January 20, 2033", party: "Democratic", veep: "Mikie Sherill", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/kelly.png" },
