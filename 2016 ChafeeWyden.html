@@ -20947,10 +20947,10 @@ cyoAdventure = function(a) {
 	}
 		
 	//q26
-	if(e.noCounter == 25 && outrage == 2 && playerPolling < trumpPolling) {
-		campaignTrail_temp.questions_json[25] = tunnel(1078);
-	} else if(e.noCounter == 25) {
+	if(e.noCounter == 25 && outrage == 2 && playerPolling > trumpPolling) {
 		campaignTrail_temp.questions_json[25] = tunnel(21030);
+	} else if(e.noCounter == 25) {
+		campaignTrail_temp.questions_json[25] = tunnel(1078);
 	}
 	if(ans == 21043) {
 		trumpOut = 1;
