@@ -22499,7 +22499,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 	let Trump24VP = "Elise Stefanik";
 			
 	let showTurner2Term, showAnderson2Term, showKucinich2Term, showCherney2Term, showChafee1Term, showLessig2Term, showFlame2Term, showMcMullin2Term, 
-		showPierce2Term, showTrumpWriteIn, showPetersen2Term, showGray2Term, showTancredo2Term, showDeLaFuente2Term, showChafee2Term, showChafee2TermIndy, 
+		showPierce2Term, showTrumpWriteIn, showLummis2Term, showGray2Term, showTancredo2Term, showDeLaFuente2Term, showChafee2Term, showChafee2TermIndy, 
 		showChafee2TermLib, showChafeeIncumbent, showTrump1Term, showTrump2Term, showTrumpImpeached, showGingrich1Term, showCarson1Term, showChristie2Term, 
 		showCotton1Term, showPaul1Term, showPaul2Term, showRubio2Term, showWyden1Term, showPrimaryBloomberg1Term, showPrimaryWarren1Term, show20Paul2Term, 
 		showAbbott1Term, show20Rubio1Term, showPence1Term, showWalker2Term, showCruz1Term, showCuban1Term, showFiorina2Term, showHaley1Term, showHarris1Term, 
@@ -22512,16 +22512,16 @@ endingPicker = (out, totv, aa, quickstats) => {
 		showAdams1Term, showCooper1Term, showPolis2Term, showWhitmer1Term, showDemRFK2Term, showBooker2Term, showStewart1Term, showNewsom1Term, showMatPat1Term,
 		showRock1Term, showKanye1Term, showPritzkerIncumbent, showBaconIncumbent, showKelly1Term, showMassie1Term, showOssoffIncumbent, showLindellIncumbent,
 		showGreenIncumbent, showQuayle1Term, showBeshearIncumbent, showGraham1Term, showSpanberger1Term, show28MaceIncumbent, showThune1Term, showShapiro1Term,
-		show28BurgumIncumbent, showWalzIncumbent, showEarleSearsIncumbent, showKhanna1Term, showFlynnIncumbent, show28NewsomIncumbent, showLee1Term, 
+		show28BurgumIncumbent, showWalzIncumbent, showMcAfeeIncumbent, showKhanna1Term, showFlynnIncumbent, show28NewsomIncumbent, showLee1Term, 
 		showSmithIncumbent, showRamaswamyIncumbent, show28Cuban1Term, showPerot, showIstvan, showAltman, showJones, showKrishnamoorthi, showFuentes, 
-		showSchlossberg, showCollins, showGrijalva, showMcAfee, showMoore, showMorris, showWu, showMcCarthy, showMurphy, showBrown, showSanders, showJames,
-		showGaetz, showGallego, showKirk, showAOC, showBritt, showPlatner, showPaxton, showAlsobrooks, showPetersen, showWarnock, showLiebermanIncumbent;
+		showSchlossberg, showCollins, showGrijalva, showEarleSears, showMoore, showMorris, showWu, showMcCarthy, showMurphy, showBrown, showSanders, showJames,
+		showGaetz, showGallego, showKirk, showAOC, showBritt, showPlatner, showPaxton, showAlsobrooks, showLummis, showWarnock, showLiebermanIncumbent;
 			
 	if(LibertarianEV >= 270) {
 		if(trumpOut == 1) {
 			showTrumpWriteIn = true;
 		} else if(libertarian == 1) {
-			showPetersen2Term = true;
+			showLummis2Term = true;
 		} else if(libertarian == 2) {
 			showGray2Term = true;
 		} else if(libertarian == 3) {
@@ -23087,7 +23087,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 						}
 					} else {
 						if(IncParty == "D" || TermLimit28) {
-							showEarleSearsIncumbent = true;
+							showMcAfeeIncumbent = true;
 							IncParty = "R";
 							Year = 2036;
 						} else {
@@ -23153,19 +23153,19 @@ endingPicker = (out, totv, aa, quickstats) => {
 		} else if(ChafeeEV >= 270 || faithless == 1 || (TrumpEV < 270 && weird > -2 && ideology > -3 && ideology < 3)){
 			if(ChafeeEV > 315){
 				if(ideology < -2){
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showKrishnamoorthi = true;
 					} else {
 						showFuentes = true;
 					}
 				} else if(ideology > 2){
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showGrijalva = true;
 					} else {
-						showMcAfee = true;
+						showEarleSears = true;
 					}
 				} else {
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showSchlossberg = true;
 					} else {
 						showCollins = true;
@@ -23173,19 +23173,19 @@ endingPicker = (out, totv, aa, quickstats) => {
 				}
 			} else {
 				if(ideology < -2){
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showMoore = true;
 					} else {
 						showMorris = true;
 					}
 				} else if(ideology > 2){
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showMurphy = true;
 					} else {
 						showBrown = true;
 					}
 				} else {
-					if(IncParty == "R" || TermLimit32){
+					if(IncParty != "D" || TermLimit32){
 						showWu = true;
 					} else {
 						showMcCarthy = true;
@@ -23195,19 +23195,19 @@ endingPicker = (out, totv, aa, quickstats) => {
 		} else {
 			if(TrumpEV > 315){
 				if(weird < -2){
-					if(IncParty == "D" || TermLimit32){
+					if(IncParty != "R" || TermLimit32){
 						showSanders = true;
 					} else {
 						showJames = true;
 					}
 				} else if(weird > 2){
-					if(IncParty == "D" || TermLimit32){
+					if(IncParty != "R" || TermLimit32){
 						showKirk = true;
 					} else {
 						showAOC = true;
 					}
 				} else {
-					if(IncParty == "D" || TermLimit32){
+					if(IncParty != "R" || TermLimit32){
 						showGaetz = true;
 					} else {
 						showGallego = true;
@@ -23215,19 +23215,19 @@ endingPicker = (out, totv, aa, quickstats) => {
 				}
 			} else {
 				if(weird < -2){
-					if(IncParty == "D" || TermLimit32){
+					if(IncParty != "R" || TermLimit32){
 						showBritt = true;
 					} else {
 						showPlatner = true;
 					}
 				} else if(weird > 2){
-					if(IncParty == "D" || TermLimit32){
-						showPetersen = true;
+					if(IncParty != "R" || TermLimit32){
+						showLummis = true;
 					} else {
 						showWarnock = true;
 					}
 				} else {
-					if(IncParty == "D" || TermLimit32){
+					if(IncParty != "R" || TermLimit32){
 						showPaxton = true;
 					} else {
 						showAlsobrooks = true;
@@ -23247,7 +23247,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showMcMullin2Term, name: "Evan McMullin", termEnd: "January 20, 2025", party: "Independent", veep: "Mindy Finn", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/mcmullin.png" },
 		{ show: showPierce2Term, name: "Brock Pierce", termEnd: "January 20, 2025", party: "Independent", veep: "Akon", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/pierce.png" },
 		{ show: showTrumpWriteIn, name: "Donald Trump", termEnd: "January 20, 2025", party: "Independent", veep: "Mitt Romney, Steve Bannon", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpWriteIn.png" },
-		{ show: showPetersen2Term, name: "Austin Petersen", termEnd: "January 20, 2025", party: "Libertarian", veep: "John McAfee", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/petersen.png" },
+		{ show: showLummis2Term, name: "Austin Petersen", termEnd: "January 20, 2025", party: "Libertarian", veep: "John McAfee", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/petersen.png" },
 		{ show: showGray2Term, name: "Jim Gray", termEnd: "January 20, 2025", party: "Libertarian", veep: "Larry Sharpe", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/gray.png" },
 		{ show: showTancredo2Term, name: "Tom Tancredo", termEnd: "January 20, 2025", party: "Constitution", veep: "Darrell Castle", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/tancredo.png" },
 		{ show: showDeLaFuente2Term, name: "Rocky De La Fuente", termEnd: "January 20, 2025", party: "Reform", veep: "Darcy Richardson", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/de%20la%20fuente.png" },
@@ -23353,7 +23353,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showShapiro1Term, name: "Josh Shapiro", termEnd: "January 20, 2033", party: "Democratic", veep: "Elissa Slotkin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/shapiro.png" },
 		{ show: show28BurgumIncumbent, name: "Doug Burgum", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Kelly Loeffler", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/burgum.png" },
 		{ show: showWalzIncumbent, name: "Tim Walz", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Jasmine Crockett", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/walz.png" },
-		{ show: showEarleSearsIncumbent, name: "Winsome Earle-Sears", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Markwayne Mullin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/earle-sears.png" },
+		{ show: showMcAfeeIncumbent, name: "John McAfee", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Markwayne Mullin", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/mcafee.png" },
 		{ show: showKhanna1Term, name: "Ro Khanna", termEnd: "January 20, 2033", party: "Democratic", veep: "Rob Sand", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/khanna.png" },
 		{ show: showFlynnIncumbent, name: "Michael Flynn", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Stephen Miller", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/flynn.png" },
 		{ show: show28NewsomIncumbent, name: "Gavin Newsom", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Marie Gluesenkamp Perez", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/newsom.png" },
@@ -23361,34 +23361,34 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showSmithIncumbent, name: "Stephen A. Smith", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Raja Krishnamoorthi", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/smith.png" },
 		{ show: showRamaswamyIncumbent, name: "Vivek Ramaswamy", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Dave McCormick", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/ramaswamy.png" },
 		{ show: show28Cuban1Term, name: "Mark Cuban", termEnd: "January 20, 2033", party: "Democratic", veep: "Geoff Duncan", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/cuban.png" },
-		{ show: showPerot, name: "Ross Perot Jr.", termEnd: "<i>Incumbent</i>", party: "Reform", veep: "Doug Jones", img: "null" },
-		{ show: showIstvan, name: "Zoltan Istvan", termEnd: "<i>Incumbent</i>", party: "Libertarian", veep: "Chase Oliver", img: "null" },
-		{ show: showAltman, name: "Sam Altman", termEnd: "<i>Incumbent</i>", party: "Forward", veep: "Jason Palmer", img: "null" },
-		{ show: showJones, name: "Alex Jones", termEnd: "<i>Incumbent</i>", party: "Constitution", veep: "Laura Loomer", img: "null" },
-		{ show: showKrishnamoorthi, name: "Raja Krishnamoorthi", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "null" },
-		{ show: showFuentes, name: "Nick Fuentes", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "James Fishback", img: "null" },
-		{ show: showSchlossberg, name: "Jack Schlossberg", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Mazie Hirono", img: "null" },
-		{ show: showCollins, name: "Mike Collins", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showGrijalva, name: "Adelita Grijalva", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Chris Pappas", img: "null" },
-		{ show: showMcAfee, name: "John McAfee", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showMoore, name: "Wes Moore", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "null" },
-		{ show: showMorris, name: "Nate Morris", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showWu, name: "Michelle Wu", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "null" },
-		{ show: showMcCarthy, name: "Kevin McCarthy", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "George P. Bush", img: "null" },
-		{ show: showMurphy, name: "Chris Murphy", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Greg Cesar", img: "null" },
-		{ show: showBrown, name: "Scott Brown", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showSanders, name: "Sarah Huckabee Sanders", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showJames, name: "LeBron James", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Dan Osborn", img: "null" },
-		{ show: showGaetz, name: "Matt Gaetz", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
+		{ show: showPerot, name: "Ross Perot Jr.", termEnd: "<i>Incumbent</i>", party: "Reform", veep: "Doug Jones", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/perot.png" },
+		{ show: showIstvan, name: "Zoltan Istvan", termEnd: "<i>Incumbent</i>", party: "Libertarian", veep: "Chase Oliver", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/istvan.png" },
+		{ show: showAltman, name: "Sam Altman", termEnd: "<i>Incumbent</i>", party: "Forward", veep: "Jason Palmer", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/altman.png" },
+		{ show: showJones, name: "Alex Jones", termEnd: "<i>Incumbent</i>", party: "Constitution", veep: "Laura Loomer", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/jones.png" },
+		{ show: showKrishnamoorthi, name: "Raja Krishnamoorthi", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/krishnamoorthi.png" },
+		{ show: showFuentes, name: "Nick Fuentes", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "James Fishback", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/fuentes.png" },
+		{ show: showSchlossberg, name: "Jack Schlossberg", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Mazie Hirono", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/schlossberg.png" },
+		{ show: showCollins, name: "Mike Collins", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/collins.png" },
+		{ show: showGrijalva, name: "Adelita Grijalva", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Chris Pappas", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/grijalva.png" },
+		{ show: showEarleSears, name: "Winsome Earle-Sears", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2028/earle-sears.png" },
+		{ show: showMoore, name: "Wes Moore", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/moore.png" },
+		{ show: showMorris, name: "Nate Morris", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/morris.png" },
+		{ show: showWu, name: "Michelle Wu", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/wu.png" },
+		{ show: showMcCarthy, name: "Kevin McCarthy", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "George P. Bush", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/mccarthy.png" },
+		{ show: showMurphy, name: "Chris Murphy", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Greg Cesar", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/murphy.png" },
+		{ show: showBrown, name: "Scott Brown", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/brown.png" },
+		{ show: showSanders, name: "Sarah Huckabee Sanders", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/sanders.png" },
+		{ show: showJames, name: "LeBron James", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Dan Osborn", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/james.png" },
+		{ show: showGaetz, name: "Matt Gaetz", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/gaetz.png" },
 		{ show: showGallego, name: "Ruben Gallego", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Chris Van Hollen", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/gallego.png" },
-		{ show: showKirk, name: "Charlie Kirk", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showAOC, name: "Alexandria Ocasio-Cortez", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "null" },
-		{ show: showBritt, name: "Katie Britt", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "null" },
-		{ show: showPlatner, name: "Graham Platner", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Jay Jones", img: "null" },
-		{ show: showPaxton, name: "Ken Paxton", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Darren Bailey", img: "null" },
-		{ show: showAlsobrooks, name: "Angela Alsobrooks", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "null" },
-		{ show: showPetersen, name: "Austin Petersen", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Cynthia Lummis", img: "null" },
-		{ show: showWarnock, name: "Raphael Warnock", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Janet Mills", img: "null" },
+		{ show: showKirk, name: "Charlie Kirk", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/kirk.png" },
+		{ show: showAOC, name: "Alexandria Ocasio-Cortez", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/aoc.png" },
+		{ show: showBritt, name: "Katie Britt", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/britt.png" },
+		{ show: showPlatner, name: "Graham Platner", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Jay Jones", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/platner.png" },
+		{ show: showPaxton, name: "Ken Paxton", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Darren Bailey", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/paxton.png" },
+		{ show: showAlsobrooks, name: "Angela Alsobrooks", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "null", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/alsobrooks.png" },
+		{ show: showLummis, name: "Cynthia Lummis", termEnd: "<i>Incumbent</i>", party: "Republican", veep: "Austin Petersen", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/lummis.png" },
+		{ show: showWarnock, name: "Raphael Warnock", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Janet Mills", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2032/warnock.png" },
 	];
 			
 	let autoNum = 44;
