@@ -21830,12 +21830,10 @@ construct = (a = 1) => {
 }
 
 changeState = (statePK, candidateId, amount = true) => {
-	// the rest shouldn't need to be changed (maybe)
     const state = e.states_json[e.states_json.map(f=>f.pk).indexOf(statePK)];
     const electoralVoteCount = state.fields.electoral_votes;
     const sMI = e.final_state_results.map(f=>f.state).indexOf(statePK)
     
-    // find biden's results in AL
     bidenAL = e.final_state_results[sMI].result[e.final_state_results[sMI].result.map(f=>f.candidate).indexOf(candidateId)]
 
     let change;
@@ -21843,23 +21841,19 @@ changeState = (statePK, candidateId, amount = true) => {
     if (quickstats[1] > 0.03) {
         winnerAL = e.final_state_results[sMI].result[0].candidate
         if (amount === true) {
-            // clear existing EV allocations
             e.final_state_results[sMI].result.forEach((a, i, arr) => {
                 arr[i].electoral_votes = 0
             })
         
-            // give biden EVs
             bidenAL.electoral_votes = electoralVoteCount
 
             change = electoralVoteCount;
         } else {
-            // clear existing EV allocations
             e.final_state_results[sMI].result.forEach((a, i, arr) => {
                 arr[i].electoral_votes = 0
             })
             e.final_state_results[sMI].result[0].electoral_votes = electoralVoteCount - amount
         
-            // give biden EVs
             bidenAL.electoral_votes = amount
 
             change = amount;
@@ -22257,22 +22251,18 @@ endingPicker = (out, totv, aa, quickstats) => {
         style.id = "ending-slide-style";
         style.innerHTML = `
 			.ending-slide {
-                background-color: #e6ecf5;
+                background-color: white;
                 padding: 24px;
-                border: 4px double #122f5f;
-                font-family: 'Georgia', serif;
-                color: #0e1a33;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                border: 1px solid black;
+                font-family: Montserrat;
                 margin: 1rem auto;
-                max-width: 610px;
+                max-width: 800px;
                 line-height: 1.6;
             }
 
             .ending-slide h3 {
                 text-align: center;
                 font-size: 24px;
-                text-decoration: underline;
-                color: #122f5f;
                 margin-bottom: 1rem;
             }
 
@@ -22282,13 +22272,11 @@ endingPicker = (out, totv, aa, quickstats) => {
 
             .ending-slide em {
                 font-style: italic;
-                color: #1a2d4a;
             }
 
             .ending-slide strong {
                 text-transform: uppercase;
             }
-
 			.ending-slide.wikipedia-style {
                 font-family: 'Linux Libertine', 'Georgia', serif;
                 background-color: #fff;
@@ -23421,12 +23409,22 @@ endingPicker = (out, totv, aa, quickstats) => {
 	}
 
 	//slide 2
-	if (quickstats[0] == 538) {
-		e.pages.push(`<p>chafe kills the whole world with his brilliance!</p>`);
+	if (quickstats[0] >= 270 && e.player_answers.includes(21405)) {
+		e.pages.push(`
+			<div class="ending-slide">
+				<h3>How Twitter is helping Chafee achieve his authoritarian dreams</h3>
+				<p style="margin-left: 28px;">Twitter’s “#RepealThe22nd” movement may actually lead to a major constitutional crisis if Chafee has his way.</p>
+				<p style="margin-left: 28px;">Sep 17, 2023, 7:30am EST</p>
+				<p>Last week, users on Twitter began making posts with the hashtag “RepealThe22nd”, and have gone viral ever since. Constitutional scholars and GOP legislators alike warn that this may be signalling the US’s descent into dictatorship.</p>
+				<p>Many of these posts are in support of President Chafee and urge him to run for a third term amidst a plethora of concerns over Chafee’s alleged connections to Russian oligarchs and refusal to condemn the invasion of Ukraine. Last Thursday, Congresswoman Rebekah Jones introduced a joint resolution to repeal the 22nd Amendment and permit Chafee to run for re-election.</p>
+				<p>Democrats from both chambers of Congress have come out in support of the resolution, and Senate Majority Leader Dick Durbin is strongly in support.</p>
+				<p>“Too long has effective government been sidelined in the name of waging political battles,” said Durbin on MSNBC. “If President Chafee wishes to seek a third term, then I think we should let him do that. Ultimately, the decision to grant him that third term lies with the American people.”</p>
+				<p>Republican legislators, however, are less keen on the whole idea. Senator Ben Sasse, for one, is staunchly opposed, stating that repealing the 22nd Amendment would be doing “a great disservice to what Washington intended for this country. We need to think in the long term, not in the short term.”</p>
+				<p>Lawyers and academics seem to agree. 48 constitutional scholars and law experts wrote an open letter directing Congress to block any attempt to repeal the 22nd Amendment. The letter warns that a hypothetical repeal could “upset the delicate constitutional balance that has been upheld for two centuries” and “tear apart the fabric of our democracy”.</p>
+				<p>President Chafee, for his part, remains silent on the matter.</p>
+			</div>
+		`);
 		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
-	} else if (quickstats[0] == 0) {
-		e.pages.push(`<p>lincoln chafee publically executed in the town square</p>`);
-		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/trump.png'})])
 	} else {
 		e.pages.push(`<h3>oops</h3>`);
 		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
