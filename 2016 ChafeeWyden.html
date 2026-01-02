@@ -34566,9 +34566,20 @@ endingPicker = (out, totv, aa, quickstats) => {
 				<p>President Chafee, for his part, remains silent on the matter.</p>
 			</div>
 		`);
-		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/2_russiaWin.png'})])
+	} else if (quickstats[0] >= 350 && foreign >= 2) {
+		e.pages.push(`
+			<div class="ending-slide">
+				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/chafeeSawEndingFixed.png" style="width: 650px; height: 927px;">
+			</div>
+		`);
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/2_bigWin_dove.png'})])
 	} else {
-		e.pages.push(`<h3>oops</h3>`);
+		e.pages.push(`
+			<div class="ending-slide">
+				<h3>oops</h3>
+			</div>
+		`);
 		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	}
 			
