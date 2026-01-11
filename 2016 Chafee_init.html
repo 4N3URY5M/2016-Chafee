@@ -326,16 +326,15 @@ document.head.innerHTML += `<link
 >`
 
 const styleElement = document.createElement('style');
-styleElement.textContent = `
+
+styleElement.innerHTML = `
 	body {
 		background-position: center;
 		display: flex !important;
 	}
-`;
-styleElement.innerHTML = `
-#opponent_selection_id_back {
-    display: none;
-}
+	#opponent_selection_id_back {
+    	display: none;
+	}
 `
 document.head.appendChild(styleElement);
 
