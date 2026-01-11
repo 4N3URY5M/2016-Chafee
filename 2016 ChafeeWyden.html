@@ -202,7 +202,7 @@ campaignTrail_temp.questions_json = [
         "pk": 1074,
         "fields": {
             "priority": 23,
-            "description": "Over the past four years, many Americans have become worried about the growth of Russian and Chinese influence on the global stage. You, having said next to nothing about these countries specifically, are now being asked for comment.",
+            "description": "Over the past four years, many Americans have become worried about the growth of n and Chinese influence on the global stage. You, having said next to nothing about these countries specifically, are now being asked for comment.",
             "likelihood": 1
         }
     },
@@ -535,7 +535,7 @@ campaignTrail_temp.questions_json = [
         "pk": 21455,
         "fields": {
             "priority": 23,
-            "description": "Over the past four years, many Americans have become worried about the growth of Russian and Chinese influence on the global stage. You, having said next to nothing about these countries specifically, are now being asked for comment.",
+            "description": "Over the past four years, many Americans have become worried about the growth of n and Chinese influence on the global stage. You, having said next to nothing about these countries specifically, are now being asked for comment.",
             "likelihood": 1
         }
     },
@@ -1439,7 +1439,7 @@ campaignTrail_temp.answers_json = [
         "pk": 5253,
         "fields": {
             "question": 1074,
-            "description": "Russia, y’know, what they’re doing in Crimea is real terrible. We can’t be standing around like sitting ducks while they do whatever the heck they want in Europe. It just isn’t right."
+            "description": ", y’know, what they’re doing in Crimea is real terrible. We can’t be standing around like sitting ducks while they do whatever the heck they want in Europe. It just isn’t right."
         }
     },
     {
@@ -30856,7 +30856,9 @@ e = campaignTrail_temp
 campaignTrail_temp.cyoa = true
 let polling = e.current_results;
 let AssassinChance = Math.random() * 6
+const gameWindow = document.getElementById('game_window');
 
+var vp = 0;
 var foreign = 0;
 var ideology = 0;
 var weird = 0;
@@ -30878,7 +30880,7 @@ var newAd = false;
 e.noCounter = 0
 
 campaignTrail_temp.candidate_image_url = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png';
-campaignTrail_temp.running_mate_image_url = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/wyden.png'; //wyden, CHANGE FOR OTHER CODES
+campaignTrail_temp.running_mate_image_url = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee2.png';
 campaignTrail_temp.candidate_last_name = '';
 campaignTrail_temp.running_mate_last_name = '';
 campaignTrail_temp.player_answers = [];
@@ -30886,7 +30888,7 @@ campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1
 
 function onGameWindowChanged(mutationList, observer) {
-    updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png");//wyden, CHANGE FOR OTHER CODES
+    updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/chafee.png");
 }
 
 function updateQuestions(mutationList, observer) {
@@ -30939,6 +30941,114 @@ function updateLeadRep(){
 		}
 	}
 }
+
+const changeGameDisp = (hide) => {
+    const displayValue = hide ? 'none' : '';
+    const mainContent = document.getElementById("main_content_area");
+    const campaignSign = document.getElementById("campaign_sign");
+    
+    // convert HTMLCollection to Array to iterate easily
+    Array.from(gameWindow.children).forEach(child => {
+        if (child.classList.contains("game_header")) return;
+        
+        if (child.id === "main_content_area" && campaignSign) return;
+
+        child.style.display = displayValue;
+    });
+};
+
+e.vpSwitcher = () => {
+    const candidateMap = new Map(e.candidate_json.map(c => [c.pk, c]));
+
+    const veepList = e.running_mate_json.filter(f => f.fields.candidate == e.candidate_id).map(f => candidateMap.get(f.fields.running_mate)).filter(Boolean);
+
+    if (veepList.length === 0) {
+        console.error("No running mates available");
+        return;
+    }
+
+    const veepOptions = veepList.map(vp => `<option value="${vp.pk}">${vp.fields.first_name} ${vp.fields.last_name}</option>`).join('');
+
+    const veepScreen = document.createElement("div");
+    veepScreen.className = "inner_window_w_desc";
+    veepScreen.id = "custom_vp_switcher";
+    veepScreen.innerHTML = `
+        <div id="running_mate_form">
+            <form name="running mate">
+                <p></p><h3>Please select your running mate:</h3> 
+                <select name="running_mate_id" id="running_mate_id">${veepOptions}</select>
+                <p></p>
+            </form>
+        </div>
+        <div class="person_description_window" id="running_mate_description_window"></div>
+        <p>
+            <button class="person_button" id="running_mate_id_button" data-custom-switcher="true">Continue</button>
+        </p>
+    `;
+
+    const updateVeepDisplay = (vp) => {
+        const descriptionWindow = veepScreen.querySelector("#running_mate_description_window");
+        descriptionWindow.innerHTML = `
+            <div class="person_image" id="running_mate_image"> 
+                <img src="${vp.fields.image_url}" width="210" height="250"> 
+            </div>
+            <div class="person_summary" id="running_mate_summary">
+                <ul>
+                    <li>Name: ${vp.fields.first_name} ${vp.fields.last_name}</li>
+                    <li>Party: ${vp.fields.party}</li>
+                    <li>Home State: ${vp.fields.state}</li>
+                </ul>
+                ${vp.fields.description_as_running_mate}
+            </div>
+        `;
+    }; 
+
+    changeGameDisp(true);
+    gameWindow.appendChild(veepScreen);
+
+    updateVeepDisplay(veepList[0]);
+
+    const selectElement = veepScreen.querySelector("#running_mate_id");
+    const continueButton = veepScreen.querySelector("#running_mate_id_button");
+
+    selectElement.addEventListener("change", (event) => {
+        const selectedPk = Number(event.target.value);
+        const selectedVP = veepList.find(vp => vp.pk === selectedPk);
+        if (selectedVP) updateVeepDisplay(selectedVP);
+    });
+
+    continueButton.addEventListener("click", () => {
+        const finalPk = Number(selectElement.value);
+        const chosenVP = veepList.find(vp => vp.pk === finalPk);
+        
+        if (chosenVP) {
+            e.running_mate_last_name = chosenVP.fields.last_name;
+            e.running_mate_image_url = chosenVP.fields.image_url;
+            e.selected_running_mate = chosenVP;
+            e.running_mate_id = finalPk;
+
+			vp = `${chosenVP.fields.first_name} ${chosenVP.fields.last_name}`;
+			
+			if (vp == "Ron Wyden") {
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png");
+			} else if (vp == "John Hickenlooper") {
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/hickenlooper.png");
+			} else if (vp == "Tulsi Gabbard") {
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/Gabbard.png");
+			} else if (vp == "Charlie Baker") {
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/baker.png");
+			}
+            
+            const rmPic = document.getElementById("running_mate_pic");
+            if (rmPic) {
+                rmPic.src = e.running_mate_image_url;
+            }
+        }
+
+        veepScreen.remove();
+        changeGameDisp(false);
+    });
+};
 
 cyoAdventure = function(a) {
 	ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length-1];
@@ -31067,14 +31177,68 @@ cyoAdventure = function(a) {
 	} else if(ans == 21263 || ans == 21280 || ans == 21314 || ans == 21331) {
 		weird += 1;
 	}
-	if(e.noCounter == 10 && weird <= 0 && foreign < 0) {
-		campaignTrail_temp.questions_json[10] = tunnel(1059);
-	} else if(e.noCounter == 10 && weird > 0 && foreign < 0) {
-		campaignTrail_temp.questions_json[10] = tunnel(21479);
-	} else if(e.noCounter == 10 && weird <= 0 && foreign >= 0) {
-		campaignTrail_temp.questions_json[10] = tunnel(21487);
-	} else if(e.noCounter == 10 && weird > 0 && foreign >= 0) {
-		campaignTrail_temp.questions_json[10] = tunnel(21495);
+	if(e.noCounter == 10) {
+		if (weird <= 0) {
+			if (foreign < 0) {
+				campaignTrail_temp.questions_json[10] = tunnel(1059);
+			} else {
+				campaignTrail_temp.questions_json[10] = tunnel(21487);
+			}
+		} else if (foreign < 0) {
+			campaignTrail_temp.questions_json[10] = tunnel(21479);
+		} else {
+			campaignTrail_temp.questions_json[10] = tunnel(21495);
+		}
+		//vp setting
+		if (weird < 0) { //wyden
+			campaignTrail_temp.running_mate_json = [
+				{
+					"model": "campaign_trail.running_mate",
+					"pk": 84815,
+					"fields": {
+						"candidate": 100,
+						"running_mate": 101
+					}
+				}
+			]
+		} else {
+			campaignTrail_temp.running_mate_json = []
+		}
+		if ((ideology < 2 && foreign < 1) || (e.player_answers.includes(21221) || e.player_answers.includes(21238) || e.player_answers.includes(21255) || e.player_answers.includes(21272))) { //hick
+			campaignTrail_temp.running_mate_json.push(
+				{
+					"model": "campaign_trail.running_mate",
+					"pk": 84816,
+					"fields": {
+						"candidate": 100,
+						"running_mate": 102
+					}
+				}
+			)
+		}
+		if ((ideology > 1 && foreign > 0) || (e.player_answers.includes(21242) || e.player_answers.includes(21276) || e.player_answers.includes(21293) || e.player_answers.includes(21310))) { //gabbard
+			campaignTrail_temp.running_mate_json.push(
+				{
+					"model": "campaign_trail.running_mate",
+					"pk": 84817,
+					"fields": {
+						"candidate": 100,
+						"running_mate": 103
+					}
+				}
+			)
+		}
+		campaignTrail_temp.running_mate_json.push(
+			{
+				"model": "campaign_trail.running_mate",
+				"pk": 84818,
+				"fields": {
+					"candidate": 100,
+					"running_mate": 104
+				}
+			}
+		)
+		window.setTimeout(e.vpSwitcher, 20)
 	}
 
 	//q11
@@ -31928,7 +32092,6 @@ function addHeadquarterButton() {
 }
 
 async function handleFooter() {
-    var gameWindow = document.getElementById('game_window');
     addHeadquarterButton()
 };
 
@@ -33109,19 +33272,19 @@ endingPicker = (out, totv, aa, quickstats) => {
     e.executable = []
 	
 	if (songChange != 1) {
-		if (quickstats[0] == 538 || (aa[0].electoral_votes >= 270 && aa[0].candidate == 300) || (aa[0].electoral_votes >= 270 && aa[0].candidate == 400)) {
+		if (quickstats[0] == 538) {
 			songChange = 1
-			const bigshot = new Playlist();
-			const bigshotSong = new Song(
-				"BIG SHOT",
-				"Toby Fox",
-				"DELTARUNE Chapter 2 (Original Game Soundtrack)",
-				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/deltarune_2.png",
-				"https://audio.jukehost.co.uk/2G1lAR4JDvxWAwhyjwKnabghiRkZRVv5"
+			const crowned = new Playlist();
+			const crownedSong = new Song(
+				"CROWNED",
+				"Hirokazu Ando",
+				"Kirby's Return to Dreamland Original Soundtrack",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/kirby.png",
+				"https://audio.jukehost.co.uk/US2Lx8uWQw5tyBeRRMHztuMIALadd0xz"
 			);
-			bigshot.addSong(bigshotSong);
-			changePlaylist(bigshot);
-		} else if (quickstats[0] == 0) {
+			crowned.addSong(crownedSong);
+			changePlaylist(crowned);
+		} else if (quickstats[0] == 0 || (aa[0].electoral_votes >= 270 && aa[0].candidate == 300) || (aa[0].electoral_votes >= 270 && aa[0].candidate == 400)) {
 			songChange = 1
 			const jail = new Playlist();
 			const jailSong = new Song(
@@ -33684,7 +33847,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		IncParty = "I";
 		Year = 2036;
 	} else if(ChafeeEV >= 270 || faithless == 1 || (TrumpEV < 270 && weird > -2 && ideology > -3 && ideology < 3)) { //chafee victory
-		if(e.player_answers.includes(21405)) {
+		if(e.player_answers.includes(21405) || ChafeeEV == 538) {
 			showChafeeIncumbent = true;
 			IncParty = "D";
 			Year = 2036;
