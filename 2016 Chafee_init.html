@@ -261,30 +261,6 @@ campaignTrail_temp.running_mate_json = [
 			"candidate": 100,
 			"running_mate": 101
 		}
-	},
-	{
-		"model": "campaign_trail.running_mate",
-		"pk": 84816,
-		"fields": {
-			"candidate": 100,
-			"running_mate": 102
-		}
-	},
-	{
-		"model": "campaign_trail.running_mate",
-		"pk": 84817,
-		"fields": {
-			"candidate": 100,
-			"running_mate": 103
-		}
-	},
-	{
-		"model": "campaign_trail.running_mate",
-		"pk": 84818,
-		"fields": {
-			"candidate": 100,
-			"running_mate": 104
-		}
 	}
 ]
 
@@ -796,7 +772,6 @@ document.head.appendChild(style);
 const gameWindow_player = document.getElementById("game_window");
 setupMusicPlayer();
 
-const windowsAdvisorConfig = { attributes: true, childList: true, subtree: true };
 let z = new MutationObserver((mutationsList, observer) => {
     let runningMateSummary = document.querySelector("#running_mate_summary");
     if (runningMateSummary) {
