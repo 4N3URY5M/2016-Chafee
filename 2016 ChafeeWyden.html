@@ -30967,7 +30967,7 @@ e.vpSwitcher = () => {
         return;
     }
 
-    const veepOptions = veepList.map(vp => `<option value="${vp.pk}">${vp.fields.first_name} ${vp.fields.last_name}</option>`).join('');
+    const veepOptions = veepList.map(g => `<option value="${g.pk}">${g.fields.first_name} ${g.fields.last_name}</option>`).join('');
 
     const veepScreen = document.createElement("div");
     veepScreen.className = "inner_window_w_desc";
@@ -30986,19 +30986,19 @@ e.vpSwitcher = () => {
         </p>
     `;
 
-    const updateVeepDisplay = (vp) => {
+    const updateVeepDisplay = (g) => {
         const descriptionWindow = veepScreen.querySelector("#running_mate_description_window");
         descriptionWindow.innerHTML = `
             <div class="person_image" id="running_mate_image"> 
-                <img src="${vp.fields.image_url}" width="210" height="250"> 
+                <img src="${g.fields.image_url}" width="210" height="250"> 
             </div>
             <div class="person_summary" id="running_mate_summary">
                 <ul>
-                    <li>Name: ${vp.fields.first_name} ${vp.fields.last_name}</li>
-                    <li>Party: ${vp.fields.party}</li>
-                    <li>Home State: ${vp.fields.state}</li>
+                    <li>Name: ${g.fields.first_name} ${g.fields.last_name}</li>
+                    <li>Party: ${g.fields.party}</li>
+                    <li>Home State: ${g.fields.state}</li>
                 </ul>
-                ${vp.fields.description_as_running_mate}
+                ${g.fields.description_as_running_mate}
             </div>
         `;
     }; 
@@ -31013,35 +31013,23 @@ e.vpSwitcher = () => {
 
     selectElement.addEventListener("change", (event) => {
         const selectedPk = Number(event.target.value);
-        const selectedVP = veepList.find(vp => vp.pk === selectedPk);
+        const selectedVP = veepList.find(g => g.pk === selectedPk);
         if (selectedVP) updateVeepDisplay(selectedVP);
     });
 
     continueButton.addEventListener("click", () => {
         const finalPk = Number(selectElement.value);
-        const chosenVP = veepList.find(vp => vp.pk === finalPk);
+        const chosenVP = veepList.find(g => g.pk === finalPk);
         
         if (chosenVP) {
             e.running_mate_last_name = chosenVP.fields.last_name;
             e.running_mate_image_url = chosenVP.fields.image_url;
             e.selected_running_mate = chosenVP;
             e.running_mate_id = finalPk;
-			
-			if (e.running_mate_last_name == "Wyden") {
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png");
-				vp = "Ron Wyden";
-			} else if (e.running_mate_last_name == "Hickenlooper") {
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/hickenlooper.png");
-				vp = "John Hickenlooper";
-			} else if (e.running_mate_last_name == "Gabbard") {
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/Gabbard.png");
-				vp = "Tulsi Gabbard";
-			} else if (e.running_mate_last_name == "Baker") {
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/baker.png");
-				vp = "Charlie Baker";
-			}
 
+			vp = chosenVP.fields.first_name + " " + chosenVP.fields.last_name
 			vpTable["Lincoln Chafee"] = vp;
+			console.log(vp);
             
             const rmPic = document.getElementById("running_mate_pic");
             if (rmPic) {
@@ -31231,13 +31219,12 @@ cyoAdventure = function(a) {
 				}
 			}
 		)
-		window.setTimeout(e.vpSwitcher, 20)
-	}
-
-	//q11
-	if(e.noCounter == 10) {
-		if(vp == "Ron Wyden") {
-			if (weird <= 0) {
+		window.setTimeout(() => {
+			e.vpSwitcher();
+			console.log(vp);
+			if(vp == "Ron Wyden") {
+				console.log("wyden vp");
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png");
 				if (weird <= 0) {
 					if (foreign < 0) {
 						campaignTrail_temp.questions_json[10] = tunnel(1059);
@@ -31249,39 +31236,44 @@ cyoAdventure = function(a) {
 				} else {
 					campaignTrail_temp.questions_json[10] = tunnel(21495);
 				}
-			}
-		} else if(vp == "John Hickenlooper") {
-			if(foreign < 0) {
-				if(ideology < 0) {
-					if(weird < 0) {
-						campaignTrail_temp.questions_json[10] = tunnel(23746);
-					} else {
-						campaignTrail_temp.questions_json[10] = tunnel(23759);
-					}
-				} else {
-					if(weird <= 0) {
+			} else if(vp == "John Hickenlooper") {
+				console.log("hickenlooper vp");
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/hickenlooper.png");
+				if(foreign < 0) {
+					if(ideology < 0) {
+						if(weird < 0) {
+							campaignTrail_temp.questions_json[10] = tunnel(23746);
+						} else {
+							campaignTrail_temp.questions_json[10] = tunnel(23759);
+						}
+					} else if(weird >= 0) {
 						campaignTrail_temp.questions_json[10] = tunnel(23771);
 					} else {
 						campaignTrail_temp.questions_json[10] = tunnel(23783);
 					}
-				}
-			} else {
-				if(foreign < 0) {
-					if(weird <= 0) {
+				} else if(ideology >= 0) {
+					if(weird < 0) {
 						campaignTrail_temp.questions_json[10] = tunnel(23795);
 					} else {
 						campaignTrail_temp.questions_json[10] = tunnel(23807);
 					}
+				} else if(weird >= 0) {
+					campaignTrail_temp.questions_json[10] = tunnel(23819);
 				} else {
-					if(weird <= 0) {
-						campaignTrail_temp.questions_json[10] = tunnel(23819);
-					} else {
-						campaignTrail_temp.questions_json[10] = tunnel(23831);
-					}
+					campaignTrail_temp.questions_json[10] = tunnel(23831);
 				}
+			} else if(vp == "Tulsi Gabbard") {
+				console.log("gabbard vp");
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/Gabbard.png");
+			} else if(vp == "Charlie Baker") {
+				console.log("baker vp");
+				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/baker.png");
 			}
-		}
+		}, 20);
 	}
+		
+
+	//q11
 	if(ans == 5196 || ans == 21480 || ans == 21488 || ans == 21496) {
 		weird -= 2;
 		foreign += 1;
@@ -33618,6 +33610,10 @@ endingPicker = (out, totv, aa, quickstats) => {
                 line-height: 1.6;
             }
 
+			.ending-slide h1 {
+				text-align: left;
+			}
+
             .ending-slide h3 {
                 text-align: center;
                 font-size: 24px;
@@ -34662,9 +34658,9 @@ endingPicker = (out, totv, aa, quickstats) => {
 		{ show: showLiebermanIncumbent, name: "Neo-Joe Lieberman", termEnd: "<i>Incumbent</i>", party: "Independent", veep: "John McCain 2.0", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2024/neoLieberman.png" },
 		{ show: showChafee1Term, name: "Lincoln Chafee", termEnd: "January 20, 2021", party: "Democratic", veep: vpTable["Lincoln Chafee"], img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2Term, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic", veep: vpTable["Lincoln Chafee"], img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
-		{ show: showChafee2TermIndy, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Independent", veep: `vpTable["Lincoln Chafee"], Tulsi Gabbard`, img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafee2TermIndy, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Independent", veep: vpTable["Lincoln Chafee"] + ", Tulsi Gabbard", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafee2TermGabbard, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Independent", veep: "Tulsi Gabbard", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
-		{ show: showChafee2TermLib, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Libertarian", veep: `vpTable["Lincoln Chafee"], Bill Weld`, img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
+		{ show: showChafee2TermLib, name: "Lincoln Chafee", termEnd: "January 20, 2025", party: "Democratic, Libertarian", veep: vpTable["Lincoln Chafee"] + ", Bill Weld", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafee.png" },
 		{ show: showChafeeIncumbent, name: "Lincoln Chafee", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: `vpTable["Lincoln Chafee"], Robert F. Kennedy Jr.`, img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafeeDictator.png" },
 		{ show: showChafeeIncumbentAlt, name: "Lincoln Chafee", termEnd: "<i>Incumbent</i>", party: "Democratic", veep: "Tulsi Gabbard", img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/chafeeDictator.png" },
 		{ show: showTrump1Term, name: "Donald Trump", termEnd: "January 20, 2021", party: "Republican", veep: vpTable["Donald Trump"], img: "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/prezImages/2016/trumpTerm1.png" },
@@ -34831,43 +34827,130 @@ endingPicker = (out, totv, aa, quickstats) => {
 
 	//slide 1		
 	if (quickstats[0] == 538) {
-		e.pages.push(`<p>chafe kills the whole world with his brilliance!</p>`);
+		e.pages.push(`<div class="ending-slide">oops</div>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
-	} else if (quickstats[0] == 0) {
-		e.pages.push(`<p>lincoln chafee publically executed in the town square</p>`);
-		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/trump.png'})])
 	} else {
-		e.pages.push(`<h3>oops</h3>`);
+		e.pages.push(`<div class="ending-slide">oops</div>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	}
 
 	//slide 2
 	if (quickstats[0] >= 270 && e.player_answers.includes(21405)) {
 		e.pages.push(`
-			<div class="ending-slide" style="font-family: 'Georgia'">
+			<div class="ending-slide" style="font-family: 'Georgia';">
 				<div style="background-color: #fef200; padding: 10px; text-align: left;">
     				<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Vox_%28website%29_logo.jpg" alt="Vox Logo" style="height: 55px;">
   				</div>
-				<h1 style="margin-left: 28px;">How Twitter is helping Chafee achieve his authoritarian dreams</h1>
-				<p style="margin-left: 28px;">Twitter’s “#RepealThe22nd” movement may actually lead to a major constitutional crisis if Chafee has his way.</p>
-				<p style="margin-left: 28px;">Sep 17, 2023, 7:30am EST</p>
-				<p style="margin-left: 28px;">Last week, users on Twitter began making posts with the hashtag “RepealThe22nd”, and have gone viral ever since. Constitutional scholars and GOP legislators alike warn that this may be signalling the US’s descent into dictatorship.</p>
-				<p style="margin-left: 28px;">Many of these posts are in support of President Chafee and urge him to run for a third term amidst a plethora of concerns over Chafee’s alleged connections to Russian oligarchs and refusal to condemn the invasion of Ukraine. Last Thursday, Congresswoman Rebekah Jones introduced a joint resolution to repeal the 22nd Amendment and permit Chafee to run for re-election.</p>
-				<p style="margin-left: 28px;">Democrats from both chambers of Congress have come out in support of the resolution, and Senate Majority Leader Dick Durbin is strongly in support.</p>
-				<p style="margin-left: 28px;">“Too long has effective government been sidelined in the name of waging political battles,” said Durbin on MSNBC. “If President Chafee wishes to seek a third term, then I think we should let him do that. Ultimately, the decision to grant him that third term lies with the American people.”</p>
-				<p style="margin-left: 28px;">Republican legislators, however, are less keen on the whole idea. Senator Ben Sasse, for one, is staunchly opposed, stating that repealing the 22nd Amendment would be doing “a great disservice to what Washington intended for this country. We need to think in the long term, not in the short term.”</p>
-				<p style="margin-left: 28px;">Lawyers and academics seem to agree. 48 constitutional scholars and law experts wrote an open letter directing Congress to block any attempt to repeal the 22nd Amendment. The letter warns that a hypothetical repeal could “upset the delicate constitutional balance that has been upheld for two centuries” and “tear apart the fabric of our democracy”.</p>
-				<p style="margin-left: 28px;">President Chafee, for his part, remains silent on the matter.</p>
+				<h1 style="margin-left: 10px; text-align: left;">How Twitter is helping Chafee achieve his authoritarian dreams</h1>
+				<p style="margin-left: 10px;">Twitter’s “#RepealThe22nd” movement may actually lead to a major constitutional crisis if Chafee has his way.</p>
+				<p style="margin-left: 10px;">Sep 17, 2023, 7:30am EST</p>
+				<p style="margin-left: 10px;">Last week, users on Twitter began making posts with the hashtag “RepealThe22nd”, and have gone viral ever since. Constitutional scholars and GOP legislators alike warn that this may be signalling the US’s descent into dictatorship.</p>
+				<p style="margin-left: 10px;">Many of these posts are in support of President Chafee and urge him to run for a third term amidst a plethora of concerns over Chafee’s alleged connections to Russian oligarchs and refusal to condemn the invasion of Ukraine. Last Thursday, Congresswoman Rebekah Jones introduced a joint resolution to repeal the 22nd Amendment and permit Chafee to run for re-election.</p>
+				<p style="margin-left: 10px;">Democrats from both chambers of Congress have come out in support of the resolution, and Senate Majority Leader Dick Durbin is strongly in support.</p>
+				<p style="margin-left: 10px;">“Too long has effective government been sidelined in the name of waging political battles,” said Durbin on MSNBC. “If President Chafee wishes to seek a third term, then I think we should let him do that. Ultimately, the decision to grant him that third term lies with the American people.”</p>
+				<p style="margin-left: 10px;">Republican legislators, however, are less keen on the whole idea. Senator Ben Sasse, for one, is staunchly opposed, stating that repealing the 22nd Amendment would be doing “a great disservice to what Washington intended for this country. We need to think in the long term, not in the short term.”</p>
+				<p style="margin-left: 10px;">Lawyers and academics seem to agree. 48 constitutional scholars and law experts wrote an open letter directing Congress to block any attempt to repeal the 22nd Amendment. The letter warns that a hypothetical repeal could “upset the delicate constitutional balance that has been upheld for two centuries” and “tear apart the fabric of our democracy”.</p>
+				<p style="margin-left: 10px;">President Chafee, for his part, remains silent on the matter.</p>
 			</div>
 		`);
 		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/2_russiaWin.png'})])
-	} else if (quickstats[0] >= 350 && foreign >= 2) {
+	} else if (quickstats[0] >= 350 && foreign >= 2 && trumpOut == 0) {
 		e.pages.push(`
 			<div class="ending-slide">
-				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/chafeeSawEndingFixed.png" style="width: 650px; height: 927px;">
+				<div style="color: white; padding: 10px; display: inline-block; border-radius: 5px;">
+					<div>
+						<img style="height: 20px; padding: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png">
+						<img style="height: 30px; padding: 5px; margin-left: 8px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/chafeeSawSearchBar.png">
+					</div>
+					<div style="max-width: 800px; font-family: Roboto, sans-serif;">
+						<div>
+							<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/chafeeSawVideo.png" alt="Your Image" style="max-width: 620px; height: auto;">
+						</div>
+						<div style="padding: 1px;">
+							<h3 style="color: #222222; text-align: left;">Chafee Saw Game (Inkagames) - Walkthrough</h3>
+							<div style="display: flex; align-items: center; gap: 4px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/obamaGaming.png" alt="Channel Icon">
+								<div>
+									<p style="margin: 0; color: #222222;"><strong>Politigamer</strong><br>17.5K subscribers</p>
+								</div>
+								<div>
+									<button style="background-color: black; color: white; border: none; font-size: 12px; cursor: pointer; border-radius: 16px; height: 32px; width: 77px; margin-left: 10px;">Subscribe</button>
+								</div>
+							</div>
+						</div>
+						<div style="border-top: 1px solid #ddd; margin-top: 10px;">
+							<div style="display: flex; background-color: #f0f0f0; border-radius: 10px; width: 592px; height: 120px; padding: 0px 14px; margin-top: 10px; cursor: pointer;">
+								<p><span style="color: #222222;">76K views<span style="margin-left: 8px;">8 years ago</span><br>Chafee Saw Game is a brand new game from the Inkagames' team and here's the walkthrough in case you need some help. Good luck!<br>• Description: The evil Pigsaw has kidnapped President Chafee to force him to play his evil game.<br>• Play it here online: <span style="color: #1c56cb;">http://ww.inkagames.com/flash_games</span><strong> ...more</strong></span></p>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/google-icon-Y.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@yasturias2008</span> <span style="color: #666; font-size: 0.9em;">4 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">Hope Obama In the Dark 4 come out soon too.</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 9 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/ghostdark.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@ghostdark772</span> <span style="color: #666; font-size: 0.9em;">8 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">Characters:<br>-Chafee<br>-Pigsaw<br>-Ghostface<br>-Dracula<br>-John Rambo<br>-Terminator<br>-Bruce Banner/Hulk</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 8 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/joe%2008/endings/other/rpxIcJG%20-%20Imgur.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@oliverball8536</span> <span style="color: #666; font-size: 0.9em;">5 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">How game should have ended:<br>chafee: gets captured and taken by pigsaw<br>obama: dont worry mr president ill save you(stops pigsaw and breaks chafee out of guantanamo prison)<br>chafee: omgg thanks obama!!!</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 6 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/pubby.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@funtucker101</span> <span style="color: #666; font-size: 0.9em;">3 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">Maybe if Chafee wasn't so friendly with Russia, Jigsaw wouldn't have to teach him a lesson.</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 2 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/squirtlesquad.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@squirtlesquad4021</span> <span style="color: #666; font-size: 0.9em;">8 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">Lincoln Chafee's Prosperity and Peace, is a good idea</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 4 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/google-icon-T.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@MaiTran-oi8tw</span> <span style="color: #666; font-size: 0.9em;">6 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">I love Lincoln Chafee because i live in Vietnam</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 3 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+							<div style="display: flex; align-items: flex-start; gap: 10px; max-width: 750px; font-family: Roboto, sans-serif; padding: 10px;"><img style="width: 40px; height: 40px; border-radius: 20px;" src="https://file.garden/aNxawo8jlVkymd8s/PAT/music/annihilator.png" alt="Profile">
+								<div>
+									<p style="margin: 0; color: #222222;"><span style="font-weight: bold;">@MindBodyLightSound</span> <span style="color: #666; font-size: 0.9em;">6 years ago</span></p>
+									<p style="margin: 5px 0; color: #262626;">Glad we elected this idiot. There was a reason he almost dropped out of the fucking primary.</p>
+									<div style="display: flex; align-items: center; gap: 8px; font-size: 0.9em; color: #262626;">👍 👎<span style="font-weight: bold;">Reply</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		`);
 		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/2_bigWin_dove.png'})])
+	} else if(quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpOut == 1 && leadRep == 3) {
+		e.pages.push(`
+			<div class="ending-slide" style="font-family: 'Helvetica'; color: 222;">
+				<img style="width: 640px;" src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/slateHeader.png" alt="Slate Header" />
+				<h1 style="margin-left: 10px; font-family: 'Georgia'; font-size: 40px; text-align: left;"><em>The Handmaid's Tale</em></h1>
+				<h2 style="margin-left: 10px; color: #444;">It’s a terrifyingly relevant dystopian drama about a far-gone United States. It’s also an enrapturing watch.</h2>
+				<p style="margin-left: 10px; color: #777;">April 17, 2017 • 9:02 PM</p>
+				<p style="margin-left: 10px;">Since its publication in 1985, Margaret Atwood&rsquo;s <span style="text-decoration: underline; text-decoration-color: red;"><em>The Handmaid&rsquo;s Tale</em></span> has never gone out of relevance. At times, it was seen as prescient; at others, it was viewed as cautionary. When Lincoln Chafee&rsquo;s victory seemed almost inevitable in 2016, the book seemed to be at a safe distance away from our reality. But three months into the Cotton presidency, it seems that the fictional Republic of Gilead is closer than ever.</p>
+				<p style="margin-left: 10px;">The setting of <em>The Handmaid&rsquo;s Tale</em> is a near-future totalitarian theocracy, the aforementioned Republic of Gilead, which used to be the United States until the American government faced a total upheaval by a group of Christian fundamentalists. Sound familiar? The Gileadian government came to power due to a sharp decline in birth rates as a result of harsh environmental pollution. This led to the creation of an underclass of women used as &ldquo;handmaids&rdquo;, forced to bear children for their masters. Gileadian society sees women as nothing more than tools for reproduction.</p>
+				<p style="margin-left: 10px;">Tom Cotton&rsquo;s government, as <span style="text-decoration: underline; text-decoration-color: red;">many have noted</span>, bears a striking resemblance to that of Gilead in many aspects. Cotton, for one, has already made promises to overturn Roe v. Wade during his presidency, which would set women&rsquo;s rights back by decades. He filled his cabinet with far-right Christian fundamentalists like Jeff Sessions, who would gladly establish a theocracy given the chance. And the ways that <em>The Handmaid&rsquo;s Tale</em> are not a terrifying one-to-one parallel to our current situation are a part of its anxiety-inducing power. Like an unseen horror, lurking in the shadows, creating terror in the act of being unseen, the vagueness of <em>The Handmaid&rsquo;s Tale</em> leaves much to the imagination. How will the seemingly limitless contempt for women present in our current political climate play out? What would the Cotton administration do in the case of a serious national emergency? Or rather, what <em>wouldn&rsquo;t</em> they do?</p>
+				<p style="margin-left: 10px;">The series, narrated by handmaid Offred (Elisabeth Moss), is rife with Atwood’s acerbic prose, exemplifying the hopelessness of the nightmare Offred finds herself living through. She details what her life was like in the past in flashbacks to “before”, to her husband and daughter, to the day her and all of her female coworkers had their bank accounts transferred to their husbands or next of male kin. She tells us about when extremists seized control of the government, when they suspended the Constitution, when Americans didn’t “wake up”. When people took to the streets, it was already too late.</p>
+				<p style="margin-left: 10px;">And now, three months into Tom Cotton’s presidency, we have to ask ourselves: is it already too late?</p>
+			</div>
+		`);
+		e.executable.push([1, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	} else {
 		e.pages.push(`
 			<div class="ending-slide">
