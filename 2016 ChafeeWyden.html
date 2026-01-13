@@ -94,7 +94,7 @@ campaignTrail_temp.questions_json = [
         "pk": 1059,
         "fields": {
             "priority": 11,
-            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
+            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee-shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
             "likelihood": 1
         }
     },
@@ -544,7 +544,7 @@ campaignTrail_temp.questions_json = [
         "pk": 21479,
         "fields": {
             "priority": 11,
-            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
+            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee-shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
             "likelihood": 1
         }
     },
@@ -553,7 +553,7 @@ campaignTrail_temp.questions_json = [
         "pk": 21487,
         "fields": {
             "priority": 11,
-            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
+            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee-shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
             "likelihood": 1
         }
     },
@@ -562,7 +562,7 @@ campaignTrail_temp.questions_json = [
         "pk": 21495,
         "fields": {
             "priority": 11,
-            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
+            "description": "Your choice of Oregon senator Ron Wyden as running mate has gone over exactly as anti-climactically as expected, which may be for the best, as most Americans are still scratching their heads at how the Democrats got themselves into this Chafee-shaped mess. With Wyden having appeal to your libertarian positions, a bit to progressives, and to your unique policy stances, what will you choose to emphasize?",
             "likelihood": 1
         }
     },
@@ -28908,7 +28908,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 21069,
             "candidate": 100,
-            "answer_feedback": "Wallace asks a question about immigration, to which Trump responds by promising to “get all of the drug lords”. You egg him on, and he drops a line about the “bad hombres” that need to be removed from the country. Social media slams him for the racist undertones."
+            "answer_feedback": "Wallace asks a question about immigration, to which Trump responds by promising to “get all of the drug lords”. You egg him on, and he drops a line about “bad hombres” that need to be removed from the country. Social media slams him for the racist undertones."
         }
     },
     {
@@ -28935,7 +28935,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 21088,
             "candidate": 100,
-            "answer_feedback": "Wallace asks a question about immigration, to which Trump responds by promising to “get all of the drug lords”. You egg him on, and he drops a line about the “bad hombres” that need to be removed from the country. Social media slams him for the racist undertones."
+            "answer_feedback": "Wallace asks a question about immigration, to which Trump responds by promising to “get all of the drug lords”. You egg him on, and he drops a line about “bad hombres” that need to be removed from the country. Social media slams him for the racist undertones."
         }
     },
     {
@@ -30888,7 +30888,7 @@ campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1
 
 function onGameWindowChanged(mutationList, observer) {
-    updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/chafee.png");
+    updateQuestionBanner();
 }
 
 function updateQuestions(mutationList, observer) {
@@ -30901,9 +30901,21 @@ const observer = new MutationObserver(onGameWindowChanged);
 	observer.observe(targetNode, config);
 
 e.VPisCandidate = 0;
-function updateQuestionBanner(imgUrl) {
+function updateQuestionBanner() {
     let questionBanner = document.getElementById("campaign_sign");
     if (!questionBanner || questionBanner.nodeName != "DIV") return;
+	let imgUrl;
+	if(vp == 0) {
+		imgUrl = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/chafee.png";
+	} else if(vp == "Ron Wyden") {
+		imgUrl = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png";
+	} else if(vp == "John Hickenlooper") {
+		imgUrl = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/hickenlooper.png";
+	} else if(vp == "Tulsi Gabbard") {
+		imgUrl = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/Gabbard.png";
+	} else if(vp == "Charlie Baker") {
+		imgUrl = "https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/baker.png";
+	}
     let img = document.createElement('img');
     img.src = imgUrl;
     img.width = 280; // Adjust the width as needed
@@ -30943,18 +30955,12 @@ function updateLeadRep(){
 }
 
 const changeGameDisp = (hide) => {
-    const displayValue = hide ? 'none' : '';
-    const mainContent = document.getElementById("main_content_area");
-    const campaignSign = document.getElementById("campaign_sign");
-    
-    // convert HTMLCollection to Array to iterate easily
-    Array.from(gameWindow.children).forEach(child => {
-        if (child.classList.contains("game_header")) return;
-        
-        if (child.id === "main_content_area" && campaignSign) return;
-
-        child.style.display = displayValue;
-    });
+	const disp = hide ? 'none' : '';
+			
+	Array.from(gameWindow.children).forEach(f=>{
+		if(!f.classList.contains("game_header") && (f.id != "main_content_area" || !$("#campaign_sign")[0])) 
+			f.style.display = disp
+	});
 };
 
 e.vpSwitcher = () => {
@@ -31041,6 +31047,141 @@ e.vpSwitcher = () => {
         changeGameDisp(false);
     });
 };
+
+e.vpSwitcher = () => {
+	let potential_running_mate_pks = e.running_mate_json.filter(f=>f.fields.candidate == e.candidate_id).map(f=>f.fields.running_mate);
+	let pot_run_mat = potential_running_mate_pks.map(f=>e.candidate_json.find(_f=>_f.pk===f)).filter(Boolean);
+	let running_mate_options = ``;
+	pot_run_mat.forEach(f=> {
+		running_mate_options += `<option value="${f.pk}">${f.fields.first_name} ${f.fields.last_name}</option>\n`
+	});
+			
+	let vp_html = `
+		<div id="running_mate_form">
+			<form name="running mate">
+				<p></p>
+				<h3>Please select your running mate:</h3> 
+				<select name="running_mate_id" id="running_mate_id">
+					${running_mate_options}
+				</select>
+				<p></p>
+			</form>
+		</div>
+		<div class="person_description_window" id="running_mate_description_window">
+			<div class="person_image" id="running_mate_image"> <img src="${pot_run_mat[0].fields.image_url}" width="210" height="250"> </div>
+			<div class="person_summary" id="running_mate_summary">
+				<ul>
+					<li>Name: ${pot_run_mat[0].fields.first_name} ${pot_run_mat[0].fields.last_name}</li>
+					<li>Party: ${pot_run_mat[0].fields.party}</li>
+					<li>Home State: ${pot_run_mat[0].fields.state}</li>
+				</ul>
+				${pot_run_mat[0].fields.description_as_running_mate}
+			</div>
+		</div>
+		<p> <button class="person_button" id="running_mate_id_button">Continue</button> </p>
+	`
+			
+	let vp_screen = document.createElement("div");
+	vp_screen.classList.add("inner_window_w_desc");
+	vp_screen.id = "inner_window_4";
+	vp_screen.innerHTML = vp_html;
+			
+	changeGameDisp(true);
+			
+	gameWindow.appendChild(vp_screen);
+	
+	$("#running_mate_id").change((_e)=>{
+		_e.preventDefault()
+			
+		let value = Number($("#running_mate_id").val());
+		let i = potential_running_mate_pks.findIndex(f=>f === value);
+			
+		let screen_html = `
+			<div class="person_image" id="running_mate_image"> <img src="${pot_run_mat[i].fields.image_url}" width="210" height="250"> </div>
+			<div class="person_summary" id="running_mate_summary">
+				<ul>
+					<li>Name: ${pot_run_mat[i].fields.first_name} ${pot_run_mat[i].fields.last_name}</li>
+					<li>Party: ${pot_run_mat[i].fields.party}</li>
+					<li>Home State: ${pot_run_mat[i].fields.state}</li>
+				</ul>
+				${pot_run_mat[i].fields.description_as_running_mate}
+			</div>
+		`
+			
+		$("#running_mate_description_window").html(screen_html);
+	});
+			
+	$("#running_mate_id_button").click((_e)=>{
+		_e.preventDefault();
+			
+		let value = Number($("#running_mate_id").val());
+		let i = potential_running_mate_pks.findIndex(f=>f === value);
+
+		if (i >= 0) {
+        	let selectedRunningMate = pot_run_mat[i];
+            if (selectedRunningMate.pk == 101) { //wyden
+				if (weird <= 0) {
+					if (foreign < 0) {
+						campaignTrail_temp.questions_json[10] = tunnel(1059);
+					} else {
+						campaignTrail_temp.questions_json[10] = tunnel(21487);
+					}
+				} else if (foreign < 0) {
+					campaignTrail_temp.questions_json[10] = tunnel(21479);
+				} else {
+					campaignTrail_temp.questions_json[10] = tunnel(21495);
+				}
+				foreign += 1;
+				weird -= 1;
+				console.log("wyden");
+            } else if (selectedRunningMate.pk == 102) { //hick
+               	campaignTrail_temp.questions_json[5] = tunnel(1059);
+				foreign -= 1;
+				ideology -= 1;
+				weird += 1;
+				console.log("hickenlooper");
+            } else if (selectedRunningMate.pk === 103) { //gabbard
+              	campaignTrail_temp.questions_json[5] = tunnel(1059);
+				foreign += 1;
+				ideology += 1;
+				weird -= 1;
+				console.log("gabbard");
+            } else if (selectedRunningMate.pk === 104) { //baker
+              	campaignTrail_temp.questions_json[5] = tunnel(1059);
+				foreign -= 2;
+				ideology -= 2;
+				console.log("baker");
+            }
+
+           	e.running_mate_last_name = selectedRunningMate.fields.last_name;
+          	e.running_mate_image_url = selectedRunningMate.fields.image_url;
+          	e.selected_running_mate = selectedRunningMate;
+
+			vp = e.selected_running_mate.fields.first_name + " " + e.selected_running_mate.fields.last_name
+			vpTable["Lincoln Chafee"] = vp;
+			console.log(vp);
+
+            // Update any related UI
+            if ($("#campaign_sign")[0]) {
+                $("#running_mate_pic").attr("src", e.running_mate_image_url);
+            }
+
+            setTimeout(() => {
+                $("#view_electoral_map").trigger("click");
+            }, 5);
+            setTimeout(() => {
+                $("#resume_questions_button").trigger("click");
+            }, 10);
+        }
+			
+		if ($("#campaign_sign")[0]) {
+			$("#running_mate_pic").attr("src", e.running_mate_image_url)
+		}
+			
+		$("#inner_window_4").remove();
+		changeGameDisp(false);
+	})
+}
 
 cyoAdventure = function(a) {
 	ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length-1];
@@ -31219,81 +31360,16 @@ cyoAdventure = function(a) {
 				}
 			}
 		)
-		window.setTimeout(() => {
-			e.vpSwitcher();
-			console.log(vp);
-			if(vp == "Ron Wyden") {
-				console.log("wyden vp");
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/wyden.png");
-				if (weird <= 0) {
-					if (foreign < 0) {
-						campaignTrail_temp.questions_json[10] = tunnel(1059);
-					} else {
-						campaignTrail_temp.questions_json[10] = tunnel(21487);
-					}
-				} else if (foreign < 0) {
-					campaignTrail_temp.questions_json[10] = tunnel(21479);
-				} else {
-					campaignTrail_temp.questions_json[10] = tunnel(21495);
-				}
-			} else if(vp == "John Hickenlooper") {
-				console.log("hickenlooper vp");
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/hickenlooper.png");
-				if(foreign < 0) {
-					if(ideology < 0) {
-						if(weird < 0) {
-							campaignTrail_temp.questions_json[10] = tunnel(23746);
-						} else {
-							campaignTrail_temp.questions_json[10] = tunnel(23759);
-						}
-					} else if(weird >= 0) {
-						campaignTrail_temp.questions_json[10] = tunnel(23771);
-					} else {
-						campaignTrail_temp.questions_json[10] = tunnel(23783);
-					}
-				} else if(ideology >= 0) {
-					if(weird < 0) {
-						campaignTrail_temp.questions_json[10] = tunnel(23795);
-					} else {
-						campaignTrail_temp.questions_json[10] = tunnel(23807);
-					}
-				} else if(weird >= 0) {
-					campaignTrail_temp.questions_json[10] = tunnel(23819);
-				} else {
-					campaignTrail_temp.questions_json[10] = tunnel(23831);
-				}
-			} else if(vp == "Tulsi Gabbard") {
-				console.log("gabbard vp");
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/Gabbard.png");
-			} else if(vp == "Charlie Baker") {
-				console.log("baker vp");
-				updateQuestionBanner("https://file.garden/aNxawo8jlVkymd8s/chafee%202016/campaign%20signs/baker.png");
-			}
-		}, 20);
+		window.setTimeout(e.vpSwitcher, 20);
 	}
 		
 
 	//q11
 	if(ans == 5196 || ans == 21480 || ans == 21488 || ans == 21496) {
-		weird -= 2;
-		foreign += 1;
+		weird -= 1;
 		revolt += 1;
 	} else if(ans == 5197 || ans == 21483 || ans == 21491 || ans == 21499) {
-		weird -= 1;
-		foreign += 2;
-	} else if(ans == 23747 || ans == 23760 || ans == 23772 || ans == 23784 || ans == 23796 || ans == 23808 || ans == 23820 || ans == 23832) {
-		foreign -= 2;
-		ideology -= 1;
-		weird += 1;
-	} else if(ans == 23750 || ans == 23764 || ans == 23776 || ans == 23788 || ans == 23800 || ans == 23812 || ans == 23824 || ans == 23836) {
-		foreign -= 1;
-		ideology -= 2;
-		weird += 1;
-		revolt += 1;
-	} else if(ans == 23754 || ans == 23768 || ans == 23780 || ans == 23792 || ans == 23804 || ans == 23816 || ans == 23828 || ans == 23840) {
-		foreign -= 1;
-		ideology -= 1;
-		weird += 2;
+		foreign += 1;
 	}
 
 	//q12
@@ -32193,7 +32269,7 @@ vpTable = {
 }
 
 vpTableHistorical = {
-    "Lincoln Chafee" : "Ron Wyden",
+    "Lincoln Chafee" : "Charlie Baker",
     "Donald Trump" : "Ben Carson",
     "Waka Flocka Flame" : "Ric Flair",
     "Jeb!" : "Jesus of Nazareth",
@@ -32217,7 +32293,7 @@ newHistPV1 = ["33,718,521", "31,286,716", "6,969,606", "689,945"];
 newHistPVP1 = ["46.4%", "43.1%", "9.6%", "0.9%"];
 
 newVpTableHistorical2 = {
-	"Lincoln Chafee" : "Ron Wyden",
+	"Lincoln Chafee" : "Charlie Baker",
     "Donald Trump" : "Ben Carson",
     "Dennis Kucinich" : "Robert F. Kennedy Jr.",
     "Brock Pierce" : "Akon",
@@ -32241,7 +32317,7 @@ newHistPV3 = ["33,718,521", "31,286,716", "6,969,606", "689,945"];
 newHistPVP3 = ["46.4%", "43.1%", "9.6%", "0.9%"];
 
 newVpTableHistorical4 = {
-	"Lincoln Chafee" : "Ron Wyden",
+	"Lincoln Chafee" : "John Hickenlooper",
     "Donald Trump" : "Tom Cotton",
     "Nina Turner" : "Kent Mesplay",
     "Austin Petersen" : "John McAfee",
@@ -32253,7 +32329,7 @@ newHistPV4 = ["33,718,521", "31,286,716", "6,969,606", "689,945"];
 newHistPVP4 = ["46.4%", "43.1%", "9.6%", "0.9%"];
 
 newVpTableHistorical5 = {
-	"Lincoln Chafee" : "Ron Wyden",
+	"Lincoln Chafee" : "Charlie Baker",
     "Donald Trump" : "Rand Paul",
     "Darryl Cherney" : "Krist Novoselic",
     "Tom Tancredo" : "Darrell Castle",
@@ -32265,7 +32341,7 @@ newHistPV5 = ["33,718,521", "31,286,716", "6,969,606", "689,945"];
 newHistPVP5 = ["46.4%", "43.1%", "9.6%", "0.9%"];
 
 newVpTableHistorical6 = {
-	"Lincoln Chafee" : "Ron Wyden",
+	"Lincoln Chafee" : "Tulsi Gabbard",
     "Donald Trump" : "Marco Rubio",
     "Rocky Anderson" : "Margaret Flowers",
     "Evan McMullin" : "Mindy Finn",
@@ -33842,25 +33918,25 @@ endingPicker = (out, totv, aa, quickstats) => {
 			
 	let showTurner2Term, showAnderson2Term, showKucinich2Term, showCherney2Term, showChafee1Term, showLessig2Term, showFlame2Term, showMcMullin2Term, 
 		showPierce2Term, showTrumpWriteIn, showLummis2Term, showGray2Term, showTancredo2Term, showDeLaFuente2Term, showChafee2Term, showChafee2TermIndy, 
-		showChafee2TermLib, showChafeeIncumbent, showChafee2TermGabbard, showChafeeIncumbentAlt, showHickenlooper1Term, showGabbard1Term, showBaker1Term,
-		showTrump1Term, showTrump2Term, showTrumpImpeached, showGingrich1Term, showCarson1Term, showChristie2Term, showCotton1Term, showPaul1Term, showPaul2Term, 
-		showRubio2Term, showWyden1Term, showPunishedTrump2Term, show20Trump1Term, showPrimaryBloomberg1Term, showPrimaryHickenlooper2Term, showPrimaryWarren1Term, 
-		showPrimaryGabbard2Term, show20Paul2Term, showAbbott1Term, show20Rubio1Term, showPence1Term, showWalker2Term, showCruz1Term, showCuban1Term, showFiorina2Term, 
-		showHaley1Term, showHarris1Term, show20Chafee2Term, showPatrick1Term, show20Wyden2Term, showKlobuchar1Term, showButtigieg1Term, show20Hickenlooper1Term, 
-		showBennet1Term, showSanders2Term, showWarren1Term, showSestak1Term, showBloomberg1Term, showGravel1Term, show20Gabbard1Term, showOjedaHalfTerm, 
-		showKerry1Term, showGates2Term, showYang1Term, showBullock2Term, showWilliamson1Term, showRyan1Term, show24Trump1Term, showTrumpJr2Term, 
-		showRepRFKGabbard1Term, showRepRFKLee1Term, showReynolds1Term, showReynolds2Term, show24Rubio1Term, showDonaldsTrump1Term, showDonaldsNoem1Term, showMace1Term, 
-		showHawley1Term, show24CarsonTuberville1Term, show24CarsonPompeo1Term, showTimScott1Term, showBurgum1Term, showBurgum2Term, showStefanikLaxalt1Term, 
-		showStefanikWaltz1Term, showRamaswamyMasters2Term, showRamaswamySanders1Term, showNoem1Term, showKemp1Term, show24Wyden1Term, show24Hickenlooper1Term, 
-		show24Gabbard1Term, show24Baker1Term, showSununu2Term, showVance2Term, showCarlson2Term, showDeSantis1Term, showSliwa2Term, show24Haley1Term, 
-		showPhilScott1Term, showHeitkamp2Term, showAdams1Term, showCooper1Term, showPolis2Term, showWhitmer1Term, showDemRFK2Term, showBooker2Term, showWalz1Term, 
-		showNewsom1Term, showMatPat1Term, showRock1Term, showKanye1Term, showAyotteIncumbent, showAOCIncumbent, showPritzkerIncumbent, showBaconIncumbent, 
-		showKelly1Term, showMassie1Term, showOssoffIncumbent, showLindellIncumbent, showGreenIncumbent, showQuayle1Term, showBeshearIncumbent, showGraham1Term, 
-		showSpanberger1Term, show28MaceIncumbent, showThune1Term, showShapiro1Term, show28BurgumIncumbent, showStewartIncumbent, showMullinIncumbent, showKhanna1Term, 
-		showFlynnIncumbent, show28NewsomIncumbent, showLee1Term, showSmithIncumbent, showRamaswamyIncumbent, show28Cuban1Term, showPerot, showIstvan, showAltman, 
-		showJones, showKrishnamoorthi, showFuentes, showSchlossberg, showCollins, showGrijalva, showEarleSears, showMoore, showMorris, showWu, showMcCarthy, 
-		showMurphy, showBrown, showSanders, showJames, showGaetz, showGallego, showKirk, show32AOC, showBritt, showPlatner, showPaxton, showAlsobrooks, showLummis, 
-		showWarnock, showLiebermanIncumbent;
+		showChafee2TermLib, showChafeeIncumbent, showChafee2TermGabbard, showChafeeIncumbentAlt, showTrumpChafeeVP, showTrumpImpeachedChafeeVP, showTrump1Term, 
+		showTrump2Term, showTrumpImpeached, showGingrich1Term, showCarson1Term, showChristie2Term, showCotton1Term, showPaul1Term, showPaul2Term, showRubio2Term, 
+		showWyden1Term, showHickenlooper1Term, showGabbard1Term, showBaker1Term, showPunishedTrump2Term, show20Trump1Term, showPrimaryBloomberg1Term, 
+		showPrimaryHickenlooper2Term, showPrimaryWarren1Term, showPrimaryGabbard2Term, show20Paul2Term, showAbbott1Term, show20Rubio1Term, showPence1Term, 
+		showWalker2Term, showCruz1Term, showCuban1Term, showFiorina2Term, showHaley1Term, showHarris1Term, show20Chafee2Term, showPatrick1Term, show20Wyden2Term, 
+		showKlobuchar1Term, showButtigieg1Term, show20Hickenlooper1Term, showBennet1Term, showSanders2Term, showWarren1Term, showSestak1Term, showBloomberg1Term, 
+		showGravel1Term, show20Gabbard1Term, showOjedaHalfTerm, showKerry1Term, showGates2Term, showYang1Term, showBullock2Term, showWilliamson1Term, showRyan1Term, 
+		show24Trump1Term, showTrumpJr2Term, showRepRFKGabbard1Term, showRepRFKLee1Term, showReynolds1Term, showReynolds2Term, show24Rubio1Term, showDonaldsTrump1Term, 
+		showDonaldsNoem1Term, showMace1Term, showHawley1Term, show24CarsonTuberville1Term, show24CarsonPompeo1Term, showTimScott1Term, showBurgum1Term, 
+		showBurgum2Term, showStefanikLaxalt1Term, showStefanikWaltz1Term, showRamaswamyMasters2Term, showRamaswamySanders1Term, showNoem1Term, showKemp1Term, 
+		show24Wyden1Term, show24Hickenlooper1Term, show24Gabbard1Term, show24Baker1Term, showSununu2Term, showVance2Term, showCarlson2Term, showDeSantis1Term, 
+		showSliwa2Term, show24Haley1Term, showPhilScott1Term, showHeitkamp2Term, showAdams1Term, showCooper1Term, showPolis2Term, showWhitmer1Term, showDemRFK2Term, 
+		showBooker2Term, showWalz1Term, showNewsom1Term, showMatPat1Term, showRock1Term, showKanye1Term, showAyotteIncumbent, showAOCIncumbent, showPritzkerIncumbent, 
+		showBaconIncumbent, showKelly1Term, showMassie1Term, showOssoffIncumbent, showLindellIncumbent, showGreenIncumbent, showQuayle1Term, showBeshearIncumbent, 
+		showGraham1Term, showSpanberger1Term, show28MaceIncumbent, showThune1Term, showShapiro1Term, show28BurgumIncumbent, showStewartIncumbent, showMullinIncumbent, 
+		showKhanna1Term, showFlynnIncumbent, show28NewsomIncumbent, showLee1Term, showSmithIncumbent, showRamaswamyIncumbent, show28Cuban1Term, showPerot, showIstvan, 
+		showAltman, showJones, showKrishnamoorthi, showFuentes, showSchlossberg, showCollins, showGrijalva, showEarleSears, showMoore, showMorris, showWu, 
+		showMcCarthy, showMurphy, showBrown, showSanders, showJames, showGaetz, showGallego, showKirk, show32AOC, showBritt, showPlatner, showPaxton, showAlsobrooks, 
+		showLummis, showWarnock, showLiebermanIncumbent;
 			
 	if(LibertarianEV >= 270) {
 		if(trumpOut == 1) {
@@ -34007,7 +34083,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		}
 	} else { //trump win
 		if(trumpOut == 0) {
-			if(TrumpEV < 300 && outrage >= 2) {
+			if(TrumpEV < 300 && outrage >= 3) {
 				if(TrumpEV < 270) {
 					showTrumpImpeachedChafeeVP = true;
 					if(vp == "Ron Wyden") {
