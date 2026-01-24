@@ -33323,6 +33323,9 @@ var vpFlop = 0;
 var faithless = 0;
 var green = 0;
 var libertarian = 0;
+var hillary = 0;
+var bernie = 0;
+var obama = 0;
 var songChange = 0;
 var newAd = false;
 
@@ -33802,12 +33805,21 @@ cyoAdventure = function(a) {
 	}
 
 	//q10
-	if(ans == 21221 || ans == 21238 || ans == 21255 || ans == 21272) {
-		foreign -= 1;
-	} else if(ans == 21242 || ans == 21276 || ans == 21293 || ans == 21310) {
-		ideology += 1;
-	} else if(ans == 21263 || ans == 21280 || ans == 21314 || ans == 21331) {
-		weird += 1;
+	if(ans == 5220 || ans == 21221 || ans == 21238 || ans == 21255 || ans == 21272 || ans == 21289 || ans == 21306 || ans == 21323) {
+		hillary = 1;
+		if(foreign < 0) {
+			foreign -= 1;
+		}
+	} else if(ans == 5221 || ans == 21225 || ans == 21242 || ans == 21259 || ans == 21276 || ans == 21293 || ans == 21310 || ans == 21327) {
+		bernie = 1;
+		if(ideology > 0) {
+			ideology += 1;
+		}
+	} else if(ans == 5223 || ans == 21229 || ans == 21246 || ans == 21263 || ans == 21280 || ans == 21297 || ans == 21314 || ans == 21331) {
+		obama = 1;
+		if(weird > 0) {
+			weird += 1;
+		}
 	}
 	if(e.noCounter == 10) {
 		//vp setting
@@ -33825,7 +33837,7 @@ cyoAdventure = function(a) {
 		} else {
 			campaignTrail_temp.running_mate_json = []
 		}
-		if ((ideology < 2 && foreign < 1) || (e.player_answers.includes(21221) || e.player_answers.includes(21238) || e.player_answers.includes(21255) || e.player_answers.includes(21272))) { //hick
+		if ((ideology < 2 && foreign < 1) || hillary == 1) { //hick
 			campaignTrail_temp.running_mate_json.push(
 				{
 					"model": "campaign_trail.running_mate",
@@ -33837,7 +33849,7 @@ cyoAdventure = function(a) {
 				}
 			)
 		}
-		if ((ideology > 1 && foreign > 0) || (e.player_answers.includes(21242) || e.player_answers.includes(21276) || e.player_answers.includes(21293) || e.player_answers.includes(21310))) { //gabbard
+		if ((ideology > 1 && foreign > 0) || bernie == 1) { //gabbard
 			campaignTrail_temp.running_mate_json.push(
 				{
 					"model": "campaign_trail.running_mate",
@@ -33864,11 +33876,30 @@ cyoAdventure = function(a) {
 		
 
 	//q11
-	if(ans == 5196 || ans == 21480 || ans == 21488 || ans == 21496) {
+	if(ans == 5196 || ans == 21480 || ans == 21488 || ans == 21496) { //wyden
 		weird -= 1;
 		revolt += 1;
 	} else if(ans == 5197 || ans == 21483 || ans == 21491 || ans == 21499) {
 		foreign += 1;
+	} else if(ans == 23747 || ans == 23763 || ans == 23777 || ans == 23791 || ans == 23805 || ans == 23819 || ans == 23833 || ans == 23847) { //hick
+		foreign -= 1;
+	} else if(ans == 23750 || ans == 23767 || ans == 23781 || ans == 23795 || ans == 23809 || ans == 23823 || ans == 23837 || ans == 23851) {
+		ideology -= 1;
+		revolt += 1;
+	} else if(ans == 23754 || ans == 23773 || ans == 23787 || ans == 23801 || ans == 23815 || ans == 23829 || ans == 23843 || ans == 23857) {
+		weird += 1;
+	} else if(ans == 23861 || ans == 23875 || ans == 23889 || ans == 23903 || ans == 23917 || ans == 23931 || ans == 23945 || ans == 23959) { //gabbard
+		foreign += 1;
+	} else if(ans == 23865 || ans == 23879 || ans == 23893 || ans == 23907 || ans == 23921 || ans == 23935 || ans == 23949 || ans == 23963) {
+		ideology += 1;
+		revolt += 1;
+	} else if(ans == 23871 || ans == 23885 || ans == 23899 || ans == 23913 || ans == 23927 || ans == 23941 || ans == 23955 || ans == 23958) {
+		weird -= 1;
+	} else if(ans == 23973 || ans == 23990 || ans == 24003) { //baker
+		ideology -= 1;
+		revolt += 1;
+	} else if(ans == 23977 || ans == 23997 || ans == 24010) {
+		foreign -= 1;
 	}
 
 	//q12
