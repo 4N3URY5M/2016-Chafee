@@ -35923,30 +35923,18 @@ endingPicker = (out, totv, aa, quickstats) => {
     e.executable = []
 	
 	if (songChange != 1) {
-		if (quickstats[0] == 538) {
+		if (quickstats[0] == 538 || quickstats[0] == 0 || (aa[0].electoral_votes >= 270 && aa[0].candidate == 300) || (aa[0].electoral_votes >= 270 && aa[0].candidate == 400)) {
 			songChange = 1
-			const crowned = new Playlist();
-			const crownedSong = new Song(
-				"CROWNED",
-				"Hirokazu Ando",
-				"Kirby's Return to Dreamland Original Soundtrack",
-				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/kirby.png",
-				"https://audio.jukehost.co.uk/US2Lx8uWQw5tyBeRRMHztuMIALadd0xz"
+			const cheat = new Playlist();
+			const cheatSong = new Song(
+				"Battle! (Ultra Necrozma)",
+				"GAME FREAK",
+				"Pokémon Sun & Pokémon Moon: Super Music Collection",
+				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/1.png",
+				"https://audio.jukehost.co.uk/PyqirvirrpMWQ8kohD1YVBQIJdoArRoE"
 			);
-			crowned.addSong(crownedSong);
-			changePlaylist(crowned);
-		} else if (quickstats[0] == 0 || (aa[0].electoral_votes >= 270 && aa[0].candidate == 300) || (aa[0].electoral_votes >= 270 && aa[0].candidate == 400)) {
-			songChange = 1
-			const jail = new Playlist();
-			const jailSong = new Song(
-				"Jail",
-				"Jada Paige",
-				"The Fantastic Adventures of SEXDICK",
-				"https://file.garden/aNxawo8jlVkymd8s/chafee%202016/music/sexdick.png",
-				"https://audio.jukehost.co.uk/6qH9ikjT1OxhpzKML3LINs4zq5DJDs0M"
-			);
-			jail.addSong(jailSong);
-			changePlaylist(jail);
+			cheat.addSong(cheatSong);
+			changePlaylist(cheat);
 		} else if (faithless == 1) {
 			songChange = 1
 			const faithless = new Playlist();
@@ -37475,8 +37463,16 @@ endingPicker = (out, totv, aa, quickstats) => {
   });
 
 	//slide 1		
-	if (quickstats[0] == 538) {
-		e.pages.push(`<div class="ending-slide">oops</div>`);
+	if (quickstats[0] == 0 && aa[0].candidate == 200) {
+		e.pages.push(`<div class="ending-slide">
+			<h3>Deplorable</h3>
+			<p>Hillary looked on in awe that night as the map flooded blood red. Chafee had lost, sure, but he had lost by a margin nobody had expected. Nobody but her.</p>
+			<p>A wicked grin spread across her wrinkled face as she watched as Chafee’s dreams were crushed forever. His career was over, he had been taken care of. He was a useful idiot; he taught her what Trump is made of, what makes him tick, what his weaknesses are. Now, Chafee could be safely disposed of. He should be grateful that he could be her sacrificial lamb.</p>
+			<p>Years will pass. 2018 will be hellfire for the Republicans. 2020 will be worse. The Democrats, lost and seeking leadership, will turn to what they know best: Hillary. She will guide them, she will prevail, no matter what. And she will crush Trump like an insect. “Madam President…” the news anchors will read out dryly. The power to shape history will be in her hands. The new world order is yet to be constructed.</p>
+			<p>Hillary was getting ahead of herself.</p>
+			<p>There was much to do, after all. She had to ensure that the others–the Bernies and Bidens of the party–were powerless to stop her. Chafee was just a practice round.</p>
+			<p>The dominance of neoliberalism was at hand. The end of history had just begun.</p>
+		</div>`);
 		e.executable.push([0, (() => {e.image = e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'})])
 	} else {
 		e.pages.push(`<div class="ending-slide">oops</div>`);
