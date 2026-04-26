@@ -41501,7 +41501,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		})])
 	} else if (quickstats[0] >= 350 && weird > 1 && ideology <= 2 && ideology >= -2) { //wholesome olympics
 		e.pages.push(`
-			<div class="ending-slide" style="font-family: 'Georgia';">
+			<div class="ending-slide" style="font-family: 'Times New Roman';">
 				<div style="text-align: left;">
     				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/siBanner2020.png" alt="SI Logo" style="width: 720px;">
   				</div>
@@ -41517,6 +41517,32 @@ endingPicker = (out, totv, aa, quickstats) => {
 				<p style="margin-left: 10px;">“I think it’s hard to separate yourself from politics when your dad’s president,” she told reporters after receiving her medal. “He’s just my dad to me. And I love him for that.”</p>
   				<p style="margin-left: 10px;">This is the first gold medal in sailing won by the United States since 2008, and it brings the U.S.’s gold medal total up to 28.</p>
   				<p style="margin-left: 10px; color: #777777;">Published Aug 4, 2020</p>
+			</div>
+		`);
+		e.executable.push([1, (() => {
+			e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/slide%202/2_russiaWin.png'
+		})])
+	}  else if (quickstats[0] >= 350 && weird < -1 && outrage > 2) { //president jeb!
+		e.pages.push(`
+			<div class="ending-slide" style="font-family: 'Times New Roman';">
+				<div style="text-align: left;">
+    				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/abcBanner2020.png" alt="ABC Logo" style="width: 720px;">
+  				</div>
+				<h1 style="margin-left: 10px; text-align: left; font-family: 'Arial';">Jeb Bush Defeats Lincoln Chafee</h1>
+  				<h2 style="margin-left: 10px; text-align: left; font-family: 'Arial'; color: #3d4149;">How ‘Low Energy’ Became Exactly What America Wanted</h3>
+  				<h3 style="margin-left: 10px; text-align: left; font-family: 'Arial'; color: #656c7a;">By <span style="color:#002d6c; cursor:pointer;">ABC News Political Unit</span><br>November 4, 2020, 2:14 PM</h3>
+				<p style="margin-left: 10px;">In one of the most remarkable political redemptions in modern American history, former Florida Governor <span style="color:#002d6c; cursor:pointer;"><u>Jeb Bush</u></span> has been projected as the winner of the 2020 presidential election, defeating incumbent President <span style="color:#002d6c; cursor:pointer;"><u>Lincoln Chafee</u></span> and returning the White House to the Republican Party.</p>
+				<p style="margin-left: 10px;">Alongside his running mate, Indiana Governor <span style="color:#002d6c; cursor:pointer;"><u>Mike Pence</u></span>, Bush secured a decisive Electoral College victory, rebuilding the traditional conservative coalition and sweeping crucial suburban battlegrounds that had abandoned the GOP during the chaotic 2016 cycle.</p>
+				<p style="margin-left: 10px;">For Bush, the victory represents not just the continuation of a political dynasty, but a total vindication of his personal brand. Four years ago, his presidential ambitions were famously derailed by accusations of being “low energy.” Today, political analysts agree that this exact trait is what propelled him to the Oval Office.</p>
+				<p style="margin-left: 10px;">After four years of the Chafee administration—a term defined by dizzying ideological pivots and generally strange policy proposals—the American electorate was simply exhausted.</p>
+				<p style="margin-left: 10px;">Bush capitalized on this fatigue brilliantly. His campaign deliberately avoided the fiery populist rhetoric of 2016, instead offering a platform of quiet, predictable, and remarkably boring competence.</p>
+				<p style="margin-left: 10px;">“In 2016, ‘low energy’ was a fatal insult,” said ABC News Chief Washington Correspondent Jonathan Karl. “In 2020, it was a promise. The Bush campaign effectively looked at an exhausted nation and said, ‘If you elect me, you won't have to think about the president for weeks at a time.’ After Chafee, voters desperately wanted to hit the snooze button on Washington, and Jeb Bush was the ultimate political snooze button.”</p>
+				<p style="margin-left: 10px;">The strategy paid off. Suburban independents and moderate Democrats, alienated by Chafee’s quirky fixations and lack of traditional governance, flocked to the Bush-Pence ticket. Even Bush's infamous 2016 debate plea to “please clap” was ironically reclaimed by his supporters this cycle as a symbol of polite, earnest leadership.</p>
+				<p style="margin-left: 10px;">The selection of Mike Pence as Bush’s running mate proved to be a masterstroke of political timing. Pence provided the necessary bridge to the evangelical and Rust Belt voters who were initially skeptical of another Bush dynasty. His steady, disciplined debate performance against the Vice President reassured traditional conservatives that the Republican ticket would focus on judges, tax cuts, and deregulation, rather than the chaotic culture wars of the previous decade.</p>
+				<p style="margin-left: 10px;">President Chafee’s loss makes him the first one-term president since George H.W. Bush—Jeb’s father.</p>
+  				<p style="margin-left: 10px;">Chafee's attempt to build a new coalition of tech-libertarians and moderate Democrats ultimately fell flat. While his environmental carbon-capture policies earned praise from Silicon Valley, his failure to deliver on mainstream economic issues left his working-class supporters disillusioned. By Election Day, the President cut a lonely figure, unable to rally a unified base.</p>
+  				<p style="margin-left: 10px;">During his victory speech in Miami late Tuesday night, President-elect Bush struck a characteristically subdued tone.</p>
+  				<p style="margin-left: 10px;">“Tonight, we have chosen a path of steady resolve, of quiet dignity, and of getting back to the basics,” Bush told a politely cheering crowd. “The noise is over. Tomorrow, the real, steady work begins.”</p>
 			</div>
 		`);
 		e.executable.push([1, (() => {
@@ -41906,6 +41932,47 @@ endingPicker = (out, totv, aa, quickstats) => {
 		e.executable.push([1, (() => {
 			e.image = 'https://file.garden/aNxawo8jlVkymd8s/joe%2008/endings/slide%203/IXojkQB%20-%20Imgur.png'
 		})])
+	} else if(quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpOut == 1 && leadRep == 0) { //rfk-gingrich
+		e.pages.push(`
+			<div class="ending-slide" style="font-family: 'Times New Roman';">
+				<div style="text-align: left;">
+    				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/nbcBanner2024.png" alt="NBC Logo" style="width: 720px;">
+  				</div>
+				<h1 style="margin-left: 10px; text-align: left; font-family: 'Arial';">Robert F. Kennedy Jr. Defeats Greg Abbott to Claim the White House, Ending the Gingrich Era</h1>
+  				<p style="margin-left: 10px; text-align: left; font-size:20px;">Robert F. Kennedy Jr. has won the 2024 presidential election, NBC News projects, defeating Republican Texas Governor Greg Abbott and returning the White House to the Democratic Party for the first time in twelve years</h3>
+  				<h3 style="margin-left: 10px; text-align: left; font-family: 'Arial';"><span style="color:#555555; font-size: 14px;">November 6, 2024, 8:42 AM CST</span><br>By NBC News Political Unit</h3>
+				<p style="margin-left: 10px;">Kennedy, alongside his running mate, Arizona Senator Kyrsten Sinema, <span style="color:#3061ff; cursor:pointer;">secured the presidency in a decisive victory</span>, capturing 306 electoral votes to Abbott’s 232. The victory officially brings an end to the two-term administration of President Newt Gingrich, whose polarizing grip on Washington fundamentally reshaped the conservative movement following his unexpected ascension to the top of the ticket in 2016.</p>
+				<p style="margin-left: 10px;">The Kennedy-Sinema ticket also makes unprecedented history: Vice President-elect Kyrsten Sinema will become the highest-ranking LGBTQ official in the history of the United States government.</p>
+				<p style="margin-left: 10px;">“Tonight, we close a chapter of bitter division and turn the page toward a revival of the American spirit,” Kennedy told a roaring crowd of supporters at his victory rally in Boston. “We have proven that this country is not defined by its partisan trenches, but by our shared commitment to the future.”</p>
+				<p style="margin-left: 10px;">The Abbott campaign, burdened by an increasingly unpopular outgoing administration and a sluggish economic quarter, struggled to maintain the coalition that delivered Gingrich his back-to-back victories. Governor Abbott and his running mate, Florida Representative Byron Donalds, attempted to cast themselves as the rightful heirs to Gingrich's “New American Contract,” but ultimately fell short in crucial battleground states.</p>
+				<p style="margin-left: 10px;">Kennedy's path to 306 electoral votes relied on a unique, cross-ideological coalition that shattered traditional political boundaries.</p>
+				<p style="margin-left: 10px;">By leaning heavily into populist rhetoric regarding corporate regulation, environmental conservation, and government transparency, Kennedy peeled away a significant margin of the white working-class voters in the Rust Belt—voters who had overwhelmingly backed Gingrich over former Colorado Senator Michael Bennet four years ago. Kennedy successfully flipped Pennsylvania, Michigan, and Wisconsin back into the Democratic column, effectively rebuilding the “Blue Wall.”</p>
+				<p style="margin-left: 10px;">Simultaneously, Vice President-elect Sinema played a crucial role in the Sun Belt. Her reputation as a fierce, independent-minded moderate helped reassure suburban voters who were fatigued by the combative nature of the Gingrich years but wary of the Democratic Party's progressive wing. Sinema's presence on the ticket is widely credited with helping the Democrats secure narrow victories in Arizona and Georgia, offsetting Abbott’s overwhelming strength in the Deep South.</p>
+				<p style="margin-left: 10px;">“Abbott was boxed in,” said Chuck Todd, NBC News Political Director. “He couldn't distance himself from President Gingrich without alienating the base, and he couldn't embrace him without alienating the suburbs. Kennedy capitalized on that perfectly, offering a nostalgic yet unorthodox alternative that simply resonated with an exhausted electorate.”</p>
+				<p style="margin-left: 10px;">The election is a watershed moment for LGBTQ representation in American politics. Sinema, who was the first openly bisexual person elected to the U.S. Senate, will now break the highest glass ceiling yet for the community.</p>
+  				<p style="margin-left: 10px;">Speaking in Boston before Kennedy’s speech, Sinema addressed the milestone directly. “To every young person watching tonight who has ever felt like they didn't belong, or that their truth was a liability: look at the stage tonight. There is a place for you in the American story.”</p>
+  				<p style="margin-left: 10px;">The transition of power will officially begin tomorrow. For the Democratic Party, the victory is a long-awaited catharsis, officially burying the ghosts of the disastrous 2016 Chafee campaign and charting a distinctly new, albeit unconventional, path forward for the country.</p>
+			</div>
+		`);
+		e.executable.push([1, (() => {
+			e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'
+		})])
+	} else if(quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpOut == 1 && leadRep == 1) { //veteran review
+		e.pages.push(`
+			<div class="ending-slide" style="font-family: 'Times New Roman';">
+				<div style="text-align: left;">
+    				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/pitchforkVeteran2018.png" alt="Veteran Score" style="width: 720px;">
+  				</div>
+				<p style="margin-left: 10px; text-align: left; font-family: 'Arial'; font-size: 18px;"><b>In his latest album, JPEGMAFIA offers sharp criticism of the Carson era. It’s a frantic, glitchy experience that feels like a direct product of the internet age.</b></p>
+  				<p style="margin-left: 10px;">JPEG’s fourth solo album is best summed up by its fifth track and only single, “<span style="cursor:pointer;"><u>Baby I’m Bleeding</u></span>,” which starts with a harsh, glitchy sample that repeats throughout the whole song. The lyrics lambast hip-hop culture, consumerism, and Ben Carson’s status as second ever African-American president of the United States, all the while containing numerous references to mainstream and internet culture.</p>
+  				<p style="margin-left: 10px;">The rest of <i>Veteran</i> follows suit. Everything in this album–from the lyricism, to the production, to the instrumentation–comes together to create a deliberate and provocative rebuke of the last two years of American history. It questions the very nature of what it means to be a young, black man in America today. Even the title itself is a reference to the rapper’s four-year stint in the Air Force, which he cites as foundational to his understanding of racism and race relations.</p>
+				<p style="margin-left: 10px;">This album truly could not have been released at any other time. Not only does it serve as a critique of Ben Carson’s presidency, it channels a decade of rage and dissatisfaction with both Carson and Obama, who many young, black Americans believed would represent them and give them a fair shot for the first time. It explores the continued systemic oppression of African Americans despite promises of hope, change, and “making America great again”.</p>
+  				<p style="margin-left: 10px;">From start to finish, <i>Veteran</i> is hectic, distasteful, and breathless. It is a lyrical nosedive into the profound disappointments of the Carson era. It is a glitchy, industrial hodgepodge that gives listeners little to no room to breathe. And it is, ultimately, a product and period piece of our modern era, beautifully showcasing the rise of hatred in an increasingly interconnected world.</p>
+			</div>
+		`);
+		e.executable.push([1, (() => {
+			e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'
+		})])
 	} else if(quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpOut == 1 && leadRep == 3) { //handmaid's tale
 		e.pages.push(`
 			<div class="ending-slide" style="font-family: 'Helvetica'; color: 222;">
@@ -41918,6 +41985,31 @@ endingPicker = (out, totv, aa, quickstats) => {
 				<p style="margin-left: 10px;">Tom Cotton&rsquo;s government, as <span style="text-decoration: underline; text-decoration-color: red;">many have noted</span>, bears a striking resemblance to that of Gilead in many aspects. Cotton, for one, has already made promises to overturn Roe v. Wade during his presidency, which would set women&rsquo;s rights back by decades. He filled his cabinet with far-right Christian fundamentalists like Jeff Sessions, who would gladly establish a theocracy given the chance. And the ways that <em>The Handmaid&rsquo;s Tale</em> are not a terrifying one-to-one parallel to our current situation are a part of its anxiety-inducing power. Like an unseen horror, lurking in the shadows, creating terror in the act of being unseen, the vagueness of <em>The Handmaid&rsquo;s Tale</em> leaves much to the imagination. How will the seemingly limitless contempt for women present in our current political climate play out? What would the Cotton administration do in the case of a serious national emergency? Or rather, what <em>wouldn&rsquo;t</em> they do?</p>
 				<p style="margin-left: 10px;">The series, narrated by handmaid Offred (Elisabeth Moss), is rife with Atwood’s acerbic prose, exemplifying the hopelessness of the nightmare Offred finds herself living through. She details what her life was like in the past in flashbacks to “before”, to her husband and daughter, to the day her and all of her female coworkers had their bank accounts transferred to their husbands or next of male kin. She tells us about when extremists seized control of the government, when they suspended the Constitution, when Americans didn’t “wake up”. When people took to the streets, it was already too late.</p>
 				<p style="margin-left: 10px;">And now, three months into Tom Cotton’s presidency, we have to ask ourselves: is it already too late?</p>
+			</div>
+		`);
+		e.executable.push([1, (() => {
+			e.image = 'https://file.garden/aNxawo8jlVkymd8s/chafee%202016/candidates/chafee.png'
+		})])
+	} else if(quickstats[0] <= 268 && aa[0].electoral_votes >= 270 && trumpOut == 1 && leadRep == 5) { //knack ii
+		e.pages.push(`
+			<div class="ending-slide" style="font-family: 'Georgia';">
+				<div style="text-align: left;">
+    				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/kotakuBanner2018.png" alt="Veteran Score" style="width: 720px;">
+  				</div>
+				<h1 style="margin-left: 10px; text-align: left; font-family: 'Arial'; cursor: pointer;">The Unexpected Anti-War Politics of <i>Knack II</i></h1>
+  				<p style="margin-left: 10px; text-align: left; font-family: 'Arial'; cursor: pointer">Gita Jackson<br><span style="color: #aaaaaa;">Today 2:40pm • Filed to:</span> Sony</h3>
+				<p style="margin-left: 10px;"><i>Knack</i>, a Playstation 4 launch title, was released to infamously mixed reviews. The game quickly became the butt of many a joke, a trend which only picked up speed after the announcement that it would be getting a sequel.</p>
+				<p style="margin-left: 10px;">The strangest part is, while the first <i>Knack</i> made little to no attempt to convey a message to players, the sequel has found itself the center of genuine political discussion regarding its anti-war storyline and indirect criticism of the Rubio presidency. <i>Knack II</i>, the “long-awaited” sequel to Mark Cerny’s 2013 passion project, explores the ideas of conflict, human nature, and an unending quest for power in an uncharacteristically serious narrative for a Knack game. While Cerny and the <i>Knack II</i> writing team have <span style="cursor: pointer;"><u>refused to state if the game is supposed to convey a message one way or another</u></span> about Rubio’s administration, they clearly didn’t intend for this game to be an apolitical one.</p>
+				<p style="margin-left: 10px;">In the months following the game’s release in September of last year, users on Twitter have praised the game’s storyline–both genuinely and in jest.</p>
+				<p style="margin-left: 10px;">three tweets go here lolz</p>
+				<p style="margin-left: 10px;">While the game has certainly improved the standing of the Knack franchise as a whole, the memes surrounding it have only grown stronger. Internet users have edited photos of President Rubio and VP Romney enjoying a round of Knack II’s multiplayer mode.</p>
+				<div style="text-align: left;">
+    				<img src="https://file.garden/aNxawo8jlVkymd8s/chafee%202016/endings/other/knack.png" alt="Rubio having some fun" style="width: 720px;">
+                  	<p style="margin-left: 10px; font-family: 'Arial'; color: #aaaaaa;">A doctored image of President Rubio, Vice President Romney, and former Florida Governor Jeb Bush playing a round of <i>Knack II</i>.<br>Source: @True4N3URY5M on Twitter</p>
+  				</div>
+				<p style="margin-left: 10px;">Even Sony has joined in on the fun.</p>
+				<p style="margin-left: 10px;">“We designed <i>Knack</i> and <i>Knack II</i> for everybody,” Cerny said in an interview. “If that includes world leaders, who are we to judge?”</p>
+				<p style="margin-left: 10px;"><i>Knack</i> is back, baby. And better than ever.</p>
 			</div>
 		`);
 		e.executable.push([1, (() => {
